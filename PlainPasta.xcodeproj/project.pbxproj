@@ -14,13 +14,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		4A4E59232176AE7A002CF83D /* PlainPaste.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PlainPaste.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		4A4E59232176AE7A002CF83D /* PlainPasta.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PlainPasta.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4A4E59262176AE7A002CF83D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4A4E59282176AE7A002CF83D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		4A4E592A2176AE7A002CF83D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4A4E592D2176AE7A002CF83D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		4A4E592F2176AE7A002CF83D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		4A4E59302176AE7A002CF83D /* PlainPaste.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PlainPaste.entitlements; sourceTree = "<group>"; };
+		4A4E59302176AE7A002CF83D /* PlainPasta.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PlainPasta.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -37,7 +37,7 @@
 		4A4E591A2176AE7A002CF83D = {
 			isa = PBXGroup;
 			children = (
-				4A4E59252176AE7A002CF83D /* PlainPaste */,
+				4A4E59252176AE7A002CF83D /* PlainPasta */,
 				4A4E59242176AE7A002CF83D /* Products */,
 			);
 			sourceTree = "<group>";
@@ -46,12 +46,12 @@
 		4A4E59242176AE7A002CF83D /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				4A4E59232176AE7A002CF83D /* PlainPaste.app */,
+				4A4E59232176AE7A002CF83D /* PlainPasta.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		4A4E59252176AE7A002CF83D /* PlainPaste */ = {
+		4A4E59252176AE7A002CF83D /* PlainPasta */ = {
 			isa = PBXGroup;
 			children = (
 				4A4E59262176AE7A002CF83D /* AppDelegate.swift */,
@@ -59,17 +59,17 @@
 				4A4E592A2176AE7A002CF83D /* Assets.xcassets */,
 				4A4E592C2176AE7A002CF83D /* Main.storyboard */,
 				4A4E592F2176AE7A002CF83D /* Info.plist */,
-				4A4E59302176AE7A002CF83D /* PlainPaste.entitlements */,
+				4A4E59302176AE7A002CF83D /* PlainPasta.entitlements */,
 			);
-			path = PlainPaste;
+			path = PlainPasta;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		4A4E59222176AE7A002CF83D /* PlainPaste */ = {
+		4A4E59222176AE7A002CF83D /* PlainPasta */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 4A4E59332176AE7A002CF83D /* Build configuration list for PBXNativeTarget "PlainPaste" */;
+			buildConfigurationList = 4A4E59332176AE7A002CF83D /* Build configuration list for PBXNativeTarget "PlainPasta" */;
 			buildPhases = (
 				4A4E591F2176AE7A002CF83D /* Sources */,
 				4A4E59202176AE7A002CF83D /* Frameworks */,
@@ -79,9 +79,9 @@
 			);
 			dependencies = (
 			);
-			name = PlainPaste;
+			name = PlainPasta;
 			productName = PlainPaste;
-			productReference = 4A4E59232176AE7A002CF83D /* PlainPaste.app */;
+			productReference = 4A4E59232176AE7A002CF83D /* PlainPasta.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -99,7 +99,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 4A4E591E2176AE7A002CF83D /* Build configuration list for PBXProject "PlainPaste" */;
+			buildConfigurationList = 4A4E591E2176AE7A002CF83D /* Build configuration list for PBXProject "PlainPasta" */;
 			compatibilityVersion = "Xcode 10.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -112,7 +112,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				4A4E59222176AE7A002CF83D /* PlainPaste */,
+				4A4E59222176AE7A002CF83D /* PlainPasta */,
 			);
 		};
 /* End PBXProject section */
@@ -272,16 +272,16 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = PlainPaste/PlainPaste.entitlements;
+				CODE_SIGN_ENTITLEMENTS = PlainPasta/PlainPasta.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = F2J52QJQ9Y;
-				INFOPLIST_FILE = PlainPaste/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/PlainPasta/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = software.level.PlainPaste;
+				PRODUCT_BUNDLE_IDENTIFIER = software.level.PlainPasta;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 			};
@@ -291,16 +291,16 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = PlainPaste/PlainPaste.entitlements;
+				CODE_SIGN_ENTITLEMENTS = PlainPasta/PlainPasta.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = F2J52QJQ9Y;
-				INFOPLIST_FILE = PlainPaste/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/PlainPasta/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = software.level.PlainPaste;
+				PRODUCT_BUNDLE_IDENTIFIER = software.level.PlainPasta;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 			};
@@ -309,7 +309,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		4A4E591E2176AE7A002CF83D /* Build configuration list for PBXProject "PlainPaste" */ = {
+		4A4E591E2176AE7A002CF83D /* Build configuration list for PBXProject "PlainPasta" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				4A4E59312176AE7A002CF83D /* Debug */,
@@ -318,7 +318,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		4A4E59332176AE7A002CF83D /* Build configuration list for PBXNativeTarget "PlainPaste" */ = {
+		4A4E59332176AE7A002CF83D /* Build configuration list for PBXNativeTarget "PlainPasta" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				4A4E59342176AE7A002CF83D /* Debug */,
