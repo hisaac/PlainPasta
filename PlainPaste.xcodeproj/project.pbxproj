@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -41,6 +41,7 @@
 				4A4E59242176AE7A002CF83D /* Products */,
 			);
 			sourceTree = "<group>";
+			usesTabs = 1;
 		};
 		4A4E59242176AE7A002CF83D /* Products */ = {
 			isa = PBXGroup;
@@ -99,7 +100,7 @@
 				};
 			};
 			buildConfigurationList = 4A4E591E2176AE7A002CF83D /* Build configuration list for PBXProject "PlainPaste" */;
-			compatibilityVersion = "Xcode 9.3";
+			compatibilityVersion = "Xcode 10.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
