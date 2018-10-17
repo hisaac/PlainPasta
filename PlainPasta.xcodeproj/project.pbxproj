@@ -21,6 +21,11 @@
 		4A4E592D2176AE7A002CF83D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		4A4E592F2176AE7A002CF83D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4A4E59302176AE7A002CF83D /* PlainPasta.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PlainPasta.entitlements; sourceTree = "<group>"; };
+		4A8A68162176C5F500A4F1D8 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		4A8A68172176C5F500A4F1D8 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text; path = .swiftlint.yml; sourceTree = "<group>"; };
+		4A8A68182176C5F500A4F1D8 /* changelog.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = changelog.md; sourceTree = "<group>"; };
+		4A8A68192176C5F500A4F1D8 /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		4A8A681A2176C5F500A4F1D8 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -37,7 +42,12 @@
 		4A4E591A2176AE7A002CF83D = {
 			isa = PBXGroup;
 			children = (
+				4A8A681A2176C5F500A4F1D8 /* README.md */,
+				4A8A68182176C5F500A4F1D8 /* changelog.md */,
 				4A4E59252176AE7A002CF83D /* PlainPasta */,
+				4A8A68162176C5F500A4F1D8 /* .gitignore */,
+				4A8A68172176C5F500A4F1D8 /* .swiftlint.yml */,
+				4A8A68192176C5F500A4F1D8 /* LICENSE */,
 				4A4E59242176AE7A002CF83D /* Products */,
 			);
 			sourceTree = "<group>";
