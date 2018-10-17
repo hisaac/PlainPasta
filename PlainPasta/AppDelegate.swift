@@ -5,12 +5,43 @@ import Cocoa
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
 
+	let statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.squareLength)
+
 	let pasteboard = NSPasteboard.general
 	var timer: Timer?
 	var counter = 0
 
 	func applicationDidFinishLaunching(_ aNotification: Notification) {
+		statusItem.button?.image = NSImage(named: NSImage.Name("StatusBarButtonImage"))
+		statusItem.button?.action = #selector(printQuote)
+		constructMenu()
 		startTimer()
+	}
+
+	@objc func printQuote() {
+		let quoteText = "Never put off until tomorrow what you can do the day after tomorrow."
+		let quoteAuthor = "Mark Twain"
+		print("\(quoteText) - \(quoteAuthor)")
+	}
+
+	func constructMenu() {
+		let menu = NSMenu()
+
+		let enable = NSMenuItem(title: "Enable", action: nil, keyEquivalent: "")
+		let about = NSMenuItem(title: "About Plain Pasta", action: nil, keyEquivalent: "")
+		let separator = NSMenuItem.separator()
+		let preferences = NSMenuItem(title: "Preferences…", action: nil, keyEquivalent: "")
+		let quit = NSMenuItem(title: "Quit", action: #selector(NSApplication.terminate), keyEquivalent: "")
+
+		menu.items = [
+			about,
+			enable,
+			separator,
+			preferences,
+			quit
+		]
+
+		statusItem.menu = menu
 	}
 
 	func startTimer() {

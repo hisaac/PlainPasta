@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		4A4E59272176AE7A002CF83D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A4E59262176AE7A002CF83D /* AppDelegate.swift */; };
-		4A4E59292176AE7A002CF83D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A4E59282176AE7A002CF83D /* ViewController.swift */; };
 		4A4E592B2176AE7A002CF83D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4A4E592A2176AE7A002CF83D /* Assets.xcassets */; };
 		4A4E592E2176AE7A002CF83D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4A4E592C2176AE7A002CF83D /* Main.storyboard */; };
 /* End PBXBuildFile section */
@@ -16,7 +15,6 @@
 /* Begin PBXFileReference section */
 		4A4E59232176AE7A002CF83D /* PlainPasta.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PlainPasta.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4A4E59262176AE7A002CF83D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		4A4E59282176AE7A002CF83D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		4A4E592A2176AE7A002CF83D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4A4E592D2176AE7A002CF83D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		4A4E592F2176AE7A002CF83D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -65,7 +63,6 @@
 			isa = PBXGroup;
 			children = (
 				4A4E59262176AE7A002CF83D /* AppDelegate.swift */,
-				4A4E59282176AE7A002CF83D /* ViewController.swift */,
 				4A4E592A2176AE7A002CF83D /* Assets.xcassets */,
 				4A4E592C2176AE7A002CF83D /* Main.storyboard */,
 				4A4E592F2176AE7A002CF83D /* Info.plist */,
@@ -144,7 +141,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4A4E59292176AE7A002CF83D /* ViewController.swift in Sources */,
 				4A4E59272176AE7A002CF83D /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
