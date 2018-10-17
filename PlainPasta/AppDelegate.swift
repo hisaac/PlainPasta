@@ -11,30 +11,52 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 	var timer: Timer?
 	var counter = 0
 
+	let enabledMenuItem = NSMenuItem(title: "Enabled", action: #selector(toggleTimer), keyEquivalent: "")
+
+	var appVersionTitle: String {
+		let versionNumber = Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as? String ?? ""
+		let buildNumber = Bundle.main.object(forInfoDictionaryKey: "CFBundleVersion") as? String ?? ""
+		return "Version \(versionNumber) (build \(buildNumber))"
+	}
+
 	func applicationDidFinishLaunching(_ aNotification: Notification) {
 		statusItem.button?.image = NSImage(named: NSImage.Name("StatusBarButtonImage"))
 		constructMenu()
-		startTimer()
 	}
 
 	func constructMenu() {
 		let menu = NSMenu()
 
-		let enable = NSMenuItem(title: "Enable", action: nil, keyEquivalent: "")
-		let about = NSMenuItem(title: "About Plain Pasta", action: nil, keyEquivalent: "")
-		let separator = NSMenuItem.separator()
-		let preferences = NSMenuItem(title: "Preferences…", action: nil, keyEquivalent: "")
+		let versionInfo = NSMenuItem(title: appVersionTitle, action: nil, keyEquivalent: "")
+		let checkForUpdates = NSMenuItem(title: "Check for Updates", action: #selector(openAboutPage), keyEquivalent: "")
+		let about = NSMenuItem(title: "About…", action: #selector(openAboutPage), keyEquivalent: "")
 		let quit = NSMenuItem(title: "Quit", action: #selector(NSApplication.terminate), keyEquivalent: "")
 
+		setEnabledState()
+
 		menu.items = [
-			enable,
-			separator,
-			preferences,
+			versionInfo,
+			checkForUpdates,
+			NSMenuItem.separator(),
+			enabledMenuItem,
+			NSMenuItem.separator(),
 			about,
 			quit
 		]
 
 		statusItem.menu = menu
+	}
+
+	func setEnabledState() {
+		if let timer = timer, timer.isValid {
+			enabledMenuItem.state = .on
+		} else {
+			enabledMenuItem.state = .off
+		}
+	}
+
+	@objc func openAboutPage() {
+		NSWorkspace.shared.open(URL(string: "https://hisaac.net")!)
 	}
 
 	func startTimer() {
@@ -43,8 +65,14 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 		}
 	}
 
-	func stopTimer() {
-		timer?.invalidate()
+	@objc func toggleTimer() {
+		if let timer = timer, timer.isValid {
+			timer.invalidate()
+		} else {
+			startTimer()
+		}
+
+		setEnabledState()
 	}
 
 	func checkPasteboard() {
