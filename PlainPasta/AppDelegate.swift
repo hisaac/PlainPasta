@@ -13,15 +13,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
 	func applicationDidFinishLaunching(_ aNotification: Notification) {
 		statusItem.button?.image = NSImage(named: NSImage.Name("StatusBarButtonImage"))
-		statusItem.button?.action = #selector(printQuote)
 		constructMenu()
 		startTimer()
-	}
-
-	@objc func printQuote() {
-		let quoteText = "Never put off until tomorrow what you can do the day after tomorrow."
-		let quoteAuthor = "Mark Twain"
-		print("\(quoteText) - \(quoteAuthor)")
 	}
 
 	func constructMenu() {
@@ -34,10 +27,10 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 		let quit = NSMenuItem(title: "Quit", action: #selector(NSApplication.terminate), keyEquivalent: "")
 
 		menu.items = [
-			about,
 			enable,
 			separator,
 			preferences,
+			about,
 			quit
 		]
 
