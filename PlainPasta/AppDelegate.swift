@@ -15,6 +15,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 	var sparkleUpdater: SUUpdater?
 
 	let enabledMenuItem = NSMenuItem(title: "Enabled", action: #selector(toggleTimer), keyEquivalent: "")
+	let enabledDefaultsKey = "isEnabled"
 
 	var appVersionTitle: String {
 		let versionNumber = Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as? String ?? ""
@@ -43,7 +44,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 		let about = NSMenuItem(title: "About…", action: #selector(openAboutPage), keyEquivalent: "")
 		let quit = NSMenuItem(title: "Quit", action: #selector(NSApplication.terminate), keyEquivalent: "")
 
-		setEnabledState()
+		setEnabledButtonState()
 
 		menu.items = [
 			versionInfo,
@@ -62,12 +63,28 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 		sparkleUpdater?.checkForUpdates(nil)
 	}
 
-	func setEnabledState() {
-		if let timer = timer, timer.isValid {
-			enabledMenuItem.state = .on
-		} else {
-			enabledMenuItem.state = .off
+	var enabledState: Bool {
+		get {
+			let defaultsValue = UserDefaults.standard.bool(forKey: enabledDefaultsKey)
+			let timerValid = timer?.isValid ?? false
+
+			if defaultsValue == timerValid {
+				return defaultsValue
+			} else {
+				setState(enabledState: false)
+				return false
+			}
 		}
+	}
+
+	func setState(enabledState: Bool) {
+		UserDefaults.standard.set(enabledState, forKey: enabledDefaultsKey)
+		enabledState ? startTimer() : timer?.invalidate()
+		setEnabledButtonState()
+	}
+
+	func setEnabledButtonState() {
+		enabledMenuItem.state = enabledState ? .on : .off
 	}
 
 	@objc func openAboutPage() {
@@ -89,7 +106,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 			UserDefaults.standard.set(true, forKey: "enabled")
 		}
 
-		setEnabledState()
+		setEnabledButtonState()
 	}
 
 	func checkPasteboard() {
