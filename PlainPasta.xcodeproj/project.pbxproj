@@ -7,12 +7,44 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4A34A9232177E2AF00DEED79 /* Sparkle.framework.dSYM in [Carthage] Copy dSYMs */ = {isa = PBXBuildFile; fileRef = 4A34A9222177E2AF00DEED79 /* Sparkle.framework.dSYM */; };
+		4A34A9282177E3B000DEED79 /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A34A9262177E2FA00DEED79 /* Sparkle.framework */; };
+		4A34A9292177E3B000DEED79 /* Sparkle.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4A34A9262177E2FA00DEED79 /* Sparkle.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		4A4E59272176AE7A002CF83D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A4E59262176AE7A002CF83D /* AppDelegate.swift */; };
 		4A4E592B2176AE7A002CF83D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4A4E592A2176AE7A002CF83D /* Assets.xcassets */; };
 		4A4E592E2176AE7A002CF83D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4A4E592C2176AE7A002CF83D /* Main.storyboard */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		4A34A9212177E28E00DEED79 /* [Carthage] Copy dSYMs */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 16;
+			files = (
+				4A34A9232177E2AF00DEED79 /* Sparkle.framework.dSYM in [Carthage] Copy dSYMs */,
+			);
+			name = "[Carthage] Copy dSYMs";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4A34A92A2177E3B000DEED79 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				4A34A9292177E3B000DEED79 /* Sparkle.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		4A34A91F2177E20D00DEED79 /* Cartfile.resolved */ = {isa = PBXFileReference; lastKnownFileType = text; path = Cartfile.resolved; sourceTree = "<group>"; };
+		4A34A9202177E20D00DEED79 /* Cartfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Cartfile; sourceTree = "<group>"; };
+		4A34A9222177E2AF00DEED79 /* Sparkle.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; path = Sparkle.framework.dSYM; sourceTree = "<group>"; };
+		4A34A9262177E2FA00DEED79 /* Sparkle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Sparkle.framework; path = Carthage/Build/Mac/Sparkle.framework; sourceTree = "<group>"; };
 		4A4E59232176AE7A002CF83D /* PlainPasta.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PlainPasta.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4A4E59262176AE7A002CF83D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4A4E592A2176AE7A002CF83D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -31,22 +63,34 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4A34A9282177E3B000DEED79 /* Sparkle.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4A34A9252177E2FA00DEED79 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				4A34A9262177E2FA00DEED79 /* Sparkle.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		4A4E591A2176AE7A002CF83D = {
 			isa = PBXGroup;
 			children = (
 				4A8A681A2176C5F500A4F1D8 /* README.md */,
 				4A8A68182176C5F500A4F1D8 /* changelog.md */,
-				4A4E59252176AE7A002CF83D /* PlainPasta */,
-				4A8A68162176C5F500A4F1D8 /* .gitignore */,
-				4A8A68172176C5F500A4F1D8 /* .swiftlint.yml */,
 				4A8A68192176C5F500A4F1D8 /* LICENSE */,
+				4A4E59252176AE7A002CF83D /* PlainPasta */,
+				4A34A9202177E20D00DEED79 /* Cartfile */,
+				4A34A91F2177E20D00DEED79 /* Cartfile.resolved */,
+				4A8A68172176C5F500A4F1D8 /* .swiftlint.yml */,
+				4A8A68162176C5F500A4F1D8 /* .gitignore */,
 				4A4E59242176AE7A002CF83D /* Products */,
+				4A34A9252177E2FA00DEED79 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 			usesTabs = 1;
@@ -67,6 +111,7 @@
 				4A4E592C2176AE7A002CF83D /* Main.storyboard */,
 				4A4E592F2176AE7A002CF83D /* Info.plist */,
 				4A4E59302176AE7A002CF83D /* PlainPasta.entitlements */,
+				4A34A9222177E2AF00DEED79 /* Sparkle.framework.dSYM */,
 			);
 			path = PlainPasta;
 			sourceTree = "<group>";
@@ -81,6 +126,9 @@
 				4A4E591F2176AE7A002CF83D /* Sources */,
 				4A4E59202176AE7A002CF83D /* Frameworks */,
 				4A4E59212176AE7A002CF83D /* Resources */,
+				4A34A9212177E28E00DEED79 /* [Carthage] Copy dSYMs */,
+				4A34A9242177E2CD00DEED79 /* [Carthage] Warn Outdated */,
+				4A34A92A2177E3B000DEED79 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -135,6 +183,27 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		4A34A9242177E2CD00DEED79 /* [Carthage] Warn Outdated */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "[Carthage] Warn Outdated";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage outdated --xcode-warnings\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		4A4E591F2176AE7A002CF83D /* Sources */ = {
@@ -282,6 +351,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = F2J52QJQ9Y;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/Mac",
+				);
 				INFOPLIST_FILE = "$(SRCROOT)/PlainPasta/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -301,6 +374,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = F2J52QJQ9Y;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/Mac",
+				);
 				INFOPLIST_FILE = "$(SRCROOT)/PlainPasta/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

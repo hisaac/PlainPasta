@@ -1,6 +1,7 @@
 // Created by Isaac Halvorson on 10/16/18
 
 import Cocoa
+import Sparkle
 
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
@@ -10,6 +11,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 	let pasteboard = NSPasteboard.general
 	var timer: Timer?
 	var counter = 0
+
+	var sparkleUpdater: SUUpdater?
 
 	let enabledMenuItem = NSMenuItem(title: "Enabled", action: #selector(toggleTimer), keyEquivalent: "")
 
@@ -21,14 +24,22 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
 	func applicationDidFinishLaunching(_ aNotification: Notification) {
 		statusItem.button?.image = NSImage(named: NSImage.Name("StatusBarButtonImage"))
+		sparkleUpdater = SUUpdater(for: Bundle.main)
 		constructMenu()
+	}
+
+	func configureSparkle() {
+		guard let sparkleUpdater = sparkleUpdater else { return }
+
+		sparkleUpdater.feedURL = URL(string: "http://hisaac.net")!
+		sparkleUpdater.automaticallyChecksForUpdates = true
 	}
 
 	func constructMenu() {
 		let menu = NSMenu()
 
 		let versionInfo = NSMenuItem(title: appVersionTitle, action: nil, keyEquivalent: "")
-		let checkForUpdates = NSMenuItem(title: "Check for Updates", action: #selector(openAboutPage), keyEquivalent: "")
+		let checkForUpdates = NSMenuItem(title: "Check for Updates…", action: #selector(checkForAppUpdates), keyEquivalent: "")
 		let about = NSMenuItem(title: "About…", action: #selector(openAboutPage), keyEquivalent: "")
 		let quit = NSMenuItem(title: "Quit", action: #selector(NSApplication.terminate), keyEquivalent: "")
 
@@ -45,6 +56,10 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 		]
 
 		statusItem.menu = menu
+	}
+
+	@objc func checkForAppUpdates() {
+		sparkleUpdater?.checkForUpdates(nil)
 	}
 
 	func setEnabledState() {
@@ -68,8 +83,10 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 	@objc func toggleTimer() {
 		if let timer = timer, timer.isValid {
 			timer.invalidate()
+			UserDefaults.standard.set(false, forKey: "enabled")
 		} else {
 			startTimer()
+			UserDefaults.standard.set(true, forKey: "enabled")
 		}
 
 		setEnabledState()
