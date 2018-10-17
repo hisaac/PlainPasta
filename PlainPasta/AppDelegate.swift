@@ -5,8 +5,8 @@ import Cocoa
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
 
-	var timer: Timer?
 	let pasteboard = NSPasteboard.general
+	var timer: Timer?
 	var counter = 0
 
 	func applicationDidFinishLaunching(_ aNotification: Notification) {
@@ -19,23 +19,19 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 		}
 	}
 
+	func stopTimer() {
+		timer?.invalidate()
+	}
+
 	func checkPasteboard() {
 		if counter != pasteboard.changeCount {
+			guard let string = pasteboard.string(forType: .string) else { return }
+
+			pasteboard.clearContents()
+			pasteboard.setString(string, forType: .string)
 			counter = pasteboard.changeCount
 
-			if let string = pasteboard.string(forType: .string) {
-				print("string ===", string)
-			} else if let html = pasteboard.string(forType: .html) {
-				print("html ===", html)
-			} else if let rtf = pasteboard.string(forType: .rtf) {
-				print("rtf ===", rtf)
-			} else if let rtfd = pasteboard.string(forType: .rtfd) {
-				print("rtfd ===", rtfd)
-			} else if let tabularText = pasteboard.string(forType: .tabularText) {
-				print("tabularText ===", tabularText)
-			} else if let multipleTextSelection = pasteboard.string(forType: .multipleTextSelection) {
-				print("multipleTextSelection ===", multipleTextSelection)
-			}
+			print(pasteboard.string(forType: .string)!)
 		}
 	}
 }
