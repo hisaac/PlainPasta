@@ -108,8 +108,8 @@
 		4A4E59252176AE7A002CF83D /* PlainPasta */ = {
 			isa = PBXGroup;
 			children = (
-				4AA984F32178DF6500B64A3F /* PasteboardMonitor.swift */,
 				4A4E59262176AE7A002CF83D /* AppDelegate.swift */,
+				4AA984F32178DF6500B64A3F /* PasteboardMonitor.swift */,
 				4A4E592A2176AE7A002CF83D /* Assets.xcassets */,
 				4A4E592C2176AE7A002CF83D /* Main.storyboard */,
 				4A4E592F2176AE7A002CF83D /* Info.plist */,

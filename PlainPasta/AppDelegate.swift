@@ -27,7 +27,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, PasteboardMonitorDelegate {
 	}
 
 	func configureSparkle() {
-		sparkleUpdater?.feedURL = URL(string: "http://hisaac.net")!
+		sparkleUpdater?.feedURL = URL(staticString: "http://hisaac.net")
 		sparkleUpdater?.automaticallyChecksForUpdates = true
 	}
 
@@ -80,12 +80,24 @@ class AppDelegate: NSObject, NSApplicationDelegate, PasteboardMonitorDelegate {
 	}
 
 	@objc func openAboutPage() {
-		NSWorkspace.shared.open(URL(string: "https://hisaac.net")!)
+		NSWorkspace.shared.open(URL(staticString: "https://hisaac.net"))
 	}
 
 	var appVersionTitle: String {
 		let versionNumber = Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as? String ?? ""
 		let buildNumber = Bundle.main.object(forInfoDictionaryKey: "CFBundleVersion") as? String ?? ""
 		return "Version \(versionNumber) (build \(buildNumber))"
+	}
+}
+
+extension URL {
+
+	/// via: [John Sundell](https://www.swiftbysundell.com/posts/constructing-urls-in-swift)
+	init(staticString: StaticString) {
+		guard let url = URL(string: "\(staticString)") else {
+			preconditionFailure("Invalid static URL string: \(staticString)")
+		}
+
+		self = url
 	}
 }
