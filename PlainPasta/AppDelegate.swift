@@ -6,40 +6,33 @@ import Sparkle
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate, PasteboardMonitorDelegate {
 
-	let statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.squareLength)
-	let pasteboardMonitor: PasteboardMonitor
-	let sparkleUpdater: SUUpdater
+	let pasteboardMonitor = PasteboardMonitor()
+	let sparkleUpdater = SUUpdater(for: Bundle.main)
 
+	let menuBarItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.squareLength)
 	let enabledMenuItem = NSMenuItem(title: "Enabled", action: #selector(toggleTimer), keyEquivalent: "")
 
-	override init() {
-		pasteboardMonitor = PasteboardMonitor()
-		sparkleUpdater = SUUpdater(for: Bundle.main)
-
-		super.init()
-
-		pasteboardMonitor.delegate = self
-	}
-
 	func applicationDidFinishLaunching(_ aNotification: Notification) {
-		statusItem.button?.image = NSImage(named: NSImage.Name("StatusBarButtonImage"))
-		enabledMenuItem.state = pasteboardMonitor.enabledState ? .on : .off
+		pasteboardMonitor.delegate = self
+		menuBarItem.button?.image = NSImage(named: NSImage.Name("StatusBarButtonImage"))
+		enabledMenuItem.state = .on
+
+		configureSparkle()
 		constructMenu()
 	}
 
 	func configureSparkle() {
-		sparkleUpdater.feedURL = URL(string: "http://hisaac.net")!
-		sparkleUpdater.automaticallyChecksForUpdates = true
+		sparkleUpdater?.feedURL = URL(string: "http://hisaac.net")!
+		sparkleUpdater?.automaticallyChecksForUpdates = true
 	}
 
 	func constructMenu() {
-		let menu = NSMenu()
-
 		let versionInfo = NSMenuItem(title: appVersionTitle, action: nil, keyEquivalent: "")
 		let checkForUpdates = NSMenuItem(title: "Check for Updates…", action: #selector(checkForAppUpdates), keyEquivalent: "")
 		let about = NSMenuItem(title: "About…", action: #selector(openAboutPage), keyEquivalent: "")
 		let quit = NSMenuItem(title: "Quit", action: #selector(NSApplication.terminate), keyEquivalent: "")
 
+		let menu = NSMenu()
 		menu.items = [
 			versionInfo,
 			checkForUpdates,
@@ -50,7 +43,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, PasteboardMonitorDelegate {
 			quit
 		]
 
-		statusItem.menu = menu
+		menuBarItem.menu = menu
 	}
 
 	@objc func toggleTimer() {
@@ -58,7 +51,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, PasteboardMonitorDelegate {
 	}
 
 	@objc func checkForAppUpdates() {
-		sparkleUpdater.checkForUpdates(nil)
+		sparkleUpdater?.checkForUpdates(nil)
 	}
 
 	@objc func openAboutPage() {

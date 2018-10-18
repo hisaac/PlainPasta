@@ -10,24 +10,31 @@ class PasteboardMonitor {
 
 	weak var delegate: PasteboardMonitorDelegate?
 
-	let pasteboard = NSPasteboard.general
-	var counter = 0
-	var timer: Timer?
+	private let pasteboard = NSPasteboard.general
+	private var counter = 0
+	private var timer: Timer?
 
 	init() {
+		startTimer()
+	}
+
+	var enabledState: Bool = true {
+		didSet { enabledState ? startTimer() : stopTimer() }
+	}
+
+	private func startTimer() {
+		delegate?.enabledMenuItem.state = .on
 		timer = Timer.scheduledTimer(withTimeInterval: 0.1, repeats: true) { _ in
 			self.checkPasteboard()
 		}
 	}
 
-	var enabledState: Bool = true {
-		didSet {
-			delegate?.enabledMenuItem.state = enabledState ? .on : .off
-			enabledState ? timer?.fire() : timer?.invalidate()
-		}
+	private func stopTimer() {
+		delegate?.enabledMenuItem.state = .off
+		timer?.invalidate()
 	}
 
-	func checkPasteboard() {
+	private func checkPasteboard() {
 		if counter != pasteboard.changeCount {
 			guard let string = pasteboard.string(forType: .string) else { return }
 
