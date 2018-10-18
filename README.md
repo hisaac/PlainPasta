@@ -13,3 +13,4 @@ Todo for MVP:
 - [ ] Fill out changelog
 - [ ] Fill out Readme
 - [ ] Let this guy know I released the app: https://twitter.com/hisaac/status/775131593878888452
+- [ ] Add to Open Source Mac Apps
