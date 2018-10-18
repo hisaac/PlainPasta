@@ -4,34 +4,30 @@ import Cocoa
 import Sparkle
 
 @NSApplicationMain
-class AppDelegate: NSObject, NSApplicationDelegate {
+class AppDelegate: NSObject, NSApplicationDelegate, PasteboardMonitorDelegate {
 
 	let statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.squareLength)
-
-	let pasteboard = NSPasteboard.general
-	var timer: Timer?
-	var counter = 0
-
-	var sparkleUpdater: SUUpdater?
+	let pasteboardMonitor: PasteboardMonitor
+	let sparkleUpdater: SUUpdater
 
 	let enabledMenuItem = NSMenuItem(title: "Enabled", action: #selector(toggleTimer), keyEquivalent: "")
-	let enabledDefaultsKey = "isEnabled"
 
-	var appVersionTitle: String {
-		let versionNumber = Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as? String ?? ""
-		let buildNumber = Bundle.main.object(forInfoDictionaryKey: "CFBundleVersion") as? String ?? ""
-		return "Version \(versionNumber) (build \(buildNumber))"
+	override init() {
+		pasteboardMonitor = PasteboardMonitor()
+		sparkleUpdater = SUUpdater(for: Bundle.main)
+
+		super.init()
+
+		pasteboardMonitor.delegate = self
 	}
 
 	func applicationDidFinishLaunching(_ aNotification: Notification) {
 		statusItem.button?.image = NSImage(named: NSImage.Name("StatusBarButtonImage"))
-		sparkleUpdater = SUUpdater(for: Bundle.main)
+		enabledMenuItem.state = pasteboardMonitor.enabledState ? .on : .off
 		constructMenu()
 	}
 
 	func configureSparkle() {
-		guard let sparkleUpdater = sparkleUpdater else { return }
-
 		sparkleUpdater.feedURL = URL(string: "http://hisaac.net")!
 		sparkleUpdater.automaticallyChecksForUpdates = true
 	}
@@ -43,8 +39,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 		let checkForUpdates = NSMenuItem(title: "Check for Updates…", action: #selector(checkForAppUpdates), keyEquivalent: "")
 		let about = NSMenuItem(title: "About…", action: #selector(openAboutPage), keyEquivalent: "")
 		let quit = NSMenuItem(title: "Quit", action: #selector(NSApplication.terminate), keyEquivalent: "")
-
-		setEnabledButtonState()
 
 		menu.items = [
 			versionInfo,
@@ -59,65 +53,21 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 		statusItem.menu = menu
 	}
 
+	@objc func toggleTimer() {
+		pasteboardMonitor.enabledState.toggle()
+	}
+
 	@objc func checkForAppUpdates() {
-		sparkleUpdater?.checkForUpdates(nil)
-	}
-
-	var enabledState: Bool {
-		get {
-			let defaultsValue = UserDefaults.standard.bool(forKey: enabledDefaultsKey)
-			let timerValid = timer?.isValid ?? false
-
-			if defaultsValue == timerValid {
-				return defaultsValue
-			} else {
-				setState(enabledState: false)
-				return false
-			}
-		}
-	}
-
-	func setState(enabledState: Bool) {
-		UserDefaults.standard.set(enabledState, forKey: enabledDefaultsKey)
-		enabledState ? startTimer() : timer?.invalidate()
-		setEnabledButtonState()
-	}
-
-	func setEnabledButtonState() {
-		enabledMenuItem.state = enabledState ? .on : .off
+		sparkleUpdater.checkForUpdates(nil)
 	}
 
 	@objc func openAboutPage() {
 		NSWorkspace.shared.open(URL(string: "https://hisaac.net")!)
 	}
 
-	func startTimer() {
-		timer = Timer.scheduledTimer(withTimeInterval: 0.1, repeats: true) { _ in
-			self.checkPasteboard()
-		}
-	}
-
-	@objc func toggleTimer() {
-		if let timer = timer, timer.isValid {
-			timer.invalidate()
-			UserDefaults.standard.set(false, forKey: "enabled")
-		} else {
-			startTimer()
-			UserDefaults.standard.set(true, forKey: "enabled")
-		}
-
-		setEnabledButtonState()
-	}
-
-	func checkPasteboard() {
-		if counter != pasteboard.changeCount {
-			guard let string = pasteboard.string(forType: .string) else { return }
-
-			pasteboard.clearContents()
-			pasteboard.setString(string, forType: .string)
-			counter = pasteboard.changeCount
-
-			print(pasteboard.string(forType: .string)!)
-		}
+	var appVersionTitle: String {
+		let versionNumber = Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as? String ?? ""
+		let buildNumber = Bundle.main.object(forInfoDictionaryKey: "CFBundleVersion") as? String ?? ""
+		return "Version \(versionNumber) (build \(buildNumber))"
 	}
 }
