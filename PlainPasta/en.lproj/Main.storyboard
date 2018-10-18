@@ -10,9 +10,9 @@
                 <application id="hnw-xV-0zn" sceneMemberID="viewController">
                     <menu key="mainMenu" title="Main Menu" systemMenu="main" id="AYu-sK-qS6">
                         <items>
-                            <menuItem title="PlainPasta" id="1Xt-HY-uBw">
+                            <menuItem title="Plain Pasta" id="1Xt-HY-uBw">
                                 <modifierMask key="keyEquivalentModifierMask"/>
-                                <menu key="submenu" title="PlainPasta" systemMenu="apple" id="uQy-DD-JDr">
+                                <menu key="submenu" title="Plain Pasta" systemMenu="apple" id="uQy-DD-JDr">
                                     <items>
                                         <menuItem title="About PlainPasta" id="5kV-Vb-QxS">
                                             <modifierMask key="keyEquivalentModifierMask"/>

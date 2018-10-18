@@ -6,16 +6,20 @@ import Sparkle
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate, PasteboardMonitorDelegate {
 
+	// MARK: - Initialization
+
 	let pasteboardMonitor = PasteboardMonitor()
 	let sparkleUpdater = SUUpdater(for: Bundle.main)
 
 	let menuBarItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.squareLength)
 
 	let enabledMenuItem = NSMenuItem(
-		title: NSLocalizedString("Enabled", comment: "Title for Enabled menu item"),
+		title: L10n.enabled,
 		action: #selector(toggleTimer),
 		keyEquivalent: ""
 	)
+
+	// MARK: - AppDelegate Methods
 
 	func applicationDidFinishLaunching(_ aNotification: Notification) {
 		pasteboardMonitor.delegate = self
@@ -26,10 +30,14 @@ class AppDelegate: NSObject, NSApplicationDelegate, PasteboardMonitorDelegate {
 		constructMenu()
 	}
 
+	// MARK: - Sparkle Configuration
+
 	func configureSparkle() {
 		sparkleUpdater?.feedURL = URL(staticString: "http://hisaac.net")
 		sparkleUpdater?.automaticallyChecksForUpdates = true
 	}
+
+	// MARK: - Menu Configuration
 
 	func constructMenu() {
 
@@ -40,19 +48,19 @@ class AppDelegate: NSObject, NSApplicationDelegate, PasteboardMonitorDelegate {
 		)
 
 		let checkForUpdates = NSMenuItem(
-			title: NSLocalizedString("Check for Updates…", comment: "Title for Check for Updates menu item"),
+			title: L10n.checkForUpdates,
 			action: #selector(checkForAppUpdates),
 			keyEquivalent: ""
 		)
 
 		let about = NSMenuItem(
-			title: NSLocalizedString("About…", comment: "Title for About menu item"),
+			title: L10n.about,
 			action: #selector(openAboutPage),
 			keyEquivalent: ""
 		)
 
 		let quit = NSMenuItem(
-			title: NSLocalizedString("Quit", comment: "Title for Quit menu item"),
+			title: L10n.quit,
 			action: #selector(NSApplication.terminate),
 			keyEquivalent: ""
 		)
@@ -71,6 +79,8 @@ class AppDelegate: NSObject, NSApplicationDelegate, PasteboardMonitorDelegate {
 		menuBarItem.menu = menu
 	}
 
+	// MARK: - Menu Item Actions
+
 	@objc func toggleTimer() {
 		pasteboardMonitor.enabledState.toggle()
 	}
@@ -86,7 +96,9 @@ class AppDelegate: NSObject, NSApplicationDelegate, PasteboardMonitorDelegate {
 	var appVersionTitle: String {
 		let versionNumber = Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as? String ?? ""
 		let buildNumber = Bundle.main.object(forInfoDictionaryKey: "CFBundleVersion") as? String ?? ""
-		return "Version \(versionNumber) (build \(buildNumber))"
+		let localizedVersionWord = L10n.version
+		let localizedBundleWord = L10n.bundle
+		return "\(localizedVersionWord) \(versionNumber) (\(localizedBundleWord) \(buildNumber))"
 	}
 }
 
