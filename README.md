@@ -10,3 +10,5 @@ Todo for MVP:
 - [ ] Create microsite landing page
 - [ ] Sign app through Apple
 - [ ] Submit to brew cask
+- [ ] Fill out changelog
+- [ ] Fill out Readme
