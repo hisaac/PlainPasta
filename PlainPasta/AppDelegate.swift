@@ -10,7 +10,12 @@ class AppDelegate: NSObject, NSApplicationDelegate, PasteboardMonitorDelegate {
 	let sparkleUpdater = SUUpdater(for: Bundle.main)
 
 	let menuBarItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.squareLength)
-	let enabledMenuItem = NSMenuItem(title: "Enabled", action: #selector(toggleTimer), keyEquivalent: "")
+
+	let enabledMenuItem = NSMenuItem(
+		title: NSLocalizedString("Enabled", comment: "Title for Enabled menu item"),
+		action: #selector(toggleTimer),
+		keyEquivalent: ""
+	)
 
 	func applicationDidFinishLaunching(_ aNotification: Notification) {
 		pasteboardMonitor.delegate = self
@@ -27,10 +32,30 @@ class AppDelegate: NSObject, NSApplicationDelegate, PasteboardMonitorDelegate {
 	}
 
 	func constructMenu() {
-		let versionInfo = NSMenuItem(title: appVersionTitle, action: nil, keyEquivalent: "")
-		let checkForUpdates = NSMenuItem(title: "Check for Updates…", action: #selector(checkForAppUpdates), keyEquivalent: "")
-		let about = NSMenuItem(title: "About…", action: #selector(openAboutPage), keyEquivalent: "")
-		let quit = NSMenuItem(title: "Quit", action: #selector(NSApplication.terminate), keyEquivalent: "")
+
+		let versionInfo = NSMenuItem(
+			title: appVersionTitle,
+			action: nil,
+			keyEquivalent: ""
+		)
+
+		let checkForUpdates = NSMenuItem(
+			title: NSLocalizedString("Check for Updates…", comment: "Title for Check for Updates menu item"),
+			action: #selector(checkForAppUpdates),
+			keyEquivalent: ""
+		)
+
+		let about = NSMenuItem(
+			title: NSLocalizedString("About…", comment: "Title for About menu item"),
+			action: #selector(openAboutPage),
+			keyEquivalent: ""
+		)
+
+		let quit = NSMenuItem(
+			title: NSLocalizedString("Quit", comment: "Title for Quit menu item"),
+			action: #selector(NSApplication.terminate),
+			keyEquivalent: ""
+		)
 
 		let menu = NSMenu()
 		menu.items = [
