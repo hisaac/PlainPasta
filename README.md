@@ -9,3 +9,4 @@ Todo for MVP:
 - [ ] Integrate Sparkle for updates
 - [ ] Create microsite landing page
 - [ ] Sign app through Apple
+- [ ] Submit to brew cask
