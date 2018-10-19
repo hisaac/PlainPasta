@@ -10,10 +10,10 @@ import Foundation
 
 // swiftlint:disable function_parameter_count identifier_name line_length type_body_length
 internal enum L10n {
-  /// About…
-  internal static let about = L10n.tr("Localizable", "About…")
-  /// Bundle
-  internal static let bundle = L10n.tr("Localizable", "Bundle")
+  /// About Plain Pasta…
+  internal static let aboutPlainPasta = L10n.tr("Localizable", "About Plain Pasta…")
+  /// build
+  internal static let build = L10n.tr("Localizable", "build")
   /// Check for Updates…
   internal static let checkForUpdates = L10n.tr("Localizable", "Check for Updates…")
   /// Enabled

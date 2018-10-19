@@ -48,7 +48,7 @@
 		4A34A9202177E20D00DEED79 /* Cartfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Cartfile; sourceTree = "<group>"; };
 		4A34A9222177E2AF00DEED79 /* Sparkle.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = Sparkle.framework.dSYM; path = Carthage/Build/Mac/Sparkle.framework.dSYM; sourceTree = "<group>"; };
 		4A34A9262177E2FA00DEED79 /* Sparkle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Sparkle.framework; path = Carthage/Build/Mac/Sparkle.framework; sourceTree = "<group>"; };
-		4A4E59232176AE7A002CF83D /* PlainPasta.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PlainPasta.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		4A4E59232176AE7A002CF83D /* Plain Pasta.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Plain Pasta.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4A4E59262176AE7A002CF83D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4A4E592A2176AE7A002CF83D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4A4E592F2176AE7A002CF83D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -107,7 +107,7 @@
 		4A4E59242176AE7A002CF83D /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				4A4E59232176AE7A002CF83D /* PlainPasta.app */,
+				4A4E59232176AE7A002CF83D /* Plain Pasta.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -130,9 +130,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		4A4E59222176AE7A002CF83D /* PlainPasta */ = {
+		4A4E59222176AE7A002CF83D /* Plain Pasta */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 4A4E59332176AE7A002CF83D /* Build configuration list for PBXNativeTarget "PlainPasta" */;
+			buildConfigurationList = 4A4E59332176AE7A002CF83D /* Build configuration list for PBXNativeTarget "Plain Pasta" */;
 			buildPhases = (
 				4A5E917621791728001C378F /* [Swiftgen] */,
 				4A5E917721791748001C378F /* [Swiftlint] */,
@@ -147,9 +147,9 @@
 			);
 			dependencies = (
 			);
-			name = PlainPasta;
+			name = "Plain Pasta";
 			productName = PlainPaste;
-			productReference = 4A4E59232176AE7A002CF83D /* PlainPasta.app */;
+			productReference = 4A4E59232176AE7A002CF83D /* Plain Pasta.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -179,7 +179,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				4A4E59222176AE7A002CF83D /* PlainPasta */,
+				4A4E59222176AE7A002CF83D /* Plain Pasta */,
 			);
 		};
 /* End PBXProject section */
@@ -460,7 +460,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		4A4E59332176AE7A002CF83D /* Build configuration list for PBXNativeTarget "PlainPasta" */ = {
+		4A4E59332176AE7A002CF83D /* Build configuration list for PBXNativeTarget "Plain Pasta" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				4A4E59342176AE7A002CF83D /* Debug */,

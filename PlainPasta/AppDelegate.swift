@@ -33,7 +33,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, PasteboardMonitorDelegate {
 	// MARK: - Sparkle Configuration
 
 	func configureSparkle() {
-		sparkleUpdater?.feedURL = URL(staticString: "http://hisaac.net")
+		sparkleUpdater?.feedURL = URL(staticString: "https://hisaac.net")
 		sparkleUpdater?.automaticallyChecksForUpdates = true
 	}
 
@@ -53,8 +53,8 @@ class AppDelegate: NSObject, NSApplicationDelegate, PasteboardMonitorDelegate {
 			keyEquivalent: ""
 		)
 
-		let about = NSMenuItem(
-			title: L10n.about,
+		let aboutPlainPasta = NSMenuItem(
+			title: L10n.aboutPlainPasta,
 			action: #selector(openAboutPage),
 			keyEquivalent: ""
 		)
@@ -72,7 +72,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, PasteboardMonitorDelegate {
 			NSMenuItem.separator(),
 			enabledMenuItem,
 			NSMenuItem.separator(),
-			about,
+			aboutPlainPasta,
 			quit
 		]
 
@@ -96,9 +96,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, PasteboardMonitorDelegate {
 	var appVersionTitle: String {
 		let versionNumber = Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as? String ?? ""
 		let buildNumber = Bundle.main.object(forInfoDictionaryKey: "CFBundleVersion") as? String ?? ""
-		let localizedVersionWord = L10n.version
-		let localizedBundleWord = L10n.bundle
-		return "\(localizedVersionWord) \(versionNumber) (\(localizedBundleWord) \(buildNumber))"
+		return "\(L10n.version) \(versionNumber) (\(L10n.build) \(buildNumber))"
 	}
 }
 
