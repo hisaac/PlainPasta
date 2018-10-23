@@ -1,7 +1,6 @@
 // Created by Isaac Halvorson on 10/16/18
 
 import Cocoa
-import Sparkle
 
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate, PasteboardMonitorDelegate {
@@ -9,7 +8,6 @@ class AppDelegate: NSObject, NSApplicationDelegate, PasteboardMonitorDelegate {
 	// MARK: - Initialization
 
 	let pasteboardMonitor = PasteboardMonitor()
-	let sparkleUpdater = SUUpdater(for: Bundle.main)
 
 	let menuBarItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.squareLength)
 
@@ -25,16 +23,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, PasteboardMonitorDelegate {
 		pasteboardMonitor.delegate = self
 		menuBarItem.button?.image = NSImage(named: NSImage.Name("StatusBarButtonImage"))
 		enabledMenuItem.state = .on
-
-		configureSparkle()
 		constructMenu()
-	}
-
-	// MARK: - Sparkle Configuration
-
-	func configureSparkle() {
-		sparkleUpdater?.feedURL = URL(staticString: "https://hisaac.net")
-		sparkleUpdater?.automaticallyChecksForUpdates = true
 	}
 
 	// MARK: - Menu Configuration
@@ -86,11 +75,11 @@ class AppDelegate: NSObject, NSApplicationDelegate, PasteboardMonitorDelegate {
 	}
 
 	@objc func checkForAppUpdates() {
-		sparkleUpdater?.checkForUpdates(nil)
+		NSWorkspace.shared.open(URL(staticString: "https://github.com/hisaac/PlainPasta/releases"))
 	}
 
 	@objc func openAboutPage() {
-		NSWorkspace.shared.open(URL(staticString: "https://hisaac.net"))
+		NSWorkspace.shared.open(URL(staticString: "https://hisaac.github.io/PlainPasta/"))
 	}
 
 	var appVersionTitle: String {
