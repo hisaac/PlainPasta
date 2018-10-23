@@ -1,5 +1,9 @@
 // Created by Isaac Halvorson on 10/18/18
 
+// App Name
+
+"Plain Pasta" = "Plain Pasta"; // App Name
+
 // Menu Items
 
 "Enabled" = "Enabled"; // Title for Enabled menu item

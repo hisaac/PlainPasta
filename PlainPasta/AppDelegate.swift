@@ -51,7 +51,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, PasteboardMonitorDelegate {
 		let quit = NSMenuItem(
 			title: L10n.quit,
 			action: #selector(NSApplication.terminate),
-			keyEquivalent: ""
+			keyEquivalent: "q"
 		)
 
 		let menu = NSMenu()

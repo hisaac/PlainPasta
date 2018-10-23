@@ -18,6 +18,8 @@ internal enum L10n {
   internal static let checkForUpdates = L10n.tr("Localizable", "Check for Updates…")
   /// Enabled
   internal static let enabled = L10n.tr("Localizable", "Enabled")
+  /// Plain Pasta
+  internal static let plainPasta = L10n.tr("Localizable", "Plain Pasta")
   /// Quit
   internal static let quit = L10n.tr("Localizable", "Quit")
   /// Version
