@@ -13,3 +13,4 @@ todo:
 - [ ] Add to [Open Source Mac Apps](https://github.com/serhii-londar/open-source-mac-os-apps)
 - [ ] [Notarize app through Apple](https://developer.apple.com/developer-id/)
 - [ ] Integrate Sparkle for updates
+- [ ] Distribute through Mac App Store?
