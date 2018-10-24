@@ -102,7 +102,9 @@ class AppDelegate: NSObject, NSApplicationDelegate, PasteboardMonitorDelegate {
 
 extension URL {
 
-	/// via: [John Sundell](https://www.swiftbysundell.com/posts/constructing-urls-in-swift)
+	/// Allows for creation of a `URL` with a `StaticString`
+	/// (via [Swift by Sundell](https://www.swiftbysundell.com/posts/constructing-urls-in-swift))
+	///
 	init(staticString: StaticString) {
 		guard let url = URL(string: "\(staticString)") else {
 			preconditionFailure("Invalid static URL string: \(staticString)")
