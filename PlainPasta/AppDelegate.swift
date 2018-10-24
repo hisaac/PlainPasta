@@ -55,15 +55,26 @@ class AppDelegate: NSObject, NSApplicationDelegate, PasteboardMonitorDelegate {
 		)
 
 		let menu = NSMenu()
-		menu.items = [
-			versionInfo,
-			checkForUpdates,
-			NSMenuItem.separator(),
-			enabledMenuItem,
-			NSMenuItem.separator(),
-			aboutPlainPasta,
-			quit
-		]
+
+		if #available(OSX 10.14, *) {
+			menu.items = [
+				versionInfo,
+				checkForUpdates,
+				NSMenuItem.separator(),
+				enabledMenuItem,
+				NSMenuItem.separator(),
+				aboutPlainPasta,
+				quit
+			]
+		} else {
+			menu.addItem(versionInfo)
+			menu.addItem(checkForUpdates)
+			menu.addItem(NSMenuItem.separator())
+			menu.addItem(enabledMenuItem)
+			menu.addItem(NSMenuItem.separator())
+			menu.addItem(aboutPlainPasta)
+			menu.addItem(quit)
+		}
 
 		menuBarItem.menu = menu
 	}
