@@ -12,6 +12,7 @@ class PasteboardMonitor {
 
 	private let pasteboard = NSPasteboard.general
 	private var counter = 0
+	private var previousPasteboard: String?
 	private var timer: Timer?
 
 	init() {
@@ -38,11 +39,14 @@ class PasteboardMonitor {
 		if counter != pasteboard.changeCount {
 			guard let string = pasteboard.string(forType: .string) else { return }
 
-			pasteboard.clearContents()
-			pasteboard.setString(string, forType: .string)
-			counter = pasteboard.changeCount
+			if string != previousPasteboard {
+				previousPasteboard = string
+				pasteboard.clearContents()
+				pasteboard.setString(string, forType: .string)
+				counter = pasteboard.changeCount
 
-			print(pasteboard.string(forType: .string)!)
+				print(pasteboard.string(forType: .string)!)
+			}
 		}
 	}
 
