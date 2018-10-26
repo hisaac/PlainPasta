@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title>Plain Pasta — Levelsoft</title>
+	<meta name="description" content="Plain Pasta, for when you just want noodles (on your clipboard)." />
+	<meta name="apple-mobile-web-app-title" content="Plain Pasta" />
+
+	<meta name="twitter:card" content="summary" />
+	<meta name="twitter:title" content="Plain Pasta" />
+	<meta name="twitter:description" content="Plain Pasta, for when you just want noodles (on your clipboard)." />
+	<meta name="twitter:site" content="@hisaac" />
+
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+	<style>
+		html {
+			background-color: white;
+			color: #444;
+			font-size: 1em;
+			line-height: 1.61803399; /* The "Golden Ratio" */
+			padding: 0 5px 20px;
+			-ms-text-size-adjust: 100%;
+			-webkit-text-size-adjust: 100%;
+			font-family:
+				-apple-system,           /* iOS Safari, macOS Safari, macOS Firefox */
+				BlinkMacSystemFont,      /* macOS Chrome */
+				"Segoe UI",              /* Windows */
+				Roboto,                  /* Android, Chrome OS */
+				"Droid Sans",            /* Older versions of Android */
+				"Fira Sans",             /* Firefox OS */
+				"Oxygen",                /* KDE Linux */
+				"Oxygen-Sans",           /* KDE Linux */
+				"Ubuntu",                /* Ubuntu Linux */
+				"Cantarell",             /* GNOME Linux */
+				"Helvetica Neue",        /* macOS 10.11+ */
+				Helvetica,               /* macOS 10.0–10.10 */
+				Arial,                   /* All */
+				"Apple Color Emoji",     /* Apple Emoji 😊 */
+				"Segoe UI Emoji",        /* Windows Emoji 😎 */
+				"Segoe UI Symbol",       /* Windows Emoji 🤓 */
+				sans-serif;
+		}
+
+		path {
+			fill: #444;
+		}
+
+		main {
+			margin-left: auto;
+			margin-right: auto;
+			max-width: 80ch;
+		}
+
+		main > p {
+			margin-left: 20px;
+		}
+
+		h1,
+		h2 {
+			line-height: 1.2;
+		}
+
+		h1 {
+			margin-bottom: 0;
+		}
+
+		header,
+		footer {
+			text-align: center;
+		}
+
+		hr {
+			border: 0;
+			border-top: 1px solid #ccc;
+			max-width: 82ch;
+		}
+
+		footer p {
+			font-size: .9em;
+			line-height: .5;
+		}
+
+		a:any-link {
+			color: #28a422;
+			text-decoration: none;
+		}
+
+		a:hover {
+			text-decoration: underline;
+		}
+
+		@media (prefers-color-scheme: dark) {
+			html {
+				background-color: #222;
+				color: #f1f5f3;
+			}
+
+			a:any-link {
+				color: #cd4632;
+			}
+
+			path {
+				fill: #f1f5f3;
+			}
+		}
+	</style>
+</head>
+
+<body>
+
+	<!-- Fork me on GitHub banner -->
+	<a href="https://github.com/hisaac/PlainPasta/">
+		<img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png" alt="Fork me on GitHub">
+	</a>
+
+	<header>
+		<h1>Plain Pasta</h1>
+
+		<figure>
+			<a href="https://github.com/hisaac/PlainPasta/releases/latest/" alt="Download the latest version of Plain Pasta">
+				<svg width="200px" height="200px" viewBox="0 0 1900 1900" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+					<!-- Generator: Sketch 52.2 (67145) - http://www.bohemiancoding.com/sketch -->
+					<title>vector-Artboard</title>
+					<desc>Created with Sketch.</desc>
+					<g id="Artboard" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+						<path d="M200,882 L200,989.9875 C200.458922,1290.2512 449.2319,1533.55117 756.25,1534 L1143.75,1534 C1450.7681,1533.55117 1699.54108,1290.2512 1700,989.9875 L1700,882 L200,882 Z M1624,999.270833 C1623.77033,1252.5276 1412.22574,1457.77716 1151.20156,1458 L763.798437,1458 C502.774264,1457.77716 291.229674,1252.5276 291,999.270833 L291,973 L1624,973 L1624,999.270833 Z M624,1624 L1291,1624 L1291,1700 L624,1700 L624,1624 Z M687.037766,821 L215,362.321794 L274.213218,306 L745,763.462628 L687.037766,821 Z M959.431907,836 L382,258.568093 L440.568093,200 L1018,777.431907 L959.431907,836 Z" id="noodle-icon" fill="#000000" fill-rule="nonzero"></path>
+					</g>
+				</svg>
+			</a>
+			<figcaption><a href="https://github.com/hisaac/PlainPasta/releases/latest/" alt="Download the latest version of Plain Pasta">Download App</a></figcaption>
+		</figure>
+	</header>
+
+	<hr />
+
+	<main>
+
+		<h2>What?</h2>
+		<p>
+			Plain Pasta is tiny Mac app that strips any styling from text on your clipboard. It sits in your menu bar, and watches your clipboard for any text that arrives there. If there is any styling, it removes it, and puts plaintext back on your clipboard.
+		</p>
+		<p>
+			Essentially, this makes <em>Paste and Match Style</em> the default behavior when copy/pasting.
+		</p>
+
+		<h2>Why?</h2>
+		<p>
+			I made this app because I rarely want styling to be copied to my clipboard. When I copy text, all I want is the text.
+		</p>
+
+		<h2>Who?</h2>
+		<p>
+			Plain Pasta was developed by <a href="https://hisaac.net/">Isaac Halvorson</a>, a software developer from Minneapolis, MN.
+		</p>
+
+		<h2>Where?</h2>
+		<p>
+			Download the most recent version of Plain Pasta from the <a href="https://github.com/hisaac/PlainPasta/releases">Releases page</a> on the <a href="https://github.com/hisaac/PlainPasta/">GitHub repo</a>.
+		</p>
+
+		<h2>When?</h2>
+		<p>
+			Plain Pasta is there for you whenever you need it.
+		</p>
+
+	</main>
+
+	<hr />
+
+	<footer>
+		<p>
+			This site and its code are hosted <a href="https://github.com/hisaac/PlainPasta">on GitHub</a>
+		</p>
+		<p>
+			&copy; <span id="yearRange"></span><a href="https://level.software">Levelsoft</a>
+		</p>
+	</footer>
+</body>
+
+<script type="text/javascript">
+	// Inserts the correct year into the copyright's year range
+	const year = new Date().getFullYear();
+	const startYear = "2018";
+
+	let yearRange = year == startYear ? startYear : startYear + "–" + year;
+
+	document.getElementById("yearRange").innerHTML = yearRange + " ";
+</script>
+
+</html>
