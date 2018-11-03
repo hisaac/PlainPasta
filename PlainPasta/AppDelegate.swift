@@ -54,26 +54,20 @@ class AppDelegate: NSObject, NSApplicationDelegate, PasteboardMonitorDelegate {
 			keyEquivalent: "q"
 		)
 
+		let orderedMenuItems = [
+			versionInfo,
+			checkForUpdates,
+			NSMenuItem.separator(),
+			enabledMenuItem,
+			NSMenuItem.separator(),
+			aboutPlainPasta,
+			quit
+		]
+
 		let menu = NSMenu()
 
-		if #available(OSX 10.14, *) {
-			menu.items = [
-				versionInfo,
-				checkForUpdates,
-				NSMenuItem.separator(),
-				enabledMenuItem,
-				NSMenuItem.separator(),
-				aboutPlainPasta,
-				quit
-			]
-		} else {
-			menu.addItem(versionInfo)
-			menu.addItem(checkForUpdates)
-			menu.addItem(NSMenuItem.separator())
-			menu.addItem(enabledMenuItem)
-			menu.addItem(NSMenuItem.separator())
-			menu.addItem(aboutPlainPasta)
-			menu.addItem(quit)
+		_ = orderedMenuItems.map { item in
+			menu.addItem(item)
 		}
 
 		menuBarItem.menu = menu
