@@ -1,6 +1,6 @@
 // Created by Isaac Halvorson on 10/16/18
 
-import Cocoa
+import AppKit
 
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate, PasteboardMonitorDelegate {
@@ -66,8 +66,12 @@ class AppDelegate: NSObject, NSApplicationDelegate, PasteboardMonitorDelegate {
 
 		let menu = NSMenu()
 
-		_ = orderedMenuItems.map { item in
-			menu.addItem(item)
+		if #available(OSX 10.14, *) {
+			menu.items = orderedMenuItems
+		} else {
+			_ = orderedMenuItems.map { item in
+				menu.addItem(item)
+			}
 		}
 
 		menuBarItem.menu = menu
