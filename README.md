@@ -23,7 +23,6 @@ I've used FormatMatch for many years, and I would've happily used it for many mo
 - [ ] Let this guy know I released the app: <https://twitter.com/hisaac/status/775131593878888452>
 - [ ] Add to [Open Source Mac Apps](https://github.com/serhii-londar/open-source-mac-os-apps)
 - [ ] Add to homebrew cask
-- [ ] [Notarize app through Apple](https://developer.apple.com/developer-id/)
 - [ ] Integrate Sparkle for updates
 - [ ] Distribute through Mac App Store?
 -->
