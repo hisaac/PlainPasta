@@ -10,6 +10,26 @@ I made this app because I rarely want styling to be copied to my clipboard. When
 
 Download the most recent version of Plain Pasta from the [Releases page](https://github.com/hisaac/PlainPasta/releases).
 
+### Demonstration
+
+#### Without Plain Pasta
+
+<figure>
+	<a href="./docs/without-plain-pasta.gif">
+		<img src="./docs/without-plain-pasta.gif" alt="A screen recording of text and style being copy/pasted" title="A screen recording of text and style being copy/pasted" />
+	</a>
+	<figcaption><center>Copy/Pasting styled text takes both the text <em>and</em> the styling with it</center></figcaption>
+</figure>
+
+#### With Plain Pasta
+
+<figure>
+	<a href="./docs/with-plain-pasta.gif">
+		<img src="./docs/with-plain-pasta.gif" width="100%" alt="A screen recording of text being copy/pasted without its styling" title="A screen recording of text being copy/pasted without its styling" />
+	</a>
+	<figcaption><center>Copy/Pasting styled text <em>with</em> Plain Pasta enabled only pastes the text itself, no styling</center></figcaption>
+</figure>
+
 ## Attribution
 
 Plain Pasta was inspired by another app called [FormatMatch](https://itunes.apple.com/us/app/formatmatch/id445211988?mt=12) by [Robert Wessels](http://www.robertwessels.com).
