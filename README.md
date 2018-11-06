@@ -1,4 +1,6 @@
-<img src="./Assets/app-icon-512@2x.png" width="256px"/>
+<p align="center">
+	<img src="./Assets/app-icon-512@2x.png" width="256px"/>
+</p>
 
 # Plain Pasta
 
@@ -18,7 +20,7 @@ Download the most recent version of Plain Pasta from the [Releases page](https:/
 	<a href="./docs/without-plain-pasta.gif">
 		<img src="./docs/without-plain-pasta.gif" alt="A screen recording of text and style being copy/pasted" title="A screen recording of text and style being copy/pasted" />
 	</a>
-	<figcaption><center>Copy/Pasting styled text takes both the text <em>and</em> the styling with it</center></figcaption>
+	<figcaption><p align="center">Copy/Pasting styled text takes both the text <em>and</em> the styling with it</p></figcaption>
 </figure>
 
 #### With Plain Pasta
@@ -27,7 +29,7 @@ Download the most recent version of Plain Pasta from the [Releases page](https:/
 	<a href="./docs/with-plain-pasta.gif">
 		<img src="./docs/with-plain-pasta.gif" width="100%" alt="A screen recording of text being copy/pasted without its styling" title="A screen recording of text being copy/pasted without its styling" />
 	</a>
-	<figcaption><center>Copy/Pasting styled text <em>with</em> Plain Pasta enabled only pastes the text itself, no styling</center></figcaption>
+	<figcaption><p align="center">Copy/Pasting styled text <em>with</em> Plain Pasta enabled only pastes the text itself, no styling</p></figcaption>
 </figure>
 
 ## Attribution
