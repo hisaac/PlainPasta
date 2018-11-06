@@ -17,6 +17,11 @@ class PasteboardMonitor {
 	private var timer = DispatchSource.makeTimerSource()
 
 	init() {
+		timer.schedule(deadline: .now(), repeating: .milliseconds(100))
+		timer.setEventHandler { [weak self] in
+			self?.checkPasteboard()
+		}
+
 		startTimer()
 	}
 
@@ -32,11 +37,6 @@ class PasteboardMonitor {
 	/// Starts monitoring the pasteboard, and sets the menu item's state to enabled
 	private func startTimer() {
 		delegate?.enabledMenuItem.state = .on
-
-		timer.schedule(deadline: .now(), repeating: .milliseconds(100))
-		timer.setEventHandler { [weak self] in
-			self?.checkPasteboard()
-		}
 		timer.resume()
 	}
 
