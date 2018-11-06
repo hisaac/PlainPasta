@@ -14,7 +14,7 @@ class PasteboardMonitor {
 	private let pasteboard = NSPasteboard.general
 	private var internalChangeCount = NSPasteboard.general.changeCount
 	private var previousPasteboard: String?
-	private var timer = DispatchSource.makeTimerSource()
+	private let timer = DispatchSource.makeTimerSource()
 
 	init() {
 		timer.schedule(deadline: .now(), repeating: .milliseconds(100))
