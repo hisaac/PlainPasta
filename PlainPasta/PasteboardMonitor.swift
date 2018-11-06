@@ -14,10 +14,14 @@ class PasteboardMonitor {
 	private let pasteboard = NSPasteboard.general
 	private var internalChangeCount = NSPasteboard.general.changeCount
 	private var previousPasteboard: String?
-	private var timer: Timer?
+	private var timer = DispatchSource.makeTimerSource()
 
 	init() {
 		startTimer()
+	}
+
+	deinit {
+		stopTimer()
 	}
 
 	/// The current state of the pasteboard monitor
@@ -28,15 +32,18 @@ class PasteboardMonitor {
 	/// Starts monitoring the pasteboard, and sets the menu item's state to enabled
 	private func startTimer() {
 		delegate?.enabledMenuItem.state = .on
-		timer = Timer.scheduledTimer(withTimeInterval: 0.1, repeats: true) { _ in
-			self.checkPasteboard()
+
+		timer.schedule(deadline: .now(), repeating: .milliseconds(100))
+		timer.setEventHandler { [weak self] in
+			self?.checkPasteboard()
 		}
+		timer.resume()
 	}
 
 	/// Stops monitoring the pasteboard, and sets the menu item's state to disabled
 	private func stopTimer() {
 		delegate?.enabledMenuItem.state = .off
-		timer?.invalidate()
+		timer.cancel()
 	}
 
 	/// Checks the pasteboard for textual contents, and strips the formatting if possible
