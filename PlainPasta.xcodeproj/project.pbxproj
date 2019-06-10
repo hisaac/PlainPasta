@@ -11,7 +11,6 @@
 		4A4E592B2176AE7A002CF83D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4A4E592A2176AE7A002CF83D /* Assets.xcassets */; };
 		4A4E592E2176AE7A002CF83D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4A4E592C2176AE7A002CF83D /* Main.storyboard */; };
 		4A5E917A2179183E001C378F /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4A5E917C2179183E001C378F /* Localizable.strings */; };
-		4A5E9180217918A5001C378F /* Localizable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A5E917F217918A5001C378F /* Localizable.swift */; };
 		4AA984F42178DF6500B64A3F /* PasteboardMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA984F32178DF6500B64A3F /* PasteboardMonitor.swift */; };
 /* End PBXBuildFile section */
 
@@ -21,9 +20,7 @@
 		4A4E592A2176AE7A002CF83D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4A4E592F2176AE7A002CF83D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4A4E59302176AE7A002CF83D /* PlainPasta.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PlainPasta.entitlements; sourceTree = "<group>"; };
-		4A5E9178217917A5001C378F /* swiftgen.yml */ = {isa = PBXFileReference; lastKnownFileType = text; path = swiftgen.yml; sourceTree = "<group>"; };
 		4A5E917B2179183E001C378F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
-		4A5E917F217918A5001C378F /* Localizable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Localizable.swift; sourceTree = "<group>"; };
 		4A8A68162176C5F500A4F1D8 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		4A8A68172176C5F500A4F1D8 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text; path = .swiftlint.yml; sourceTree = "<group>"; };
 		4A8A68182176C5F500A4F1D8 /* changelog.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = changelog.md; sourceTree = "<group>"; };
@@ -58,7 +55,6 @@
 				4A8A68182176C5F500A4F1D8 /* changelog.md */,
 				4A4E59252176AE7A002CF83D /* PlainPasta */,
 				4A8A68192176C5F500A4F1D8 /* LICENSE */,
-				4A5E9178217917A5001C378F /* swiftgen.yml */,
 				4A8A68172176C5F500A4F1D8 /* .swiftlint.yml */,
 				4A8A68162176C5F500A4F1D8 /* .gitignore */,
 				4A4E59242176AE7A002CF83D /* Products */,
@@ -80,7 +76,6 @@
 			children = (
 				4A4E59262176AE7A002CF83D /* AppDelegate.swift */,
 				4AA984F32178DF6500B64A3F /* PasteboardMonitor.swift */,
-				4A5E917F217918A5001C378F /* Localizable.swift */,
 				4A4E592A2176AE7A002CF83D /* Assets.xcassets */,
 				4A4E592C2176AE7A002CF83D /* Main.storyboard */,
 				4A4E592F2176AE7A002CF83D /* Info.plist */,
@@ -97,7 +92,6 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4A4E59332176AE7A002CF83D /* Build configuration list for PBXNativeTarget "Plain Pasta" */;
 			buildPhases = (
-				4A5E917621791728001C378F /* [Swiftgen] */,
 				4A5E917721791748001C378F /* [Swiftlint] */,
 				4A4E591F2176AE7A002CF83D /* Sources */,
 				4A4E59202176AE7A002CF83D /* Frameworks */,
@@ -165,24 +159,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		4A5E917621791728001C378F /* [Swiftgen] */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-			);
-			name = "[Swiftgen]";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "if which swiftgen >/dev/null; then\n    swiftgen\nelse\n    echo \"warning: SwiftGen not installed, download it from https://github.com/SwiftGen/SwiftGen\"\nfi\n";
-		};
 		4A5E917721791748001C378F /* [Swiftlint] */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -209,7 +185,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				4A4E59272176AE7A002CF83D /* AppDelegate.swift in Sources */,
-				4A5E9180217918A5001C378F /* Localizable.swift in Sources */,
 				4AA984F42178DF6500B64A3F /* PasteboardMonitor.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

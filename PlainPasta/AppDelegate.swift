@@ -12,7 +12,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, PasteboardMonitorDelegate {
 	let menuBarItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.squareLength)
 
 	let enabledMenuItem = NSMenuItem(
-		title: L10n.enabled,
+		title: NSLocalizedString("Enabled", comment: "Title for Enabled menu item"),
 		action: #selector(toggleTimer),
 		keyEquivalent: ""
 	)
@@ -36,27 +36,20 @@ class AppDelegate: NSObject, NSApplicationDelegate, PasteboardMonitorDelegate {
 			keyEquivalent: ""
 		)
 
-		let checkForUpdates = NSMenuItem(
-			title: L10n.checkForUpdates,
-			action: #selector(checkForAppUpdates),
-			keyEquivalent: ""
-		)
-
 		let aboutPlainPasta = NSMenuItem(
-			title: L10n.aboutPlainPasta,
+			title: NSLocalizedString("About Plain Pasta…", comment: "Title for About menu item"),
 			action: #selector(openAboutPage),
 			keyEquivalent: ""
 		)
 
 		let quit = NSMenuItem(
-			title: L10n.quit,
+			title: NSLocalizedString("Quit", comment: "Title for Quit menu item"),
 			action: #selector(NSApplication.terminate),
 			keyEquivalent: "q"
 		)
 
 		let orderedMenuItems = [
 			versionInfo,
-			checkForUpdates,
 			NSMenuItem.separator(),
 			enabledMenuItem,
 			NSMenuItem.separator(),
@@ -92,9 +85,13 @@ class AppDelegate: NSObject, NSApplicationDelegate, PasteboardMonitorDelegate {
 	}
 
 	var appVersionTitle: String {
+		let versionTitle = NSLocalizedString("Version", comment: "Version title for version information")
 		let versionNumber = Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as? String ?? ""
+
+		let buildTitle = NSLocalizedString("build", comment: "build title for version information")
 		let buildNumber = Bundle.main.object(forInfoDictionaryKey: "CFBundleVersion") as? String ?? ""
-		return "\(L10n.version) \(versionNumber) (\(L10n.build) \(buildNumber))"
+
+		return "\(versionTitle) \(versionNumber) (\(buildTitle) \(buildNumber))"
 	}
 }
 

@@ -1,7 +1,0 @@
-input_dir: ./PlainPasta/
-output_dir: ./PlainPasta/
-strings:
-  inputs: en.lproj/Localizable.strings
-  outputs:
-    - templateName: flat-swift4
-      output: Localizable.swift
