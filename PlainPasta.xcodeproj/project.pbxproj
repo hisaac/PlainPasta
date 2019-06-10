@@ -23,7 +23,6 @@
 		4A4E59302176AE7A002CF83D /* PlainPasta.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PlainPasta.entitlements; sourceTree = "<group>"; };
 		4A5E9178217917A5001C378F /* swiftgen.yml */ = {isa = PBXFileReference; lastKnownFileType = text; path = swiftgen.yml; sourceTree = "<group>"; };
 		4A5E917B2179183E001C378F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
-		4A5E917E2179186D001C378F /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/Main.storyboard; sourceTree = "<group>"; };
 		4A5E917F217918A5001C378F /* Localizable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Localizable.swift; sourceTree = "<group>"; };
 		4A8A68162176C5F500A4F1D8 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		4A8A68172176C5F500A4F1D8 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text; path = .swiftlint.yml; sourceTree = "<group>"; };
@@ -31,6 +30,7 @@
 		4A8A68192176C5F500A4F1D8 /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		4A8A681A2176C5F500A4F1D8 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		4AA984F32178DF6500B64A3F /* PasteboardMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasteboardMonitor.swift; sourceTree = "<group>"; };
+		F2E4F2EC22AED734006313B9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,6 +124,7 @@
 				TargetAttributes = {
 					4A4E59222176AE7A002CF83D = {
 						CreatedOnToolsVersion = 10.0;
+						LastSwiftMigration = 1020;
 						SystemCapabilities = {
 							com.apple.Sandbox = {
 								enabled = 0;
@@ -138,6 +139,7 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				Base,
 			);
 			mainGroup = 4A4E591A2176AE7A002CF83D;
 			productRefGroup = 4A4E59242176AE7A002CF83D /* Products */;
@@ -218,7 +220,7 @@
 		4A4E592C2176AE7A002CF83D /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				4A5E917E2179186D001C378F /* en */,
+				F2E4F2EC22AED734006313B9 /* Base */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -366,7 +368,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = software.level.PlainPasta;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
@@ -387,7 +389,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = software.level.PlainPasta;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
 		};
