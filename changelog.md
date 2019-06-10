@@ -8,6 +8,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 - Update entitlements file to allow for automatic creation of App ID in App Store Connect
 - Remove "Check for Updates…" menu item, as this will now be done through the App Store
+- Enable App Sandboxing for Mac App Store
 
 ## [1.0.0] - 2018-11-04
 
