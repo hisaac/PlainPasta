@@ -36,12 +36,6 @@ class AppDelegate: NSObject, NSApplicationDelegate, PasteboardMonitorDelegate {
 			keyEquivalent: ""
 		)
 
-		let checkForUpdates = NSMenuItem(
-			title: L10n.checkForUpdates,
-			action: #selector(checkForAppUpdates),
-			keyEquivalent: ""
-		)
-
 		let aboutPlainPasta = NSMenuItem(
 			title: L10n.aboutPlainPasta,
 			action: #selector(openAboutPage),
@@ -56,7 +50,6 @@ class AppDelegate: NSObject, NSApplicationDelegate, PasteboardMonitorDelegate {
 
 		let orderedMenuItems = [
 			versionInfo,
-			checkForUpdates,
 			NSMenuItem.separator(),
 			enabledMenuItem,
 			NSMenuItem.separator(),

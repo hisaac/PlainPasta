@@ -1,5 +1,5 @@
 // swiftlint:disable all
-// Generated using SwiftGen, by O.Halligon — https://github.com/SwiftGen/SwiftGen
+// Generated using SwiftGen — https://github.com/SwiftGen/SwiftGen
 
 import Foundation
 
@@ -14,8 +14,6 @@ internal enum L10n {
   internal static let aboutPlainPasta = L10n.tr("Localizable", "About Plain Pasta…")
   /// build
   internal static let build = L10n.tr("Localizable", "build")
-  /// Check for Updates…
-  internal static let checkForUpdates = L10n.tr("Localizable", "Check for Updates…")
   /// Enabled
   internal static let enabled = L10n.tr("Localizable", "Enabled")
   /// Plain Pasta
@@ -31,6 +29,7 @@ internal enum L10n {
 
 extension L10n {
   private static func tr(_ table: String, _ key: String, _ args: CVarArg...) -> String {
+    // swiftlint:disable:next nslocalizedstring_key
     let format = NSLocalizedString(key, tableName: table, bundle: Bundle(for: BundleToken.self), comment: "")
     return String(format: format, locale: Locale.current, arguments: args)
   }

@@ -7,7 +7,6 @@
 // Menu Items
 
 "Enabled" = "Enabled"; // Title for Enabled menu item
-"Check for Updates…" = "Check for Updates…"; // Title for Check for Updates menu item
 "About Plain Pasta…" = "About Plain Pasta…"; // Title for About menu item
 "Quit" = "Quit"; // Title for Quit menu item
 
