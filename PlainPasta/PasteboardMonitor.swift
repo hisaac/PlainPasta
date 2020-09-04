@@ -30,8 +30,14 @@ class PasteboardMonitor {
 	}
 
 	/// The current state of the pasteboard monitor
-	var enabledState: Bool = true {
-		didSet { enabledState ? startTimer() : stopTimer() }
+	var isEnabled: Bool = true {
+		didSet {
+			if isEnabled {
+				startTimer()
+			} else {
+				stopTimer()
+			}
+		}
 	}
 
 	/// Starts monitoring the pasteboard, and sets the menu item's state to enabled

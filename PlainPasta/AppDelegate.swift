@@ -73,7 +73,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, PasteboardMonitorDelegate {
 	// MARK: - Menu Item Actions
 
 	@objc func toggleTimer() {
-		pasteboardMonitor.enabledState.toggle()
+		pasteboardMonitor.isEnabled.toggle()
 	}
 
 	@objc func checkForAppUpdates() {
