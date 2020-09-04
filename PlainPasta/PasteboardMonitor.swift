@@ -46,28 +46,39 @@ class PasteboardMonitor {
 		timer.cancel()
 	}
 
-	/// Checks the pasteboard for textual contents, and strips the formatting if possible
+	/// Checks the pasteboard for styled text contents, and strips the formatting if possible
 	private func checkPasteboard() {
 		if internalChangeCount != pasteboard.changeCount {
 
 			// Check to see if the item on the pasteboard is a file or directory, and exit if it is
 			guard pasteboard.availableType(from: [.fileName]) == nil else { return }
 
-			// Convert the pasteboard content into a plaintext string if possible
-			guard let plaintextString = pasteboard.string(forType: .string) else { return }
+			// Check to see if there is styled text on the pasteboard, and exit if not
+			guard pasteboard.availableType(from: [.rtf, .rtfd]) != nil else { return }
 
-			if plaintextString != previousPasteboard {
-				previousPasteboard = plaintextString
-				pasteboard.clearContents()
-				pasteboard.setString(plaintextString, forType: .string)
+			guard let pasteboardItem = pasteboard.pasteboardItems?.first else { return }
+			guard let plaintextString = pasteboardItem.string(forType: .string) else { return }
 
-				internalChangeCount = pasteboard.changeCount
-
-				if #available(OSX 10.14, *) {
-					os_log(.info, "plaintext pasteboard content: %@", plaintextString)
+			let newPasteboardItem = NSPasteboardItem()
+			for type in pasteboardItem.types {
+				if type == .rtf || type == .rtfd {
+					newPasteboardItem.setString(plaintextString, forType: type)
 				} else {
-					os_log("plaintext pasteboard content: %@", log: .default, type: .info, plaintextString)
+					guard let data = pasteboardItem.data(forType: type) else { continue }
+					newPasteboardItem.setData(data, forType: type)
 				}
+			}
+
+			pasteboard.clearContents()
+			let wroteToPasteboard = pasteboard.writeObjects([newPasteboardItem])
+			if wroteToPasteboard {
+				internalChangeCount = pasteboard.changeCount
+			}
+
+			if #available(OSX 10.14, *) {
+				os_log(.info, "plaintext pasteboard content: %@", plaintextString)
+			} else {
+				os_log("plaintext pasteboard content: %@", log: .default, type: .info, plaintextString)
 			}
 		}
 	}
