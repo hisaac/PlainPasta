@@ -1,5 +1,3 @@
-// Created by Isaac Halvorson on 10/16/18
-
 import AppKit
 
 @NSApplicationMain
@@ -12,7 +10,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, PasteboardMonitorDelegate {
 	let menuBarItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.squareLength)
 
 	let enabledMenuItem = NSMenuItem(
-		title: NSLocalizedString("Enabled", comment: "Title for Enabled menu item"),
+		title: LocalizedStrings.enabledMenuItem,
 		action: #selector(toggleTimer),
 		keyEquivalent: ""
 	)
@@ -31,19 +29,19 @@ class AppDelegate: NSObject, NSApplicationDelegate, PasteboardMonitorDelegate {
 	func constructMenu() {
 
 		let versionInfo = NSMenuItem(
-			title: appVersionTitle,
+			title: LocalizedStrings.appVersion,
 			action: nil,
 			keyEquivalent: ""
 		)
 
 		let aboutPlainPasta = NSMenuItem(
-			title: NSLocalizedString("About Plain Pasta…", comment: "Title for About menu item"),
+			title: LocalizedStrings.aboutPlainPastaMenuItem,
 			action: #selector(openAboutPage),
 			keyEquivalent: ""
 		)
 
 		let quit = NSMenuItem(
-			title: NSLocalizedString("Quit", comment: "Title for Quit menu item"),
+			title: LocalizedStrings.quitMenuItem,
 			action: #selector(NSApplication.terminate),
 			keyEquivalent: "q"
 		)
@@ -77,34 +75,12 @@ class AppDelegate: NSObject, NSApplicationDelegate, PasteboardMonitorDelegate {
 	}
 
 	@objc func checkForAppUpdates() {
-		NSWorkspace.shared.open(URL(staticString: "https://github.com/hisaac/PlainPasta/releases"))
+		guard let url = URL(string: "https://github.com/hisaac/PlainPasta/releases") else { return }
+		NSWorkspace.shared.open(url)
 	}
 
 	@objc func openAboutPage() {
-		NSWorkspace.shared.open(URL(staticString: "https://hisaac.github.io/PlainPasta/"))
-	}
-
-	var appVersionTitle: String {
-		let versionTitle = NSLocalizedString("Version", comment: "Version title for version information")
-		let versionNumber = Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as? String ?? ""
-
-		let buildTitle = NSLocalizedString("build", comment: "build title for version information")
-		let buildNumber = Bundle.main.object(forInfoDictionaryKey: "CFBundleVersion") as? String ?? ""
-
-		return "\(versionTitle) \(versionNumber) (\(buildTitle) \(buildNumber))"
-	}
-}
-
-extension URL {
-
-	/// Allows for creation of a `URL` with a `StaticString`
-	/// (via [Swift by Sundell](https://www.swiftbysundell.com/posts/constructing-urls-in-swift))
-	///
-	init(staticString: StaticString) {
-		guard let url = URL(string: "\(staticString)") else {
-			preconditionFailure("Invalid static URL string: \(staticString)")
-		}
-
-		self = url
+		guard let url = URL(string: "https://hisaac.github.io/PlainPasta/") else { return }
+		NSWorkspace.shared.open(url)
 	}
 }

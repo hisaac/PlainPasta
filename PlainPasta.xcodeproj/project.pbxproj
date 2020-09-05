@@ -3,15 +3,15 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 53;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		4A4E59272176AE7A002CF83D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A4E59262176AE7A002CF83D /* AppDelegate.swift */; };
 		4A4E592B2176AE7A002CF83D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4A4E592A2176AE7A002CF83D /* Assets.xcassets */; };
 		4A4E592E2176AE7A002CF83D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4A4E592C2176AE7A002CF83D /* Main.storyboard */; };
-		4A5E917A2179183E001C378F /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4A5E917C2179183E001C378F /* Localizable.strings */; };
 		4AA984F42178DF6500B64A3F /* PasteboardMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA984F32178DF6500B64A3F /* PasteboardMonitor.swift */; };
+		4ADE040D24ECC23F0045181C /* Localizable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ADE040C24ECC23F0045181C /* Localizable.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,15 +19,14 @@
 		4A4E59262176AE7A002CF83D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4A4E592A2176AE7A002CF83D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4A4E592F2176AE7A002CF83D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		4A5E9178217917A5001C378F /* swiftgen.yml */ = {isa = PBXFileReference; lastKnownFileType = text; path = swiftgen.yml; sourceTree = "<group>"; };
-		4A5E917B2179183E001C378F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		4A8A68162176C5F500A4F1D8 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		4A8A68172176C5F500A4F1D8 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text; path = .swiftlint.yml; sourceTree = "<group>"; };
 		4A8A68182176C5F500A4F1D8 /* changelog.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = changelog.md; sourceTree = "<group>"; };
 		4A8A68192176C5F500A4F1D8 /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		4A8A681A2176C5F500A4F1D8 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		4A9998E325040BE700141546 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/Main.storyboard; sourceTree = "<group>"; };
 		4AA984F32178DF6500B64A3F /* PasteboardMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasteboardMonitor.swift; sourceTree = "<group>"; };
-		F2E4F2EC22AED734006313B9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		4ADE040C24ECC23F0045181C /* Localizable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Localizable.swift; sourceTree = "<group>"; };
 		F2E4F2ED22AED9E0006313B9 /* Plain Pasta.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Plain Pasta.entitlements"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -77,11 +76,11 @@
 			children = (
 				4A4E59262176AE7A002CF83D /* AppDelegate.swift */,
 				4AA984F32178DF6500B64A3F /* PasteboardMonitor.swift */,
+				4ADE040C24ECC23F0045181C /* Localizable.swift */,
 				4A4E592A2176AE7A002CF83D /* Assets.xcassets */,
 				4A4E592C2176AE7A002CF83D /* Main.storyboard */,
 				4A4E592F2176AE7A002CF83D /* Info.plist */,
 				F2E4F2ED22AED9E0006313B9 /* Plain Pasta.entitlements */,
-				4A5E917C2179183E001C378F /* Localizable.strings */,
 			);
 			path = PlainPasta;
 			sourceTree = "<group>";
@@ -93,10 +92,10 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4A4E59332176AE7A002CF83D /* Build configuration list for PBXNativeTarget "Plain Pasta" */;
 			buildPhases = (
-				4A5E917721791748001C378F /* [Swiftlint] */,
 				4A4E591F2176AE7A002CF83D /* Sources */,
 				4A4E59202176AE7A002CF83D /* Frameworks */,
 				4A4E59212176AE7A002CF83D /* Resources */,
+				4A5E917721791748001C378F /* Run Swiftlint */,
 			);
 			buildRules = (
 			);
@@ -114,12 +113,12 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1000;
-				LastUpgradeCheck = 1000;
+				LastUpgradeCheck = 1200;
 				ORGANIZATIONNAME = Levelsoft;
 				TargetAttributes = {
 					4A4E59222176AE7A002CF83D = {
 						CreatedOnToolsVersion = 10.0;
-						LastSwiftMigration = 1020;
+						LastSwiftMigration = 1200;
 						SystemCapabilities = {
 							com.apple.Push = {
 								enabled = 0;
@@ -132,12 +131,11 @@
 				};
 			};
 			buildConfigurationList = 4A4E591E2176AE7A002CF83D /* Build configuration list for PBXProject "PlainPasta" */;
-			compatibilityVersion = "Xcode 10.0";
+			compatibilityVersion = "Xcode 11.4";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
-				Base,
 			);
 			mainGroup = 4A4E591A2176AE7A002CF83D;
 			productRefGroup = 4A4E59242176AE7A002CF83D /* Products */;
@@ -155,7 +153,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				4A4E592B2176AE7A002CF83D /* Assets.xcassets in Resources */,
-				4A5E917A2179183E001C378F /* Localizable.strings in Resources */,
 				4A4E592E2176AE7A002CF83D /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -163,7 +160,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		4A5E917721791748001C378F /* [Swiftlint] */ = {
+		4A5E917721791748001C378F /* Run Swiftlint */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -172,7 +169,7 @@
 			);
 			inputPaths = (
 			);
-			name = "[Swiftlint]";
+			name = "Run Swiftlint";
 			outputFileListPaths = (
 			);
 			outputPaths = (
@@ -189,6 +186,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4A4E59272176AE7A002CF83D /* AppDelegate.swift in Sources */,
+				4ADE040D24ECC23F0045181C /* Localizable.swift in Sources */,
 				4AA984F42178DF6500B64A3F /* PasteboardMonitor.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -199,17 +197,9 @@
 		4A4E592C2176AE7A002CF83D /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				F2E4F2EC22AED734006313B9 /* Base */,
+				4A9998E325040BE700141546 /* en */,
 			);
 			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		4A5E917C2179183E001C378F /* Localizable.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				4A5E917B2179183E001C378F /* en */,
-			);
-			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -241,6 +231,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -302,6 +293,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -339,6 +331,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = F2J52QJQ9Y;
+				ENABLE_HARDENED_RUNTIME = YES;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "$(SRCROOT)/PlainPasta/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -361,6 +354,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = F2J52QJQ9Y;
+				ENABLE_HARDENED_RUNTIME = YES;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "$(SRCROOT)/PlainPasta/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (

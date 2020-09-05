@@ -11,6 +11,7 @@ opt_in_rules:
 - number_separator
 - operator_usage_whitespace
 - redundant_nil_coalescing
+- trailing_whitespace
 - unneeded_parentheses_in_closure_argument
 
 disabled_rules:

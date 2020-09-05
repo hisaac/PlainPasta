@@ -1,5 +1,3 @@
-// Created by Isaac Halvorson on 10/18/18
-
 import AppKit
 import os.log
 
