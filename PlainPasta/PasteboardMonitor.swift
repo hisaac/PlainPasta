@@ -77,13 +77,20 @@ class PasteboardMonitor {
 			let wroteToPasteboard = pasteboard.writeObjects([newPasteboardItem])
 			if wroteToPasteboard {
 				internalChangeCount = pasteboard.changeCount
+				logPlaintextStringToConsole(plaintextString)
 			}
+		}
+	}
 
-			if #available(OSX 10.14, *) {
-				os_log(.info, "plaintext pasteboard content: %@", plaintextString)
-			} else {
-				os_log("plaintext pasteboard content: %@", log: .default, type: .info, plaintextString)
-			}
+	private func logPlaintextStringToConsole(_ plaintextString: String) {
+		let debugFormatString: String = "plaintext pasteboard content: %@"
+		let debugFormatStaticString: StaticString = "plaintext pasteboard content: %@"
+		if #available(OSX 10.14, *) {
+			os_log(.info, debugFormatStaticString, plaintextString)
+		} else if #available(OSX 10.12, *) {
+			os_log(debugFormatStaticString, log: .default, type: .info, plaintextString)
+		} else {
+			NSLog(debugFormatString, plaintextString)
 		}
 	}
 
