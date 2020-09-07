@@ -1,5 +1,3 @@
-// Created by Isaac Halvorson on 10/18/18
-
 import AppKit
 import os.log
 
@@ -14,54 +12,85 @@ class PasteboardMonitor {
 	private let pasteboard = NSPasteboard.general
 	private var internalChangeCount = NSPasteboard.general.changeCount
 	private var previousPasteboard: String?
-	private var timer: Timer?
+	private let timer = DispatchSource.makeTimerSource()
 
 	init() {
+		timer.schedule(deadline: .now(), repeating: .milliseconds(100))
+		timer.setEventHandler { [weak self] in
+			self?.checkPasteboard()
+		}
+
 		startTimer()
 	}
 
+	deinit {
+		stopTimer()
+	}
+
 	/// The current state of the pasteboard monitor
-	var enabledState: Bool = true {
-		didSet { enabledState ? startTimer() : stopTimer() }
+	var isEnabled: Bool = true {
+		didSet {
+			if isEnabled {
+				startTimer()
+			} else {
+				stopTimer()
+			}
+		}
 	}
 
 	/// Starts monitoring the pasteboard, and sets the menu item's state to enabled
 	private func startTimer() {
 		delegate?.enabledMenuItem.state = .on
-		timer = Timer.scheduledTimer(withTimeInterval: 0.1, repeats: true) { _ in
-			self.checkPasteboard()
-		}
+		timer.resume()
 	}
 
 	/// Stops monitoring the pasteboard, and sets the menu item's state to disabled
 	private func stopTimer() {
 		delegate?.enabledMenuItem.state = .off
-		timer?.invalidate()
+		timer.cancel()
 	}
 
-	/// Checks the pasteboard for textual contents, and strips the formatting if possible
+	/// Checks the pasteboard for styled text contents, and strips the formatting if possible
 	private func checkPasteboard() {
 		if internalChangeCount != pasteboard.changeCount {
 
 			// Check to see if the item on the pasteboard is a file or directory, and exit if it is
 			guard pasteboard.availableType(from: [.fileName]) == nil else { return }
 
-			// Convert the pasteboard content into a plaintext string if possible
-			guard let plaintextString = pasteboard.string(forType: .string) else { return }
+			// Check to see if there is styled text on the pasteboard, and exit if not
+			guard pasteboard.availableType(from: [.rtf, .rtfd]) != nil else { return }
 
-			if plaintextString != previousPasteboard {
-				previousPasteboard = plaintextString
-				pasteboard.clearContents()
-				pasteboard.setString(plaintextString, forType: .string)
+			guard let pasteboardItem = pasteboard.pasteboardItems?.first else { return }
+			guard let plaintextString = pasteboardItem.string(forType: .string) else { return }
 
-				internalChangeCount = pasteboard.changeCount
-
-				if #available(OSX 10.14, *) {
-					os_log(.info, "plaintext pasteboard content: %@", plaintextString)
+			let newPasteboardItem = NSPasteboardItem()
+			for type in pasteboardItem.types {
+				if type == .rtf || type == .rtfd {
+					newPasteboardItem.setString(plaintextString, forType: type)
 				} else {
-					os_log("plaintext pasteboard content: %@", log: .default, type: .info, plaintextString)
+					guard let data = pasteboardItem.data(forType: type) else { continue }
+					newPasteboardItem.setData(data, forType: type)
 				}
 			}
+
+			pasteboard.clearContents()
+			let wroteToPasteboard = pasteboard.writeObjects([newPasteboardItem])
+			if wroteToPasteboard {
+				internalChangeCount = pasteboard.changeCount
+				logPlaintextStringToConsole(plaintextString)
+			}
+		}
+	}
+
+	private func logPlaintextStringToConsole(_ plaintextString: String) {
+		let debugFormatString: String = "plaintext pasteboard content: %@"
+		let debugFormatStaticString: StaticString = "plaintext pasteboard content: %@"
+		if #available(OSX 10.14, *) {
+			os_log(.info, debugFormatStaticString, plaintextString)
+		} else if #available(OSX 10.12, *) {
+			os_log(debugFormatStaticString, log: .default, type: .info, plaintextString)
+		} else {
+			NSLog(debugFormatString, plaintextString)
 		}
 	}
 
