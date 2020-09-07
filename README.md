@@ -40,8 +40,3 @@ I've used FormatMatch for many years. I would've happily used it for many more y
 
 - Icon image is [Noodles by Paolo Valzania from the Noun Project](https://thenounproject.com/search/?q=noodle&i=1681744)
 - Clipboard monitoring code based on [klipsustreamer](https://github.com/lahdekorpi/klipsustreamer) by [Toni Lähdekorpi](https://github.com/lahdekorpi)
-
-<!--
-- [ ] Let this guy know I released the app: <https://twitter.com/hisaac/status/775131593878888452>
-- [ ] Let this other guy know I released the app: <https://twitter.com/nwstrauss_/status/1295545592270278657?s=21>
--->
