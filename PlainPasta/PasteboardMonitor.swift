@@ -60,8 +60,9 @@ class PasteboardMonitor {
 				return
 			}
 
+			let filteredPasteboardItem = pasteboardItem.plaintextifiedCopy
 			pasteboard.clearContents()
-			let wroteToPasteboard = pasteboard.writeObjects([pasteboardItem.plaintextifiedCopy])
+			let wroteToPasteboard = pasteboard.writeObjects([filteredPasteboardItem])
 			if wroteToPasteboard {
 				internalChangeCount = pasteboard.changeCount
 				logPlaintextStringToConsole(plaintextString)
@@ -81,15 +82,6 @@ class PasteboardMonitor {
 		} else {
 			NSLog(debugFormatString, plaintextString)
 		}
-	}
-
-	/// Prints the string representation of the contents of the pasteboard
-	private func printPasteboardContentToConsole() {
-		print("Pasteboard Content:")
-		for type in pasteboard.types ?? [] {
-			print("\n• \(type): \(pasteboard.string(forType: type) ?? "Cannot be represented as a String")")
-		}
-		print("\n")
 	}
 
 }
