@@ -54,30 +54,19 @@ class PasteboardMonitor {
 	private func checkPasteboard() {
 		if internalChangeCount != pasteboard.changeCount {
 
-			// Check to see if the item on the pasteboard is a file or directory, and exit if it is
-			guard pasteboard.availableType(from: [.fileName]) == nil else { return }
-
-			// Check to see if there is styled text on the pasteboard, and exit if not
-			guard pasteboard.availableType(from: [.rtf, .rtfd]) != nil else { return }
-
-			guard let pasteboardItem = pasteboard.pasteboardItems?.first else { return }
-			guard let plaintextString = pasteboardItem.string(forType: .string) else { return }
-
-			let newPasteboardItem = NSPasteboardItem()
-			for type in pasteboardItem.types {
-				if type == .rtf || type == .rtfd {
-					newPasteboardItem.setString(plaintextString, forType: type)
-				} else {
-					guard let data = pasteboardItem.data(forType: type) else { continue }
-					newPasteboardItem.setData(data, forType: type)
-				}
+			guard let pasteboardItem = pasteboard.pasteboardItems?.first,
+			      let plaintextString = pasteboardItem.string(forType: .string) else {
+				internalChangeCount = pasteboard.changeCount
+				return
 			}
 
 			pasteboard.clearContents()
-			let wroteToPasteboard = pasteboard.writeObjects([newPasteboardItem])
+			let wroteToPasteboard = pasteboard.writeObjects([pasteboardItem.plaintextifiedCopy])
 			if wroteToPasteboard {
 				internalChangeCount = pasteboard.changeCount
 				logPlaintextStringToConsole(plaintextString)
+			} else {
+				print("Unable to write new pasteboard item to pasteboard")
 			}
 		}
 	}
@@ -94,16 +83,13 @@ class PasteboardMonitor {
 		}
 	}
 
-}
+	/// Prints the string representation of the contents of the pasteboard
+	private func printPasteboardContentToConsole() {
+		print("Pasteboard Content:")
+		for type in pasteboard.types ?? [] {
+			print("\n• \(type): \(pasteboard.string(forType: type) ?? "Cannot be represented as a String")")
+		}
+		print("\n")
+	}
 
-extension NSPasteboard.PasteboardType {
-
-	/// The name of a file or directory
-	///
-	/// This extension gives access to the `NSFilenamesPboardType` PasteboardType that was removed in Swift 4.
-	/// (via [this Stack Overflow answer](https://stackoverflow.com/a/46254276))
-	///
-	static let fileName: NSPasteboard.PasteboardType = {
-		return NSPasteboard.PasteboardType("NSFilenamesPboardType")
-	}()
 }
