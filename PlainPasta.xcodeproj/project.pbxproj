@@ -26,7 +26,7 @@
 		4A8A68192176C5F500A4F1D8 /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		4A8A681A2176C5F500A4F1D8 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		4A9998E325040BE700141546 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/Main.storyboard; sourceTree = "<group>"; };
-		4AA7338A25073CBE00C9E7FC /* NSPasteboardItem+Extras.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSPasteboardItem+Extras.swift"; sourceTree = SOURCE_ROOT; };
+		4AA7338A25073CBE00C9E7FC /* NSPasteboardItem+Extras.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "NSPasteboardItem+Extras.swift"; path = "PlainPasta/NSPasteboardItem+Extras.swift"; sourceTree = SOURCE_ROOT; };
 		4AA7338C2507431400C9E7FC /* Assets */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Assets; sourceTree = "<group>"; };
 		4AA7338D2507431400C9E7FC /* docs */ = {isa = PBXFileReference; lastKnownFileType = folder; path = docs; sourceTree = "<group>"; };
 		4AA984F32178DF6500B64A3F /* PasteboardMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasteboardMonitor.swift; sourceTree = "<group>"; };
