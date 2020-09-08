@@ -2,6 +2,14 @@ import AppKit
 
 extension NSPasteboardItem {
 
+	open override var debugDescription: String {
+		var debugDescription = "Pasteboard Content:\n"
+		for type in self.types {
+			debugDescription += "\n• \(type): \(self.string(forType: type) ?? "Cannot be represented as a String")"
+		}
+		return "\(debugDescription)\n"
+	}
+
 	/// A copy of the pasteboard item with all styled text removed
 	var plaintextifiedCopy: NSPasteboardItem {
 
