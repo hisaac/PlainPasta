@@ -4,6 +4,17 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## [1.1.3] - 2020-09-10
+
+### Fixed
+
+- Fixes a crash that would happen if you enabled, disabled, then re-enabled filtering again.
+	- This was caused by trying to re-enable a cancelled GCD timer. The fix was to "suspend" the timer rather than cancel it.
+
+### Added
+
+- Adds a unit test target and some unit tests to verify the pasteboard filtering functionality
+
 ## [1.1.2] - 2020-09-08
 
 ### Fixed
@@ -53,3 +64,4 @@ Initial release! 🎉
 [1.1.0]: https://github.com/hisaac/PlainPasta/compare/1.0.0...1.1.0
 [1.1.1]: https://github.com/hisaac/PlainPasta/compare/1.1.0...1.1.1
 [1.1.2]: https://github.com/hisaac/PlainPasta/compare/1.1.1...1.1.2
+[1.1.3]: https://github.com/hisaac/PlainPasta/compare/1.1.2...1.1.3
