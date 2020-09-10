@@ -7,17 +7,25 @@ protocol PasteboardMonitorDelegate: class {
 
 class PasteboardMonitor {
 
-	weak var delegate: PasteboardMonitorDelegate?
+	/// The pasteboard to monitor
+	let pasteboard: NSPasteboard
 
-	private let pasteboard = NSPasteboard.general
-	private var internalChangeCount = NSPasteboard.general.changeCount
-	private var previousPasteboard: String?
+	/// The change count used to compare to the given pasteboard's change count
+	/// Initially set to the given pasteboard's change count
+	private var internalChangeCount: Int
+
+	weak var delegate: PasteboardMonitorDelegate?
 	private let timer = DispatchSource.makeTimerSource()
 
-	init() {
+	init(for pasteboard: NSPasteboard) {
+		self.pasteboard = pasteboard
+		self.internalChangeCount = self.pasteboard.changeCount
+
 		timer.schedule(deadline: .now(), repeating: .milliseconds(100))
 		timer.setEventHandler { [weak self] in
-			self?.checkPasteboard()
+			if let pasteboard = self?.pasteboard {
+				self?.checkPasteboard(pasteboard)
+			}
 		}
 
 		startTimer()
@@ -29,13 +37,7 @@ class PasteboardMonitor {
 
 	/// The current state of the pasteboard monitor
 	var isEnabled: Bool = true {
-		didSet {
-			if isEnabled {
-				startTimer()
-			} else {
-				stopTimer()
-			}
-		}
+		didSet { isEnabled ? startTimer() : stopTimer() }
 	}
 
 	/// Starts monitoring the pasteboard, and sets the menu item's state to enabled
@@ -51,25 +53,23 @@ class PasteboardMonitor {
 	}
 
 	/// Checks the pasteboard for styled text contents, and strips the formatting if possible
-	private func checkPasteboard() {
-		if internalChangeCount != pasteboard.changeCount {
+	func checkPasteboard(_ pasteboard: NSPasteboard) {
+		guard internalChangeCount != pasteboard.changeCount else { return }
 
-			guard let pasteboardItem = pasteboard.pasteboardItems?.first,
-			      let plaintextString = pasteboardItem.string(forType: .string) else {
-				internalChangeCount = pasteboard.changeCount
-				return
-			}
+		if let pasteboardItem = pasteboard.pasteboardItems?.first,
+		   let plaintextString = pasteboardItem.string(forType: .string) {
 
 			let filteredPasteboardItem = pasteboardItem.plaintextifiedCopy
 			pasteboard.clearContents()
 			let wroteToPasteboard = pasteboard.writeObjects([filteredPasteboardItem])
 			if wroteToPasteboard {
-				internalChangeCount = pasteboard.changeCount
 				logPlaintextStringToConsole(plaintextString)
 			} else {
 				print("Unable to write new pasteboard item to pasteboard")
 			}
 		}
+
+		internalChangeCount = pasteboard.changeCount
 	}
 
 	private func logPlaintextStringToConsole(_ plaintextString: String) {

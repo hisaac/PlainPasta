@@ -141,6 +141,8 @@
 				4A4025112509AF5100F893AA /* PBXTargetDependency */,
 			);
 			name = PlainPastaTests;
+			packageProductDependencies = (
+			);
 			productName = PlainPastaTests;
 			productReference = 4A40250B2509AF5100F893AA /* PlainPastaTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
@@ -199,6 +201,8 @@
 				en,
 			);
 			mainGroup = 4A4E591A2176AE7A002CF83D;
+			packageReferences = (
+			);
 			productRefGroup = 4A4E59242176AE7A002CF83D /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
