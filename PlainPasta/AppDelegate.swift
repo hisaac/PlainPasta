@@ -5,7 +5,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, PasteboardMonitorDelegate {
 
 	// MARK: - Initialization
 
-	let pasteboardMonitor = PasteboardMonitor()
+	let pasteboardMonitor = PasteboardMonitor(for: NSPasteboard.general)
 
 	let menuBarItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.squareLength)
 
