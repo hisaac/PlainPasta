@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4A40250E2509AF5100F893AA /* PlainPastaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A40250D2509AF5100F893AA /* PlainPastaTests.swift */; };
 		4A4E59272176AE7A002CF83D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A4E59262176AE7A002CF83D /* AppDelegate.swift */; };
 		4A4E592B2176AE7A002CF83D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4A4E592A2176AE7A002CF83D /* Assets.xcassets */; };
 		4A4E592E2176AE7A002CF83D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4A4E592C2176AE7A002CF83D /* Main.storyboard */; };
@@ -15,7 +16,20 @@
 		4ADE040D24ECC23F0045181C /* Localizable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ADE040C24ECC23F0045181C /* Localizable.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		4A4025102509AF5100F893AA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4A4E591B2176AE7A002CF83D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4A4E59222176AE7A002CF83D;
+			remoteInfo = "Plain Pasta";
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
+		4A40250B2509AF5100F893AA /* PlainPastaTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PlainPastaTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		4A40250D2509AF5100F893AA /* PlainPastaTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlainPastaTests.swift; sourceTree = "<group>"; };
+		4A40250F2509AF5100F893AA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4A4E59232176AE7A002CF83D /* Plain Pasta.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Plain Pasta.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4A4E59262176AE7A002CF83D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4A4E592A2176AE7A002CF83D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -35,6 +49,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		4A4025082509AF5100F893AA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		4A4E59202176AE7A002CF83D /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -52,12 +73,22 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		4A40250C2509AF5100F893AA /* PlainPastaTests */ = {
+			isa = PBXGroup;
+			children = (
+				4A40250D2509AF5100F893AA /* PlainPastaTests.swift */,
+				4A40250F2509AF5100F893AA /* Info.plist */,
+			);
+			path = PlainPastaTests;
+			sourceTree = "<group>";
+		};
 		4A4E591A2176AE7A002CF83D = {
 			isa = PBXGroup;
 			children = (
 				4A8A681A2176C5F500A4F1D8 /* README.md */,
 				4A8A68182176C5F500A4F1D8 /* changelog.md */,
 				4A4E59252176AE7A002CF83D /* PlainPasta */,
+				4A40250C2509AF5100F893AA /* PlainPastaTests */,
 				4A8A68192176C5F500A4F1D8 /* LICENSE */,
 				4A8A68172176C5F500A4F1D8 /* .swiftlint.yml */,
 				4A8A68162176C5F500A4F1D8 /* .gitignore */,
@@ -73,6 +104,7 @@
 			isa = PBXGroup;
 			children = (
 				4A4E59232176AE7A002CF83D /* Plain Pasta.app */,
+				4A40250B2509AF5100F893AA /* PlainPastaTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -95,6 +127,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		4A40250A2509AF5100F893AA /* PlainPastaTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4A4025142509AF5100F893AA /* Build configuration list for PBXNativeTarget "PlainPastaTests" */;
+			buildPhases = (
+				4A4025072509AF5100F893AA /* Sources */,
+				4A4025082509AF5100F893AA /* Frameworks */,
+				4A4025092509AF5100F893AA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				4A4025112509AF5100F893AA /* PBXTargetDependency */,
+			);
+			name = PlainPastaTests;
+			productName = PlainPastaTests;
+			productReference = 4A40250B2509AF5100F893AA /* PlainPastaTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		4A4E59222176AE7A002CF83D /* Plain Pasta */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4A4E59332176AE7A002CF83D /* Build configuration list for PBXNativeTarget "Plain Pasta" */;
@@ -119,10 +169,14 @@
 		4A4E591B2176AE7A002CF83D /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1000;
+				LastSwiftUpdateCheck = 1200;
 				LastUpgradeCheck = 1200;
 				ORGANIZATIONNAME = Levelsoft;
 				TargetAttributes = {
+					4A40250A2509AF5100F893AA = {
+						CreatedOnToolsVersion = 12.0;
+						TestTargetID = 4A4E59222176AE7A002CF83D;
+					};
 					4A4E59222176AE7A002CF83D = {
 						CreatedOnToolsVersion = 10.0;
 						LastSwiftMigration = 1200;
@@ -150,11 +204,19 @@
 			projectRoot = "";
 			targets = (
 				4A4E59222176AE7A002CF83D /* Plain Pasta */,
+				4A40250A2509AF5100F893AA /* PlainPastaTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		4A4025092509AF5100F893AA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		4A4E59212176AE7A002CF83D /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -188,6 +250,14 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		4A4025072509AF5100F893AA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4A40250E2509AF5100F893AA /* PlainPastaTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		4A4E591F2176AE7A002CF83D /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -201,6 +271,14 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		4A4025112509AF5100F893AA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 4A4E59222176AE7A002CF83D /* Plain Pasta */;
+			targetProxy = 4A4025102509AF5100F893AA /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin PBXVariantGroup section */
 		4A4E592C2176AE7A002CF83D /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
@@ -213,6 +291,48 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		4A4025122509AF5100F893AA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = F2J52QJQ9Y;
+				INFOPLIST_FILE = PlainPastaTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				PRODUCT_BUNDLE_IDENTIFIER = software.level.PlainPastaTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Plain Pasta.app/Contents/MacOS/Plain Pasta";
+			};
+			name = Debug;
+		};
+		4A4025132509AF5100F893AA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = F2J52QJQ9Y;
+				INFOPLIST_FILE = PlainPastaTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				PRODUCT_BUNDLE_IDENTIFIER = software.level.PlainPastaTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Plain Pasta.app/Contents/MacOS/Plain Pasta";
+			};
+			name = Release;
+		};
 		4A4E59312176AE7A002CF83D /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -381,6 +501,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		4A4025142509AF5100F893AA /* Build configuration list for PBXNativeTarget "PlainPastaTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4A4025122509AF5100F893AA /* Debug */,
+				4A4025132509AF5100F893AA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		4A4E591E2176AE7A002CF83D /* Build configuration list for PBXProject "PlainPasta" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
