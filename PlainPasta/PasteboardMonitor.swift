@@ -28,28 +28,33 @@ class PasteboardMonitor {
 			}
 		}
 
-		startTimer()
+		enable()
 	}
 
 	deinit {
-		stopTimer()
+		timer.setEventHandler {}
+		timer.cancel()
+
+		// If the timer is suspended, calling cancel without resuming triggers a crash.
+		// This is documented here: https://forums.developer.apple.com/thread/15902
+		timer.resume()
 	}
 
 	/// The current state of the pasteboard monitor
 	var isEnabled: Bool = true {
-		didSet { isEnabled ? startTimer() : stopTimer() }
+		didSet { isEnabled ? enable() : disable() }
 	}
 
 	/// Starts monitoring the pasteboard, and sets the menu item's state to enabled
-	private func startTimer() {
+	private func enable() {
 		delegate?.enabledMenuItem.state = .on
 		timer.resume()
 	}
 
 	/// Stops monitoring the pasteboard, and sets the menu item's state to disabled
-	private func stopTimer() {
+	private func disable() {
 		delegate?.enabledMenuItem.state = .off
-		timer.cancel()
+		timer.suspend()
 	}
 
 	/// Checks the pasteboard for styled text contents, and strips the formatting if possible
