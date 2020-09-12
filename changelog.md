@@ -4,6 +4,13 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## [1.1.4] - 2020-09-12
+
+### Added
+
+- Adds `.html` to the pasteboard types to filter.
+- Adds a test for the `.html` filter.
+
 ## [1.1.3] - 2020-09-10
 
 ### Fixed
@@ -65,3 +72,4 @@ Initial release! 🎉
 [1.1.1]: https://github.com/hisaac/PlainPasta/compare/1.1.0...1.1.1
 [1.1.2]: https://github.com/hisaac/PlainPasta/compare/1.1.1...1.1.2
 [1.1.3]: https://github.com/hisaac/PlainPasta/compare/1.1.2...1.1.3
+[1.1.4]: https://github.com/hisaac/PlainPasta/compare/1.1.3...1.1.4
