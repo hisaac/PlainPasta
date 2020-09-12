@@ -10,7 +10,7 @@ It sits in your menu bar, and watches your clipboard for text, removes any styli
 
 I made this app because I rarely want styling to be copied to my clipboard. When I copy text, all I want is the text.
 
-Download the most recent version of Plain Pasta from the [Releases page](https://github.com/hisaac/PlainPasta/releases).
+Download the most recent version of Plain Pasta from the [Mac App Store](https://apps.apple.com/us/app/plain-pasta/id1467796430).
 
 ## Demonstration
 

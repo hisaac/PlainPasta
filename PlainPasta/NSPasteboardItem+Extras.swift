@@ -15,6 +15,7 @@ extension NSPasteboardItem {
 
 		/// All of the types of pasteboard data to filter out when copying pasteboard data
 		let pasteboardTypeFilterList: [NSPasteboard.PasteboardType] = [
+			.html,
 			.rtf,
 			.rtfd,
 			NSPasteboard.PasteboardType("public.url-name"),

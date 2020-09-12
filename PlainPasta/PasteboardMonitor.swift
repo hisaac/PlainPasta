@@ -34,10 +34,6 @@ class PasteboardMonitor {
 	deinit {
 		timer.setEventHandler {}
 		timer.cancel()
-
-		// If the timer is suspended, calling cancel without resuming triggers a crash.
-		// This is documented here: https://forums.developer.apple.com/thread/15902
-		timer.resume()
 	}
 
 	/// The current state of the pasteboard monitor

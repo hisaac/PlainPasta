@@ -29,6 +29,7 @@ class PlainPastaTests: XCTestCase {
 		mockPasteboardItem.setData(Data(), forType: .pdf)
 
 		// Pasteboard types Plain Pasta will explicitly filter
+		mockPasteboardItem.setString("html", forType: .html)
 		mockPasteboardItem.setString("rtf", forType: .rtf)
 		mockPasteboardItem.setString("rtfd", forType: .rtfd)
 		mockPasteboardItem.setString(
@@ -58,6 +59,7 @@ class PlainPastaTests: XCTestCase {
 		XCTAssertNotNil(filteredComplexPasteboardItem.data(forType: .pdf))
 
 		// Check types that should have been filtered
+		XCTAssertNil(filteredComplexPasteboardItem.string(forType: .html))
 		XCTAssertNil(filteredComplexPasteboardItem.string(forType: .rtf))
 		XCTAssertNil(filteredComplexPasteboardItem.string(forType: .rtfd))
 		XCTAssertNil(
