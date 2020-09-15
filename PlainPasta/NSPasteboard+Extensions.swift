@@ -18,8 +18,9 @@ extension NSPasteboardItem {
 			.html,
 			.rtf,
 			.rtfd,
-			NSPasteboard.PasteboardType("public.url-name"),
+			NSPasteboard.PasteboardType("com.apple.webarchive"),
 			NSPasteboard.PasteboardType("CorePasteboardFlavorType 0x75726C6E"),
+			NSPasteboard.PasteboardType("public.url-name"),
 			NSPasteboard.PasteboardType("WebURLsWithTitlesPboardType")
 		]
 

@@ -33,20 +33,24 @@ class PlainPastaTests: XCTestCase {
 		mockPasteboardItem.setString("rtf", forType: .rtf)
 		mockPasteboardItem.setString("rtfd", forType: .rtfd)
 		mockPasteboardItem.setString(
-			"public.url-name",
-			forType: NSPasteboard.PasteboardType("public.url-name")
+			"com.apple.webarchive",
+			forType: NSPasteboard.PasteboardType("com.apple.webarchive")
 		)
 		mockPasteboardItem.setString(
 			"CorePasteboardFlavorType 0x75726C6E",
 			forType: NSPasteboard.PasteboardType("CorePasteboardFlavorType 0x75726C6E")
 		)
 		mockPasteboardItem.setString(
-			"WebURLsWithTitlesPboardType",
-			forType: NSPasteboard.PasteboardType("WebURLsWithTitlesPboardType")
+			"dyn.foo",
+			forType: NSPasteboard.PasteboardType("dyn.foo")
 		)
 		mockPasteboardItem.setString(
-			"dyn.",
-			forType: NSPasteboard.PasteboardType("dyn.foo")
+			"public.url-name",
+			forType: NSPasteboard.PasteboardType("public.url-name")
+		)
+		mockPasteboardItem.setString(
+			"WebURLsWithTitlesPboardType",
+			forType: NSPasteboard.PasteboardType("WebURLsWithTitlesPboardType")
 		)
 
 		// When
@@ -63,16 +67,19 @@ class PlainPastaTests: XCTestCase {
 		XCTAssertNil(filteredComplexPasteboardItem.string(forType: .rtf))
 		XCTAssertNil(filteredComplexPasteboardItem.string(forType: .rtfd))
 		XCTAssertNil(
-			filteredComplexPasteboardItem.string(forType: NSPasteboard.PasteboardType("public.url-name"))
+			filteredComplexPasteboardItem.string(forType: NSPasteboard.PasteboardType("com.apple.webarchive"))
 		)
 		XCTAssertNil(
 			filteredComplexPasteboardItem.string(forType: NSPasteboard.PasteboardType("CorePasteboardFlavorType 0x75726C6E"))
 		)
 		XCTAssertNil(
-			filteredComplexPasteboardItem.string(forType: NSPasteboard.PasteboardType("WebURLsWithTitlesPboardType"))
+			filteredComplexPasteboardItem.string(forType: NSPasteboard.PasteboardType("dyn.foo"))
 		)
 		XCTAssertNil(
-			filteredComplexPasteboardItem.string(forType: NSPasteboard.PasteboardType("dyn.foo"))
+			filteredComplexPasteboardItem.string(forType: NSPasteboard.PasteboardType("public.url-name"))
+		)
+		XCTAssertNil(
+			filteredComplexPasteboardItem.string(forType: NSPasteboard.PasteboardType("WebURLsWithTitlesPboardType"))
 		)
 	}
 
