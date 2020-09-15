@@ -1,10 +1,6 @@
 import AppKit
 import os.log
 
-protocol PasteboardMonitorDelegate: class {
-	var enabledMenuItem: NSMenuItem { get }
-}
-
 class PasteboardMonitor {
 
 	/// The pasteboard to monitor
@@ -14,46 +10,17 @@ class PasteboardMonitor {
 	/// Initially set to the given pasteboard's change count
 	private var internalChangeCount: Int
 
-	weak var delegate: PasteboardMonitorDelegate?
-	private let timer = DispatchSource.makeTimerSource()
+	private var timer: Timer?
+
+	private (set) var isEnabled = false
 
 	init(for pasteboard: NSPasteboard) {
 		self.pasteboard = pasteboard
-		self.internalChangeCount = self.pasteboard.changeCount
-
-		timer.schedule(deadline: .now(), repeating: .milliseconds(100))
-		timer.setEventHandler { [weak self] in
-			if let pasteboard = self?.pasteboard {
-				self?.checkPasteboard(pasteboard)
-			}
-		}
-
-		enable()
-	}
-
-	deinit {
-		timer.setEventHandler {}
-		timer.cancel()
-	}
-
-	/// The current state of the pasteboard monitor
-	var isEnabled: Bool = true {
-		didSet { isEnabled ? enable() : disable() }
-	}
-
-	/// Starts monitoring the pasteboard, and sets the menu item's state to enabled
-	private func enable() {
-		delegate?.enabledMenuItem.state = .on
-		timer.resume()
-	}
-
-	/// Stops monitoring the pasteboard, and sets the menu item's state to disabled
-	private func disable() {
-		delegate?.enabledMenuItem.state = .off
-		timer.suspend()
+		self.internalChangeCount = pasteboard.changeCount
 	}
 
 	/// Checks the pasteboard for styled text contents, and strips the formatting if possible
+	/// - Parameter pasteboard: The pasteboard to check and write to if necessary
 	func checkPasteboard(_ pasteboard: NSPasteboard) {
 		guard internalChangeCount != pasteboard.changeCount else { return }
 
@@ -64,25 +31,31 @@ class PasteboardMonitor {
 			pasteboard.clearContents()
 			let wroteToPasteboard = pasteboard.writeObjects([filteredPasteboardItem])
 			if wroteToPasteboard {
-				logPlaintextStringToConsole(plaintextString)
+				os_log("%@", type: .debug, plaintextString)
 			} else {
-				print("Unable to write new pasteboard item to pasteboard")
+				os_log("%@", type: .default, "Unable to write new pasteboard item to pasteboard")
 			}
 		}
 
 		internalChangeCount = pasteboard.changeCount
 	}
 
-	private func logPlaintextStringToConsole(_ plaintextString: String) {
-		let debugFormatString: String = "plaintext pasteboard content: %@"
-		let debugFormatStaticString: StaticString = "plaintext pasteboard content: %@"
-		if #available(OSX 10.14, *) {
-			os_log(.info, debugFormatStaticString, plaintextString)
-		} else if #available(OSX 10.12, *) {
-			os_log(debugFormatStaticString, log: .default, type: .info, plaintextString)
-		} else {
-			NSLog(debugFormatString, plaintextString)
+}
+
+extension PasteboardMonitor: Enablable {
+	func enable() {
+		guard isEnabled == false else { return }
+		isEnabled = true
+
+		timer = Timer.scheduledTimer(withTimeInterval: 0.001, repeats: true) { [weak self] _ in
+			guard let pasteboard = self?.pasteboard else { return }
+			self?.checkPasteboard(pasteboard)
 		}
 	}
 
+	func disable() {
+		guard isEnabled == true else { return }
+		isEnabled = false
+		timer?.invalidate()
+	}
 }

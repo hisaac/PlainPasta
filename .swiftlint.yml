@@ -18,6 +18,7 @@ disabled_rules:
 - closure_end_indentation
 - function_parameter_count
 - identifier_name
+- line_length
 - redundant_string_enum_value
 - superfluous_disable_command
 - unused_closure_parameter
@@ -25,10 +26,6 @@ disabled_rules:
 excluded:
 - Carthage
 - Pods
-
-line_length:
-  ignores_comments: true
-  ignores_function_declarations: true
 
 file_length:
   ignore_comment_only_lines: true

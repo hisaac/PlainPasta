@@ -108,7 +108,7 @@ class PlainPastaTests: XCTestCase {
 
 		// Then
 		let firstPasteboardItem = try XCTUnwrap(mockPasteboard.pasteboardItems?.first)
-		XCTAssertEqual(firstPasteboardItem, mockPasteboardItem)
+		XCTAssertEqual(firstPasteboardItem.string(forType: .string), "string")
 	}
 
 	func testPasteboardMonitorDoesNothingIfInternalChangeCountAndPasteboardChangeCountEqual() throws {

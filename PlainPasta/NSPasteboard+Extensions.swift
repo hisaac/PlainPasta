@@ -4,8 +4,8 @@ extension NSPasteboardItem {
 
 	open override var debugDescription: String {
 		var debugDescription = "Pasteboard Content:\n"
-		for type in self.types {
-			debugDescription += "\n• \(type): \(self.string(forType: type) ?? "Cannot be represented as a String")"
+		for type in types {
+			debugDescription += "\n\(type): \(string(forType: type) ?? "Cannot be represented as a String")"
 		}
 		return "\(debugDescription)\n"
 	}
@@ -24,11 +24,11 @@ extension NSPasteboardItem {
 		]
 
 		let newPasteboardItem = NSPasteboardItem()
-		for type in self.types {
+		for type in types {
 			// Filter out any dynamic pasteboard types, and any types in our "avoid" list
 			guard type.rawValue.hasPrefix("dyn.") == false,
 				pasteboardTypeFilterList.contains(type) == false,
-				let data = self.data(forType: type) else {
+				let data = data(forType: type) else {
 					continue
 			}
 
