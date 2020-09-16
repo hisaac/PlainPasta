@@ -4,6 +4,16 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## [1.1.5] - 2020-09-15
+
+### Changed
+
+- Significant refactor of code structure to make future updates easier.
+
+### Fixed
+
+- Adds the `com.apple.webarchive` pasteboard type to the filter list, to fix an issue specifically with copying styled text from a web page, and pasting into a Gmail compose field (Thanks to Christopher Stout for the bug report).
+
 ## [1.1.4] - 2020-09-12
 
 This is the first version released to the Mac App Store! Going forward, the MAS will be the preferred place to download the app.
@@ -81,3 +91,4 @@ Initial release! 🎉
 [1.1.2]: https://github.com/hisaac/PlainPasta/compare/1.1.1...1.1.2
 [1.1.3]: https://github.com/hisaac/PlainPasta/compare/1.1.2...1.1.3
 [1.1.4]: https://github.com/hisaac/PlainPasta/compare/1.1.3...1.1.4
+[1.1.5]: https://github.com/hisaac/PlainPasta/compare/1.1.4...1.1.5
