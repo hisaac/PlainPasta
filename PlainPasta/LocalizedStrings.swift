@@ -39,19 +39,10 @@ enum LocalizedStrings {
 		comment: "The word for 'Version'"
 	)
 
-	/// Localized version of the word "build"
-	/// For use in representing the app's build number
-	static let buildTitle = NSLocalizedString(
-		"buildTitle",
-		value: "build",
-		comment: "The word for 'build'"
-	)
-
-	/// Localized version of the app's full version and build number
-	/// Formatted as: "Version 1.0.1 (build 12)"
+	/// Localized version of the app's version number
+	/// Formatted as: "Version 1.0.1"
 	static var appVersion: String {
 		let versionNumber = Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as? String ?? "?"
-		let buildNumber = Bundle.main.object(forInfoDictionaryKey: "CFBundleVersion") as? String ?? "?"
-		return "\(versionTitle) \(versionNumber) (\(buildTitle) \(buildNumber))"
+		return "\(versionTitle) \(versionNumber)"
 	}
 }

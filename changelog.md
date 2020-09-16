@@ -9,6 +9,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 ### Changed
 
 - Significant refactor of code structure to make future updates easier.
+- Changed build numbering scheme to comply with App Store requirements.
 
 ### Fixed
 
