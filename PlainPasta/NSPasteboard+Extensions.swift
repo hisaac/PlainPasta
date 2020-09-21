@@ -11,25 +11,12 @@ extension NSPasteboardItem {
 	}
 
 	/// A copy of the pasteboard item with all styled text removed
-	var plaintextifiedCopy: NSPasteboardItem {
-
-		/// All of the types of pasteboard data to filter out when copying pasteboard data
-		let pasteboardTypeFilterList: [NSPasteboard.PasteboardType] = [
-			.html,
-			.rtf,
-			.rtfd,
-			NSPasteboard.PasteboardType("com.apple.webarchive"),
-			NSPasteboard.PasteboardType("CorePasteboardFlavorType 0x75726C6E"),
-			NSPasteboard.PasteboardType("public.url-name"),
-			NSPasteboard.PasteboardType("WebURLsWithTitlesPboardType"),
-			NSPasteboard.PasteboardType("com.apple.WebKit.custom-pasteboard-data")
-		]
-
+	func plaintextifiedCopy(filteredTypes: [NSPasteboard.PasteboardType] = PasteboardMonitor.pasteboardTypeFilterList) -> NSPasteboardItem {
 		let newPasteboardItem = NSPasteboardItem()
 		for type in types {
 			// Filter out any dynamic pasteboard types, and any types in our "avoid" list
 			guard type.rawValue.hasPrefix("dyn.") == false,
-				pasteboardTypeFilterList.contains(type) == false,
+				  filteredTypes.contains(type) == false,
 				let data = data(forType: type) else {
 					continue
 			}

@@ -20,6 +20,21 @@ class PlainPastaTests: XCTestCase {
 
 	// MARK: - NSPasteboardItem.plaintextifiedCopy Tests
 
+	func testPlaintextifiedCopyDoesNotFilterSimplePasteboardItem() throws {
+		// Given
+		let mockPasteboardItem = NSPasteboardItem()
+		mockPasteboardItem.setString("string", forType: .string)
+
+		// When
+		let filteredMockPasteboardItem = mockPasteboardItem.plaintextifiedCopy()
+
+		// Then
+		XCTAssertEqual(filteredMockPasteboardItem.types, mockPasteboardItem.types)
+		for type in filteredMockPasteboardItem.types {
+			XCTAssertEqual(filteredMockPasteboardItem.data(forType: type), mockPasteboardItem.data(forType: type))
+		}
+	}
+
 	func testPlaintextifiedCopyFiltersUnwantedPasteboardContent() throws {
 		// Given
 		let mockPasteboardItem = NSPasteboardItem()
@@ -28,33 +43,13 @@ class PlainPastaTests: XCTestCase {
 		mockPasteboardItem.setString("string", forType: .string)
 		mockPasteboardItem.setData(Data(), forType: .pdf)
 
-		// Pasteboard types Plain Pasta will explicitly filter
-		mockPasteboardItem.setString("html", forType: .html)
-		mockPasteboardItem.setString("rtf", forType: .rtf)
-		mockPasteboardItem.setString("rtfd", forType: .rtfd)
-		mockPasteboardItem.setString(
-			"com.apple.webarchive",
-			forType: NSPasteboard.PasteboardType("com.apple.webarchive")
-		)
-		mockPasteboardItem.setString(
-			"CorePasteboardFlavorType 0x75726C6E",
-			forType: NSPasteboard.PasteboardType("CorePasteboardFlavorType 0x75726C6E")
-		)
-		mockPasteboardItem.setString(
-			"dyn.foo",
-			forType: NSPasteboard.PasteboardType("dyn.foo")
-		)
-		mockPasteboardItem.setString(
-			"public.url-name",
-			forType: NSPasteboard.PasteboardType("public.url-name")
-		)
-		mockPasteboardItem.setString(
-			"WebURLsWithTitlesPboardType",
-			forType: NSPasteboard.PasteboardType("WebURLsWithTitlesPboardType")
-		)
+		mockPasteboardItem.setString("dyn.type", forType: NSPasteboard.PasteboardType("dyn.type"))
+		for type in PasteboardMonitor.pasteboardTypeFilterList {
+			mockPasteboardItem.setString("\(type.self)", forType: type)
+		}
 
 		// When
-		let filteredComplexPasteboardItem = mockPasteboardItem.plaintextifiedCopy
+		let filteredComplexPasteboardItem = mockPasteboardItem.plaintextifiedCopy()
 
 		// Then
 
@@ -63,38 +58,27 @@ class PlainPastaTests: XCTestCase {
 		XCTAssertNotNil(filteredComplexPasteboardItem.data(forType: .pdf))
 
 		// Check types that should have been filtered
-		XCTAssertNil(filteredComplexPasteboardItem.string(forType: .html))
-		XCTAssertNil(filteredComplexPasteboardItem.string(forType: .rtf))
-		XCTAssertNil(filteredComplexPasteboardItem.string(forType: .rtfd))
-		XCTAssertNil(
-			filteredComplexPasteboardItem.string(forType: NSPasteboard.PasteboardType("com.apple.webarchive"))
-		)
-		XCTAssertNil(
-			filteredComplexPasteboardItem.string(forType: NSPasteboard.PasteboardType("CorePasteboardFlavorType 0x75726C6E"))
-		)
-		XCTAssertNil(
-			filteredComplexPasteboardItem.string(forType: NSPasteboard.PasteboardType("dyn.foo"))
-		)
-		XCTAssertNil(
-			filteredComplexPasteboardItem.string(forType: NSPasteboard.PasteboardType("public.url-name"))
-		)
-		XCTAssertNil(
-			filteredComplexPasteboardItem.string(forType: NSPasteboard.PasteboardType("WebURLsWithTitlesPboardType"))
-		)
+		XCTAssertNil(filteredComplexPasteboardItem.string(forType: NSPasteboard.PasteboardType("dyn.type")))
+		for type in PasteboardMonitor.pasteboardTypeFilterList {
+			XCTAssertNil(filteredComplexPasteboardItem.string(forType: type))
+		}
 	}
 
-	func testPlaintextifiedCopyDoesNotFilterSimplePasteboardItem() throws {
+	func testPlaintextifiedCopyDoesNotFilterWhenNoTypesPassedIn() throws {
 		// Given
 		let mockPasteboardItem = NSPasteboardItem()
-		mockPasteboardItem.setString("string", forType: .string)
+		for type in PasteboardMonitor.pasteboardTypeFilterList {
+			mockPasteboardItem.setString("\(type.self)", forType: type)
+		}
 
 		// When
-		let filteredMockPasteboardItem = mockPasteboardItem.plaintextifiedCopy
+		let unfilteredMockPasteboardItem = mockPasteboardItem.plaintextifiedCopy(filteredTypes: [])
 
 		// Then
-		XCTAssertEqual(filteredMockPasteboardItem.types, mockPasteboardItem.types)
-		for type in filteredMockPasteboardItem.types {
-			XCTAssertEqual(filteredMockPasteboardItem.data(forType: type), mockPasteboardItem.data(forType: type))
+		XCTAssertFalse(unfilteredMockPasteboardItem.types.isEmpty)
+		XCTAssertEqual(unfilteredMockPasteboardItem.types, mockPasteboardItem.types)
+		for type in PasteboardMonitor.pasteboardTypeFilterList {
+			XCTAssertEqual(unfilteredMockPasteboardItem.string(forType: type), mockPasteboardItem.string(forType: type))
 		}
 	}
 

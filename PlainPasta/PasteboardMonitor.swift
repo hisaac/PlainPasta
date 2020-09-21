@@ -14,6 +14,18 @@ class PasteboardMonitor {
 
 	private (set) var isEnabled = false
 
+	/// All of the types of pasteboard data to filter out when copying pasteboard data
+	static let pasteboardTypeFilterList: [NSPasteboard.PasteboardType] = [
+		.html,
+		.rtf,
+		.rtfd,
+		NSPasteboard.PasteboardType("com.apple.webarchive"),
+		NSPasteboard.PasteboardType("CorePasteboardFlavorType 0x75726C6E"),
+		NSPasteboard.PasteboardType("public.url-name"),
+		NSPasteboard.PasteboardType("WebURLsWithTitlesPboardType"),
+		NSPasteboard.PasteboardType("com.apple.WebKit.custom-pasteboard-data")
+	]
+
 	init(for pasteboard: NSPasteboard) {
 		self.pasteboard = pasteboard
 		self.internalChangeCount = pasteboard.changeCount
@@ -27,7 +39,7 @@ class PasteboardMonitor {
 		if let pasteboardItem = pasteboard.pasteboardItems?.first,
 		   let plaintextString = pasteboardItem.string(forType: .string) {
 
-			let filteredPasteboardItem = pasteboardItem.plaintextifiedCopy
+			let filteredPasteboardItem = pasteboardItem.plaintextifiedCopy()
 			pasteboard.clearContents()
 			let wroteToPasteboard = pasteboard.writeObjects([filteredPasteboardItem])
 			if wroteToPasteboard {
