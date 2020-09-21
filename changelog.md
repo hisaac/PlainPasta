@@ -4,16 +4,32 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## [1.1.6] - 2020-09-20
+
+### Fixed
+
+- Adds the `com.apple.WebKit.custom-pasteboard-data` pasteboard type to the filter list, to fix an issue with copying and pasting styled text to and from Atlassian's [Confluence](https://confluence.atlassian.com/alldoc/atlassian-documentation-32243719.html). Thanks to Harry Strand for the bug report!
+
+### Changed
+
+- Update xcodeproj format to "Xcode 12.0-compatible"
+- Extract `pasteboardTypeFIlterList` into a variable within `PasteboardMonitor`, and make `plaintextifiedCopy` into a method with the filtered types as an argument
+	- This is to make unit testing and future debugging easier
+	
+### Added
+
+- Added some tests for the new `plaintextifiedCopy` method
+
 ## [1.1.5] - 2020-09-15
+
+### Fixed
+
+- Adds the `com.apple.webarchive` pasteboard type to the filter list, to fix an issue specifically with copying styled text from a web page, and pasting into a Gmail compose field. Thanks to Christopher Stout for the bug report!
 
 ### Changed
 
 - Significant refactor of code structure to make future updates easier.
 - Changed build numbering scheme to comply with App Store requirements.
-
-### Fixed
-
-- Adds the `com.apple.webarchive` pasteboard type to the filter list, to fix an issue specifically with copying styled text from a web page, and pasting into a Gmail compose field (Thanks to Christopher Stout for the bug report).
 
 ## [1.1.4] - 2020-09-12
 
@@ -93,3 +109,4 @@ Initial release! 🎉
 [1.1.3]: https://github.com/hisaac/PlainPasta/compare/1.1.2...1.1.3
 [1.1.4]: https://github.com/hisaac/PlainPasta/compare/1.1.3...1.1.4
 [1.1.5]: https://github.com/hisaac/PlainPasta/compare/1.1.4...1.1.5
+[1.1.6]: https://github.com/hisaac/PlainPasta/compare/1.1.5...1.1.6
