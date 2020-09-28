@@ -4,6 +4,16 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html).
 
+## [Unreleased]
+
+### Added
+
+- Addes the `public.utf16-external-plain-text` pasteboard type to the filter list to address styling of text being copied from within Xcode's console not being filtered
+
+### Changed
+
+- Reverts back to using `DispatchSourceTimer` to reduce memory/CPU footprint
+
 ## [1.1.6] - 2020-09-20
 
 ### Fixed
