@@ -22,6 +22,7 @@ class PasteboardMonitor {
 		NSPasteboard.PasteboardType("com.apple.webarchive"),
 		NSPasteboard.PasteboardType("CorePasteboardFlavorType 0x75726C6E"),
 		NSPasteboard.PasteboardType("public.url-name"),
+		NSPasteboard.PasteboardType("public.utf16-external-plain-text"),
 		NSPasteboard.PasteboardType("WebURLsWithTitlesPboardType"),
 		NSPasteboard.PasteboardType("com.apple.WebKit.custom-pasteboard-data")
 	]
