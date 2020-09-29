@@ -56,6 +56,12 @@ class PasteboardMonitor {
 		   let plaintextString = pasteboardItem.string(forType: .string) {
 
 			let filteredPasteboardItem = pasteboardItem.plaintextifiedCopy()
+
+			#if DEBUG
+			// Print out pasteboard types for help in debugging
+			os_log("\nPasteboard types before filtering:\n%@\n\nPasteboard types after filtering:\n%@\n", type: .debug, pasteboardItem.types, filteredPasteboardItem.types)
+			#endif
+
 			pasteboard.clearContents()
 			let wroteToPasteboard = pasteboard.writeObjects([filteredPasteboardItem])
 			if wroteToPasteboard {
