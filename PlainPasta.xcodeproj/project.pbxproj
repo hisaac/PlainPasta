@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4A39A900254B2C8300F5D33B /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A39A8FF254B2C8300F5D33B /* Settings.swift */; };
+		4A39A904254B331200F5D33B /* UserDefaultsBacked.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A39A903254B331200F5D33B /* UserDefaultsBacked.swift */; };
 		4A40250E2509AF5100F893AA /* PlainPastaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A40250D2509AF5100F893AA /* PlainPastaTests.swift */; };
 		4A4E59272176AE7A002CF83D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A4E59262176AE7A002CF83D /* AppDelegate.swift */; };
 		4A4E592B2176AE7A002CF83D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4A4E592A2176AE7A002CF83D /* Assets.xcassets */; };
@@ -29,6 +31,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4A39A8FF254B2C8300F5D33B /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
+		4A39A903254B331200F5D33B /* UserDefaultsBacked.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsBacked.swift; sourceTree = "<group>"; };
 		4A40250B2509AF5100F893AA /* PlainPastaTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PlainPastaTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4A40250D2509AF5100F893AA /* PlainPastaTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlainPastaTests.swift; sourceTree = "<group>"; };
 		4A40250F2509AF5100F893AA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -122,6 +126,8 @@
 				4A545D7C25105622004EF5BD /* NSPasteboard+Extensions.swift */,
 				4AD9013E250EAF3200BDABE3 /* StatusItemController.swift */,
 				4ADE040C24ECC23F0045181C /* LocalizedStrings.swift */,
+				4A39A8FF254B2C8300F5D33B /* Settings.swift */,
+				4A39A903254B331200F5D33B /* UserDefaultsBacked.swift */,
 				4A4E592A2176AE7A002CF83D /* Assets.xcassets */,
 				4A4E592C2176AE7A002CF83D /* Main.storyboard */,
 				4A4E592F2176AE7A002CF83D /* Info.plist */,
@@ -276,6 +282,8 @@
 				4A4E59272176AE7A002CF83D /* AppDelegate.swift in Sources */,
 				4AD9013F250EAF3200BDABE3 /* StatusItemController.swift in Sources */,
 				4ADE040D24ECC23F0045181C /* LocalizedStrings.swift in Sources */,
+				4A39A904254B331200F5D33B /* UserDefaultsBacked.swift in Sources */,
+				4A39A900254B2C8300F5D33B /* Settings.swift in Sources */,
 				4AA984F42178DF6500B64A3F /* PasteboardMonitor.swift in Sources */,
 				4A545D7D25105622004EF5BD /* NSPasteboard+Extensions.swift in Sources */,
 			);
