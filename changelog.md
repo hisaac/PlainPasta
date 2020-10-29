@@ -8,11 +8,14 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ### Added
 
-- Addes the `public.utf16-external-plain-text` pasteboard type to the filter list to address styling of text being copied from within Xcode's console not being filtered
+- Adds the `public.utf16-external-plain-text` pasteboard type to the filter list to address styling of text being copied from within Xcode's console not being filtered
+- Adds a new `Settings` struct, to be used for user settings
 
 ### Changed
 
 - Reverts back to using `DispatchSourceTimer` to reduce memory/CPU footprint
+- Convert project configuration to `xcconfig` files using [BuildSettingExtractor](https://buildsettingextractor.com)
+- Convert tests to use a Test Plan, and add a Thread Sanitizer and Address Sanitizer test plan configuration
 
 ## [1.1.6] - 2020-09-20
 
@@ -25,7 +28,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 - Update xcodeproj format to "Xcode 12.0-compatible"
 - Extract `pasteboardTypeFIlterList` into a variable within `PasteboardMonitor`, and make `plaintextifiedCopy` into a method with the filtered types as an argument
 	- This is to make unit testing and future debugging easier
-	
+
 ### Added
 
 - Added some tests for the new `plaintextifiedCopy` method
