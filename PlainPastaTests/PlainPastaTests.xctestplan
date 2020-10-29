@@ -1,0 +1,56 @@
+{
+  "configurations" : [
+    {
+      "id" : "83B777E6-EEDA-496A-A2B9-04B4BBC1A080",
+      "name" : "Standard",
+      "options" : {
+
+      }
+    },
+    {
+      "id" : "9FD72E73-5425-4420-911D-38262219A2FB",
+      "name" : "Thread Sanitizer",
+      "options" : {
+        "threadSanitizerEnabled" : true,
+        "undefinedBehaviorSanitizerEnabled" : true
+      }
+    },
+    {
+      "id" : "7898BCC0-6F5E-40A0-A729-AF93E1F180BC",
+      "name" : "Address Sanitizer",
+      "options" : {
+        "addressSanitizer" : {
+          "enabled" : true
+        },
+        "undefinedBehaviorSanitizerEnabled" : true
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "codeCoverage" : {
+      "targets" : [
+        {
+          "containerPath" : "container:PlainPasta.xcodeproj",
+          "identifier" : "4A4E59222176AE7A002CF83D",
+          "name" : "Plain Pasta"
+        }
+      ]
+    },
+    "targetForVariableExpansion" : {
+      "containerPath" : "container:PlainPasta.xcodeproj",
+      "identifier" : "4A4E59222176AE7A002CF83D",
+      "name" : "Plain Pasta"
+    }
+  },
+  "testTargets" : [
+    {
+      "parallelizable" : true,
+      "target" : {
+        "containerPath" : "container:PlainPasta.xcodeproj",
+        "identifier" : "4A40250A2509AF5100F893AA",
+        "name" : "PlainPastaTests"
+      }
+    }
+  ],
+  "version" : 1
+}

@@ -46,6 +46,7 @@
 		4A3FFE91254B40A100A47ADA /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		4A3FFE92254B40A100A47ADA /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		4A3FFEA3254B411000A47ADA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		4A3FFEA4254B427500A47ADA /* PlainPastaTests.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = PlainPastaTests.xctestplan; sourceTree = "<group>"; };
 		4A40250B2509AF5100F893AA /* PlainPastaTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PlainPastaTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4A40250D2509AF5100F893AA /* PlainPastaTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlainPastaTests.swift; sourceTree = "<group>"; };
 		4A40250F2509AF5100F893AA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -155,6 +156,7 @@
 			isa = PBXGroup;
 			children = (
 				4A40250D2509AF5100F893AA /* PlainPastaTests.swift */,
+				4A3FFEA4254B427500A47ADA /* PlainPastaTests.xctestplan */,
 				4A40250F2509AF5100F893AA /* Info.plist */,
 			);
 			path = PlainPastaTests;
