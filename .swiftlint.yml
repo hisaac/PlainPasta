@@ -26,6 +26,7 @@ disabled_rules:
 excluded:
 - Carthage
 - Pods
+- buildscripts/VerifyNoBS
 
 file_length:
   ignore_comment_only_lines: true

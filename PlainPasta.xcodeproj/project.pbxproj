@@ -33,6 +33,19 @@
 /* Begin PBXFileReference section */
 		4A39A8FF254B2C8300F5D33B /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		4A39A903254B331200F5D33B /* UserDefaultsBacked.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsBacked.swift; sourceTree = "<group>"; };
+		4A3FFE83254B408500A47ADA /* PlainPastaTests-Debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "PlainPastaTests-Debug.xcconfig"; sourceTree = "<group>"; };
+		4A3FFE84254B408500A47ADA /* PlainPastaTests-Release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "PlainPastaTests-Release.xcconfig"; sourceTree = "<group>"; };
+		4A3FFE85254B408500A47ADA /* PlainPastaTests-Shared.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "PlainPastaTests-Shared.xcconfig"; sourceTree = "<group>"; };
+		4A3FFE87254B408500A47ADA /* Project-Release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Project-Release.xcconfig"; sourceTree = "<group>"; };
+		4A3FFE88254B408500A47ADA /* Project-Shared.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Project-Shared.xcconfig"; sourceTree = "<group>"; };
+		4A3FFE89254B408500A47ADA /* Project-Debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Project-Debug.xcconfig"; sourceTree = "<group>"; };
+		4A3FFE8B254B408500A47ADA /* Plain-Pasta-Debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Plain-Pasta-Debug.xcconfig"; sourceTree = "<group>"; };
+		4A3FFE8C254B408500A47ADA /* Plain-Pasta-Release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Plain-Pasta-Release.xcconfig"; sourceTree = "<group>"; };
+		4A3FFE8D254B408500A47ADA /* Plain-Pasta-Shared.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = "Plain-Pasta-Shared.xcconfig"; sourceTree = "<group>"; };
+		4A3FFE90254B40A100A47ADA /* VerifyNoBS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifyNoBS.swift; sourceTree = "<group>"; };
+		4A3FFE91254B40A100A47ADA /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		4A3FFE92254B40A100A47ADA /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		4A3FFEA3254B411000A47ADA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		4A40250B2509AF5100F893AA /* PlainPastaTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PlainPastaTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4A40250D2509AF5100F893AA /* PlainPastaTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlainPastaTests.swift; sourceTree = "<group>"; };
 		4A40250F2509AF5100F893AA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -47,7 +60,6 @@
 		4A8A68182176C5F500A4F1D8 /* changelog.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = changelog.md; sourceTree = "<group>"; };
 		4A8A68192176C5F500A4F1D8 /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		4A8A681A2176C5F500A4F1D8 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
-		4A9998E325040BE700141546 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/Main.storyboard; sourceTree = "<group>"; };
 		4AA7338C2507431400C9E7FC /* Assets */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Assets; sourceTree = "<group>"; };
 		4AA7338D2507431400C9E7FC /* docs */ = {isa = PBXFileReference; lastKnownFileType = folder; path = docs; sourceTree = "<group>"; };
 		4AA984F32178DF6500B64A3F /* PasteboardMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasteboardMonitor.swift; sourceTree = "<group>"; };
@@ -81,6 +93,64 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		4A3FFE81254B408500A47ADA /* Config */ = {
+			isa = PBXGroup;
+			children = (
+				4A3FFE86254B408500A47ADA /* Project */,
+				4A3FFE8A254B408500A47ADA /* Plain Pasta */,
+				4A3FFE82254B408500A47ADA /* PlainPastaTests */,
+			);
+			path = Config;
+			sourceTree = "<group>";
+		};
+		4A3FFE82254B408500A47ADA /* PlainPastaTests */ = {
+			isa = PBXGroup;
+			children = (
+				4A3FFE85254B408500A47ADA /* PlainPastaTests-Shared.xcconfig */,
+				4A3FFE83254B408500A47ADA /* PlainPastaTests-Debug.xcconfig */,
+				4A3FFE84254B408500A47ADA /* PlainPastaTests-Release.xcconfig */,
+			);
+			path = PlainPastaTests;
+			sourceTree = "<group>";
+		};
+		4A3FFE86254B408500A47ADA /* Project */ = {
+			isa = PBXGroup;
+			children = (
+				4A3FFE88254B408500A47ADA /* Project-Shared.xcconfig */,
+				4A3FFE89254B408500A47ADA /* Project-Debug.xcconfig */,
+				4A3FFE87254B408500A47ADA /* Project-Release.xcconfig */,
+			);
+			path = Project;
+			sourceTree = "<group>";
+		};
+		4A3FFE8A254B408500A47ADA /* Plain Pasta */ = {
+			isa = PBXGroup;
+			children = (
+				4A3FFE8D254B408500A47ADA /* Plain-Pasta-Shared.xcconfig */,
+				4A3FFE8B254B408500A47ADA /* Plain-Pasta-Debug.xcconfig */,
+				4A3FFE8C254B408500A47ADA /* Plain-Pasta-Release.xcconfig */,
+			);
+			path = "Plain Pasta";
+			sourceTree = "<group>";
+		};
+		4A3FFE8E254B40A100A47ADA /* buildscripts */ = {
+			isa = PBXGroup;
+			children = (
+				4A3FFE8F254B40A100A47ADA /* VerifyNoBS */,
+			);
+			path = buildscripts;
+			sourceTree = "<group>";
+		};
+		4A3FFE8F254B40A100A47ADA /* VerifyNoBS */ = {
+			isa = PBXGroup;
+			children = (
+				4A3FFE90254B40A100A47ADA /* VerifyNoBS.swift */,
+				4A3FFE91254B40A100A47ADA /* README.md */,
+				4A3FFE92254B40A100A47ADA /* .gitignore */,
+			);
+			path = VerifyNoBS;
+			sourceTree = "<group>";
+		};
 		4A40250C2509AF5100F893AA /* PlainPastaTests */ = {
 			isa = PBXGroup;
 			children = (
@@ -100,6 +170,8 @@
 				4A8A68192176C5F500A4F1D8 /* LICENSE */,
 				4A8A68172176C5F500A4F1D8 /* .swiftlint.yml */,
 				4A8A68162176C5F500A4F1D8 /* .gitignore */,
+				4A3FFE81254B408500A47ADA /* Config */,
+				4A3FFE8E254B40A100A47ADA /* buildscripts */,
 				4AA7338D2507431400C9E7FC /* docs */,
 				4AA7338C2507431400C9E7FC /* Assets */,
 				4A4E59242176AE7A002CF83D /* Products */,
@@ -144,6 +216,7 @@
 			buildConfigurationList = 4A4025142509AF5100F893AA /* Build configuration list for PBXNativeTarget "PlainPastaTests" */;
 			buildPhases = (
 				4A1DCE3D254B3E95005B1EBC /* Run SwiftLint */,
+				4A1DCE3F254B3F0C005B1EBC /* Run VerifyNoBS */,
 				4A4025072509AF5100F893AA /* Sources */,
 				4A4025082509AF5100F893AA /* Frameworks */,
 				4A4025092509AF5100F893AA /* Resources */,
@@ -165,6 +238,7 @@
 			buildConfigurationList = 4A4E59332176AE7A002CF83D /* Build configuration list for PBXNativeTarget "Plain Pasta" */;
 			buildPhases = (
 				4A5E917721791748001C378F /* Run SwiftLint */,
+				4A1DCE3E254B3EFD005B1EBC /* Run VerifyNoBS */,
 				4A4E591F2176AE7A002CF83D /* Sources */,
 				4A4E59202176AE7A002CF83D /* Frameworks */,
 				4A4E59212176AE7A002CF83D /* Resources */,
@@ -212,6 +286,7 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				Base,
 			);
 			mainGroup = 4A4E591A2176AE7A002CF83D;
 			packageReferences = (
@@ -263,6 +338,42 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "if which swiftlint >/dev/null; then\n    swiftlint\nelse\n    echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
+		4A1DCE3E254B3EFD005B1EBC /* Run VerifyNoBS */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Run VerifyNoBS";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "xcrun -sdk macosx swift buildscripts/VerifyNoBS/VerifyNoBS.swift  --xcode  ${PROJECT_DIR}/${PROJECT_NAME}.xcodeproj/project.pbxproj\n";
+		};
+		4A1DCE3F254B3F0C005B1EBC /* Run VerifyNoBS */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Run VerifyNoBS";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "xcrun -sdk macosx swift buildscripts/VerifyNoBS/VerifyNoBS.swift  --xcode  ${PROJECT_DIR}/${PROJECT_NAME}.xcodeproj/project.pbxproj\n";
 		};
 		4A5E917721791748001C378F /* Run SwiftLint */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -322,7 +433,7 @@
 		4A4E592C2176AE7A002CF83D /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				4A9998E325040BE700141546 /* en */,
+				4A3FFEA3254B411000A47ADA /* Base */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -332,210 +443,43 @@
 /* Begin XCBuildConfiguration section */
 		4A4025122509AF5100F893AA /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4A3FFE83254B408500A47ADA /* PlainPastaTests-Debug.xcconfig */;
 			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = F2J52QJQ9Y;
-				INFOPLIST_FILE = PlainPastaTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/../Frameworks",
-					"@loader_path/../Frameworks",
-				);
-				MACOSX_DEPLOYMENT_TARGET = 10.15;
-				PRODUCT_BUNDLE_IDENTIFIER = software.level.PlainPastaTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Plain Pasta.app/Contents/MacOS/Plain Pasta";
 			};
 			name = Debug;
 		};
 		4A4025132509AF5100F893AA /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4A3FFE84254B408500A47ADA /* PlainPastaTests-Release.xcconfig */;
 			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = F2J52QJQ9Y;
-				INFOPLIST_FILE = PlainPastaTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/../Frameworks",
-					"@loader_path/../Frameworks",
-				);
-				MACOSX_DEPLOYMENT_TARGET = 10.15;
-				PRODUCT_BUNDLE_IDENTIFIER = software.level.PlainPastaTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Plain Pasta.app/Contents/MacOS/Plain Pasta";
 			};
 			name = Release;
 		};
 		4A4E59312176AE7A002CF83D /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4A3FFE89254B408500A47ADA /* Project-Debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_ANALYZER_NONNULL = YES;
-				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
-				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
-				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_ENABLE_OBJC_WEAK = YES;
-				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
-				CLANG_WARN_BOOL_CONVERSION = YES;
-				CLANG_WARN_COMMA = YES;
-				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
-				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
-				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
-				CLANG_WARN_EMPTY_BODY = YES;
-				CLANG_WARN_ENUM_CONVERSION = YES;
-				CLANG_WARN_INFINITE_RECURSION = YES;
-				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
-				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
-				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
-				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
-				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
-				CLANG_WARN_STRICT_PROTOTYPES = YES;
-				CLANG_WARN_SUSPICIOUS_MOVE = YES;
-				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
-				CLANG_WARN_UNREACHABLE_CODE = YES;
-				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				COPY_PHASE_STRIP = NO;
-				DEBUG_INFORMATION_FORMAT = dwarf;
-				ENABLE_HARDENED_RUNTIME = YES;
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				ENABLE_TESTABILITY = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu11;
-				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
-				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-				GCC_WARN_UNUSED_FUNCTION = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.12;
-				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
-				MTL_FAST_MATH = YES;
-				ONLY_ACTIVE_ARCH = YES;
-				SDKROOT = macosx;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
 		4A4E59322176AE7A002CF83D /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4A3FFE87254B408500A47ADA /* Project-Release.xcconfig */;
 			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_ANALYZER_NONNULL = YES;
-				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
-				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
-				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_ENABLE_OBJC_WEAK = YES;
-				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
-				CLANG_WARN_BOOL_CONVERSION = YES;
-				CLANG_WARN_COMMA = YES;
-				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
-				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
-				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
-				CLANG_WARN_EMPTY_BODY = YES;
-				CLANG_WARN_ENUM_CONVERSION = YES;
-				CLANG_WARN_INFINITE_RECURSION = YES;
-				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
-				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
-				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
-				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
-				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
-				CLANG_WARN_STRICT_PROTOTYPES = YES;
-				CLANG_WARN_SUSPICIOUS_MOVE = YES;
-				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
-				CLANG_WARN_UNREACHABLE_CODE = YES;
-				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				COPY_PHASE_STRIP = NO;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				ENABLE_HARDENED_RUNTIME = YES;
-				ENABLE_NS_ASSERTIONS = NO;
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu11;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
-				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-				GCC_WARN_UNUSED_FUNCTION = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.12;
-				MTL_ENABLE_DEBUG_INFO = NO;
-				MTL_FAST_MATH = YES;
-				SDKROOT = macosx;
-				SWIFT_COMPILATION_MODE = wholemodule;
-				SWIFT_OPTIMIZATION_LEVEL = "-O";
 			};
 			name = Release;
 		};
 		4A4E59342176AE7A002CF83D /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4A3FFE8B254B408500A47ADA /* Plain-Pasta-Debug.xcconfig */;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = "PlainPasta/Plain Pasta.entitlements";
-				CODE_SIGN_IDENTITY = "Mac Developer";
-				CODE_SIGN_STYLE = Automatic;
-				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = "1.1.7-beta1";
-				DEVELOPMENT_TEAM = F2J52QJQ9Y;
-				ENABLE_HARDENED_RUNTIME = YES;
-				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
-				INFOPLIST_FILE = "$(SRCROOT)/PlainPasta/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/../Frameworks",
-				);
-				MARKETING_VERSION = "1.1.7-beta1";
-				PRODUCT_BUNDLE_IDENTIFIER = software.level.PlainPasta;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
 		4A4E59352176AE7A002CF83D /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4A3FFE8C254B408500A47ADA /* Plain-Pasta-Release.xcconfig */;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = "PlainPasta/Plain Pasta.entitlements";
-				CODE_SIGN_IDENTITY = "Mac Developer";
-				CODE_SIGN_STYLE = Automatic;
-				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = "1.1.7-beta1";
-				DEVELOPMENT_TEAM = F2J52QJQ9Y;
-				ENABLE_HARDENED_RUNTIME = YES;
-				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
-				INFOPLIST_FILE = "$(SRCROOT)/PlainPasta/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/../Frameworks",
-				);
-				MARKETING_VERSION = "1.1.7-beta1";
-				PRODUCT_BUNDLE_IDENTIFIER = software.level.PlainPasta;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
 		};
