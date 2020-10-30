@@ -57,17 +57,17 @@ class PasteboardMonitor {
 
 			let filteredPasteboardItem = pasteboardItem.plaintextifiedCopy()
 
-			#if DEBUG
-			// Print out pasteboard types for help in debugging
-			os_log("\nPasteboard types before filtering:\n%@\n\nPasteboard types after filtering:\n%@\n", type: .debug, pasteboardItem.types, filteredPasteboardItem.types)
-			#endif
+			if Settings.debugEnabled {
+				// Print out pasteboard types for help in debugging
+				os_log(.debug, "\nPasteboard types before filtering:\n%@\n\nPasteboard types after filtering:\n%@\n", pasteboardItem.types, filteredPasteboardItem.types)
+			}
 
 			pasteboard.clearContents()
 			let wroteToPasteboard = pasteboard.writeObjects([filteredPasteboardItem])
 			if wroteToPasteboard {
-				os_log("%@", type: .debug, plaintextString)
+				os_log(.debug, "%@", plaintextString)
 			} else {
-				os_log("%@", type: .default, "Unable to write new pasteboard item to pasteboard")
+				os_log(.default, "Unable to write new pasteboard item to pasteboard")
 			}
 		}
 

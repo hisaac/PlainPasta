@@ -443,7 +443,7 @@ GCC_WARN_UNUSED_VARIABLE = YES
 // unavailable in earlier versions will be weak-linked; your code should check for `null`
 // function pointers or specific system versions before calling newer APIs.
 
-MACOSX_DEPLOYMENT_TARGET = 10.12
+MACOSX_DEPLOYMENT_TARGET = 10.15
 
 
 

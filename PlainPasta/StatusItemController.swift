@@ -13,8 +13,16 @@ class StatusItemController {
 
 	private lazy var enabledMenuItem: NSMenuItem = {
 		return NSMenuItem(
-			title: LocalizedStrings.enabledMenuItem,
+			title: LocalizedStrings.enabledMenuItemTitle,
 			action: #selector(toggleIsEnabled),
+			target: self
+		)
+	}()
+
+	private lazy var debugMenuItem: NSMenuItem = {
+		return NSMenuItem(
+			title: LocalizedStrings.debugMenuItemTitle,
+			action: #selector(toggleDebugMode),
 			target: self
 		)
 	}()
@@ -22,19 +30,17 @@ class StatusItemController {
 	/// Builds and returns a correctly ordered menu
 	/// - Returns: A correctly ordered menu
 	private func buildMenu() -> NSMenu {
-		let menuItems: [NSMenuItem] = [
+		let menu = NSMenu()
+		menu.items = [
 			NSMenuItem(title: LocalizedStrings.appVersion, target: self, isEnabled: false),
 			NSMenuItem.separator(),
 			enabledMenuItem,
 			NSMenuItem.separator(),
-			NSMenuItem(title: LocalizedStrings.aboutPlainPastaMenuItem, action: #selector(openAboutPage), target: self),
-			NSMenuItem(title: LocalizedStrings.quitMenuItem, action: #selector(NSApp.terminate), keyEquivalent: "q", target: NSApp)
+			debugMenuItem,
+			NSMenuItem.separator(),
+			NSMenuItem(title: LocalizedStrings.aboutPlainPastaMenuItemTitle, action: #selector(openAboutPage), target: self),
+			NSMenuItem(title: LocalizedStrings.quitMenuItemTitle, action: #selector(NSApp.terminate), keyEquivalent: "q", target: NSApp)
 		]
-
-		let menu = NSMenu()
-		for item in menuItems {
-			menu.addItem(item)
-		}
 		return menu
 	}
 
@@ -45,6 +51,17 @@ class StatusItemController {
 	private func openAboutPage() {
 		guard let url = URL(string: "https://hisaac.github.io/PlainPasta/") else { return }
 		NSWorkspace.shared.open(url)
+	}
+
+	/// Toggles debug mode for the app
+	@objc
+	private func toggleDebugMode() {
+		Settings.debugEnabled.toggle()
+		if Settings.debugEnabled {
+			debugMenuItem.state = .on
+		} else {
+			debugMenuItem.state = .off
+		}
 	}
 
 	/// Toggles the enabled state of the menu
