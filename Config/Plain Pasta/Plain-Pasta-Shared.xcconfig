@@ -59,7 +59,7 @@ COMBINE_HIDPI_IMAGES = YES
 // This setting defines the current version of the project. The value must be a integer
 // or floating point number, such as `57` or `365.8`.
 
-CURRENT_PROJECT_VERSION = 1.1.7-beta1
+CURRENT_PROJECT_VERSION = 1.2.0
 
 
 
@@ -125,7 +125,7 @@ LD_RUNPATH_SEARCH_PATHS = $(inherited) @executable_path/../Frameworks
 // This setting defines the user-visible version of the project. The value corresponds to
 // the `CFBundleShortVersionString` key in your app's Info.plist.
 
-MARKETING_VERSION = 1.1.7-beta1
+MARKETING_VERSION = 1.2.0
 
 
 

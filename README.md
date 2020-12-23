@@ -32,6 +32,16 @@ Download the most recent version of Plain Pasta from the [Mac App Store](https:/
 	<figcaption><p align="center">Copy/Pasting styled text <em>with</em> Plain Pasta enabled only pastes the text itself, no styling</p></figcaption>
 </figure>
 
+## Contributing
+
+PRs are more than welcome!
+
+To get up and running, you'll need to clone this repo, and then initialize the [`VerifyNoBS`](https://github.com/olofhellman/VerifyNoBS) submodule using:
+
+```
+git submodule update --init
+```
+
 ## Attribution
 
 Plain Pasta was inspired by another app called [FormatMatch](https://itunes.apple.com/us/app/formatmatch/id445211988?mt=12) by [Robert Wessels](http://www.robertwessels.com).
