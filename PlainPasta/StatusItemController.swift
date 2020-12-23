@@ -1,12 +1,15 @@
 import AppKit
+import os.log
 
 class StatusItemController {
 
 	weak var delegate: Enablable?
 	private let statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.squareLength)
 	private (set) var isEnabled = false
+	let logger: OSLog
 
-	init() {
+	init(logger: OSLog) {
+		self.logger = logger
 		statusItem.button?.image = NSImage(named: "StatusBarButtonImage")
 		statusItem.menu = buildMenu()
 	}

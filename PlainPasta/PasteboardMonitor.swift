@@ -14,6 +14,8 @@ class PasteboardMonitor {
 
 	private (set) var isEnabled = false
 
+	let logger: OSLog
+
 	/// All of the types of pasteboard data to filter out when copying pasteboard data
 	static let pasteboardTypeFilterList: [NSPasteboard.PasteboardType] = [
 		.html,
@@ -27,8 +29,10 @@ class PasteboardMonitor {
 		NSPasteboard.PasteboardType("com.apple.WebKit.custom-pasteboard-data")
 	]
 
-	init(for pasteboard: NSPasteboard) {
+	init(for pasteboard: NSPasteboard, logger: OSLog) {
 		self.pasteboard = pasteboard
+		self.logger = logger
+
 		internalChangeCount = pasteboard.changeCount
 
 		timer.schedule(deadline: .now(), repeating: .milliseconds(100))
@@ -59,15 +63,23 @@ class PasteboardMonitor {
 
 			if Settings.debugEnabled {
 				// Print out pasteboard types for help in debugging
-				os_log(.debug, "\nPasteboard types before filtering:\n%@\n\nPasteboard types after filtering:\n%@\n", pasteboardItem.types, filteredPasteboardItem.types)
+				let debugString: StaticString =
+					"""
+					Pasteboard types before filtering:\n
+					%{public}@\n
+					\n
+					Pasteboard types after filtering:\n
+					%{public}@\n
+					"""
+				os_log(.info, log: logger, debugString, pasteboardItem.types, filteredPasteboardItem.types)
 			}
 
 			pasteboard.clearContents()
 			let wroteToPasteboard = pasteboard.writeObjects([filteredPasteboardItem])
-			if wroteToPasteboard {
-				os_log(.debug, "%@", plaintextString)
+			if wroteToPasteboard && Settings.debugEnabled {
+				os_log(.info, log: logger, "%{public}@", plaintextString)
 			} else {
-				os_log(.default, "Unable to write new pasteboard item to pasteboard")
+				os_log(.info, log: logger, "Unable to write new pasteboard item to pasteboard")
 			}
 		}
 

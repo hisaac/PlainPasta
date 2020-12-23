@@ -6,6 +6,12 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 <!-- ## [Unreleased] -->
 
+## [1.2.1] - 2020-12-23
+
+### Fixed
+
+- Fix debug logging so it shows up in the Console.app as expected
+
 ## [1.2.0] - 2020-12-23
 
 ### Highlights
@@ -134,3 +140,4 @@ Initial release! 🎉
 [1.1.5]: https://github.com/hisaac/PlainPasta/compare/1.1.4...1.1.5
 [1.1.6]: https://github.com/hisaac/PlainPasta/compare/1.1.5...1.1.6
 [1.2.0]: https://github.com/hisaac/PlainPasta/compare/1.1.6...1.2.0
+[1.2.1]: https://github.com/hisaac/PlainPasta/compare/1.2.0...1.2.1
