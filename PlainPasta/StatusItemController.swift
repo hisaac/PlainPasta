@@ -6,29 +6,13 @@ class StatusItemController {
 	weak var delegate: Enablable?
 	private let statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.squareLength)
 	private (set) var isEnabled = false
-	let logger: OSLog
+	private let logger: OSLog
 
 	init(logger: OSLog) {
 		self.logger = logger
 		statusItem.button?.image = NSImage(named: "StatusBarButtonImage")
 		statusItem.menu = buildMenu()
 	}
-
-	private lazy var enabledMenuItem: NSMenuItem = {
-		return NSMenuItem(
-			title: LocalizedStrings.enabledMenuItemTitle,
-			action: #selector(toggleIsEnabled),
-			target: self
-		)
-	}()
-
-	private lazy var debugMenuItem: NSMenuItem = {
-		return NSMenuItem(
-			title: LocalizedStrings.debugMenuItemTitle,
-			action: #selector(toggleDebugMode),
-			target: self
-		)
-	}()
 
 	/// Builds and returns a correctly ordered menu
 	/// - Returns: A correctly ordered menu
@@ -46,6 +30,22 @@ class StatusItemController {
 		]
 		return menu
 	}
+
+	private lazy var enabledMenuItem: NSMenuItem = {
+		return NSMenuItem(
+			title: LocalizedStrings.enabledMenuItemTitle,
+			action: #selector(toggleIsEnabled),
+			target: self
+		)
+	}()
+
+	private lazy var debugMenuItem: NSMenuItem = {
+		return NSMenuItem(
+			title: LocalizedStrings.debugMenuItemTitle,
+			action: #selector(toggleDebugMode),
+			target: self
+		)
+	}()
 
 	// MARK: - Menu Item Actions
 

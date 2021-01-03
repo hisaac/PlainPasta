@@ -246,6 +246,7 @@
 				4A4E591F2176AE7A002CF83D /* Sources */,
 				4A4E59202176AE7A002CF83D /* Frameworks */,
 				4A4E59212176AE7A002CF83D /* Resources */,
+				4ADA4F7225A2283600893A0A /* Kill Other Instances */,
 			);
 			buildRules = (
 			);
@@ -396,6 +397,24 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "if which swiftlint >/dev/null; then\n    swiftlint\nelse\n    echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
+		4ADA4F7225A2283600893A0A /* Kill Other Instances */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Kill Other Instances";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "echo $(pkill \"Open Sesame\") > /dev/null\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
