@@ -65,6 +65,7 @@
 		4AA7338D2507431400C9E7FC /* docs */ = {isa = PBXFileReference; lastKnownFileType = folder; path = docs; sourceTree = "<group>"; };
 		4AA984F32178DF6500B64A3F /* PasteboardMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasteboardMonitor.swift; sourceTree = "<group>"; };
 		4AD9013E250EAF3200BDABE3 /* StatusItemController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusItemController.swift; sourceTree = "<group>"; };
+		4ADA4F6C25A219CB00893A0A /* .gitmodules */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitmodules; sourceTree = "<group>"; };
 		4ADE040C24ECC23F0045181C /* LocalizedStrings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalizedStrings.swift; sourceTree = "<group>"; };
 		F2E4F2ED22AED9E0006313B9 /* Plain Pasta.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Plain Pasta.entitlements"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -165,6 +166,7 @@
 		4A4E591A2176AE7A002CF83D = {
 			isa = PBXGroup;
 			children = (
+				4ADA4F6C25A219CB00893A0A /* .gitmodules */,
 				4A8A681A2176C5F500A4F1D8 /* README.md */,
 				4A8A68182176C5F500A4F1D8 /* changelog.md */,
 				4A4E59252176AE7A002CF83D /* PlainPasta */,

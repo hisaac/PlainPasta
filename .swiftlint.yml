@@ -22,6 +22,7 @@ disabled_rules:
 - redundant_string_enum_value
 - superfluous_disable_command
 - unused_closure_parameter
+- vertical_parameter_alignment
 
 excluded:
 - Carthage

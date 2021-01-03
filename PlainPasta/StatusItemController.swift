@@ -90,7 +90,6 @@ extension StatusItemController: Enablable {
 	}
 }
 
-// swiftlint:disable vertical_parameter_alignment
 extension NSMenuItem {
 	convenience init(title: String,
 					 action: Selector? = nil,
