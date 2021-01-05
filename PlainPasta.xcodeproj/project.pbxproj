@@ -414,7 +414,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "echo $(pkill \"Open Sesame\") > /dev/null\n";
+			shellScript = "echo $(pkill \"Plain Pasta\") > /dev/null\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 

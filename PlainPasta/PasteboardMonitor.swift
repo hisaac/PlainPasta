@@ -26,7 +26,8 @@ class PasteboardMonitor {
 		NSPasteboard.PasteboardType("public.url-name"),
 		NSPasteboard.PasteboardType("public.utf16-external-plain-text"),
 		NSPasteboard.PasteboardType("WebURLsWithTitlesPboardType"),
-		NSPasteboard.PasteboardType("com.apple.WebKit.custom-pasteboard-data")
+		NSPasteboard.PasteboardType("com.apple.WebKit.custom-pasteboard-data"),
+		NSPasteboard.PasteboardType("com.adobe.pdf") // This is for Microsoft Word compatibility
 	]
 
 	init(for pasteboard: NSPasteboard, logger: OSLog) {
