@@ -1,5 +1,6 @@
 import AppKit
 import os.log
+import Preferences
 
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
@@ -8,6 +9,11 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
 	var pasteboardMonitor: PasteboardMonitor?
 	var statusItemController: StatusItemController?
+
+	lazy var preferencesWindowController = PreferencesWindowController(
+		preferencePanes: [GeneralPreferencesViewController()],
+		hidesToolbarForSingleItem: true
+	)
 
 	#warning("TODO: Create custom logger class that uses `Logger` or `OSLog` depending on the operating system")
 	// https://developer.apple.com/documentation/os/logging/generating_log_messages_from_your_code
@@ -33,6 +39,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 		}
 
 		#if DEBUG
+		openPreferencesWindow()
 		Settings.debugEnabled = true
 		#endif
 	}
@@ -62,5 +69,12 @@ extension AppDelegate: Enablable {
 		pasteboardMonitor?.disable()
 		statusItemController?.disable()
 		os_log(.info, log: logger, "Plain Pasta has been disabled")
+	}
+}
+
+extension AppDelegate: PreferencesWindowDelegate {
+	func openPreferencesWindow() {
+		NSApp.activate(ignoringOtherApps: true)
+		preferencesWindowController.show()
 	}
 }

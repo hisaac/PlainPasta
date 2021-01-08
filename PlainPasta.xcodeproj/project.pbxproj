@@ -13,11 +13,15 @@
 		4A4E59272176AE7A002CF83D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A4E59262176AE7A002CF83D /* AppDelegate.swift */; };
 		4A4E592B2176AE7A002CF83D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4A4E592A2176AE7A002CF83D /* Assets.xcassets */; };
 		4A4E592E2176AE7A002CF83D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4A4E592C2176AE7A002CF83D /* Main.storyboard */; };
-		4A545D7D25105622004EF5BD /* NSPasteboard+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A545D7C25105622004EF5BD /* NSPasteboard+Extensions.swift */; };
+		4A545D7D25105622004EF5BD /* NSPasteboard+PlainPasta.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A545D7C25105622004EF5BD /* NSPasteboard+PlainPasta.swift */; };
 		4A545D8125105C12004EF5BD /* Enablable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A545D8025105C12004EF5BD /* Enablable.swift */; };
 		4AA984F42178DF6500B64A3F /* PasteboardMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA984F32178DF6500B64A3F /* PasteboardMonitor.swift */; };
 		4AD9013F250EAF3200BDABE3 /* StatusItemController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AD9013E250EAF3200BDABE3 /* StatusItemController.swift */; };
 		4ADE040D24ECC23F0045181C /* LocalizedStrings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ADE040C24ECC23F0045181C /* LocalizedStrings.swift */; };
+		F208D65D25A9189C00D65C41 /* Preferences in Frameworks */ = {isa = PBXBuildFile; productRef = F208D65C25A9189C00D65C41 /* Preferences */; };
+		F208D66225A918F800D65C41 /* PreferencesWindowDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F208D66125A918F800D65C41 /* PreferencesWindowDelegate.swift */; };
+		F208D66725A9191B00D65C41 /* GeneralPreferencesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F208D66525A9191B00D65C41 /* GeneralPreferencesViewController.swift */; };
+		F208D66825A9191B00D65C41 /* GeneralPreferencesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F208D66625A9191B00D65C41 /* GeneralPreferencesViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,7 +58,7 @@
 		4A4E59262176AE7A002CF83D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4A4E592A2176AE7A002CF83D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4A4E592F2176AE7A002CF83D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		4A545D7C25105622004EF5BD /* NSPasteboard+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSPasteboard+Extensions.swift"; sourceTree = "<group>"; };
+		4A545D7C25105622004EF5BD /* NSPasteboard+PlainPasta.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSPasteboard+PlainPasta.swift"; sourceTree = "<group>"; };
 		4A545D8025105C12004EF5BD /* Enablable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enablable.swift; sourceTree = "<group>"; };
 		4A8A68162176C5F500A4F1D8 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		4A8A68172176C5F500A4F1D8 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text; path = .swiftlint.yml; sourceTree = "<group>"; };
@@ -67,6 +71,9 @@
 		4AD9013E250EAF3200BDABE3 /* StatusItemController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusItemController.swift; sourceTree = "<group>"; };
 		4ADA4F6C25A219CB00893A0A /* .gitmodules */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitmodules; sourceTree = "<group>"; };
 		4ADE040C24ECC23F0045181C /* LocalizedStrings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalizedStrings.swift; sourceTree = "<group>"; };
+		F208D66125A918F800D65C41 /* PreferencesWindowDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesWindowDelegate.swift; sourceTree = "<group>"; };
+		F208D66525A9191B00D65C41 /* GeneralPreferencesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralPreferencesViewController.swift; sourceTree = "<group>"; };
+		F208D66625A9191B00D65C41 /* GeneralPreferencesViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GeneralPreferencesViewController.xib; sourceTree = "<group>"; };
 		F2E4F2ED22AED9E0006313B9 /* Plain Pasta.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Plain Pasta.entitlements"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -82,6 +89,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F208D65D25A9189C00D65C41 /* Preferences in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -196,20 +204,31 @@
 		4A4E59252176AE7A002CF83D /* PlainPasta */ = {
 			isa = PBXGroup;
 			children = (
+				F208D65A25A9187400D65C41 /* Preferences */,
 				4A4E59262176AE7A002CF83D /* AppDelegate.swift */,
 				4A545D8025105C12004EF5BD /* Enablable.swift */,
 				4AA984F32178DF6500B64A3F /* PasteboardMonitor.swift */,
-				4A545D7C25105622004EF5BD /* NSPasteboard+Extensions.swift */,
+				4A545D7C25105622004EF5BD /* NSPasteboard+PlainPasta.swift */,
 				4AD9013E250EAF3200BDABE3 /* StatusItemController.swift */,
 				4ADE040C24ECC23F0045181C /* LocalizedStrings.swift */,
-				4A39A8FF254B2C8300F5D33B /* Settings.swift */,
-				4A39A903254B331200F5D33B /* UserDefaultsBacked.swift */,
 				4A4E592A2176AE7A002CF83D /* Assets.xcassets */,
 				4A4E592C2176AE7A002CF83D /* Main.storyboard */,
 				4A4E592F2176AE7A002CF83D /* Info.plist */,
 				F2E4F2ED22AED9E0006313B9 /* Plain Pasta.entitlements */,
 			);
 			path = PlainPasta;
+			sourceTree = "<group>";
+		};
+		F208D65A25A9187400D65C41 /* Preferences */ = {
+			isa = PBXGroup;
+			children = (
+				4A39A8FF254B2C8300F5D33B /* Settings.swift */,
+				4A39A903254B331200F5D33B /* UserDefaultsBacked.swift */,
+				F208D66125A918F800D65C41 /* PreferencesWindowDelegate.swift */,
+				F208D66525A9191B00D65C41 /* GeneralPreferencesViewController.swift */,
+				F208D66625A9191B00D65C41 /* GeneralPreferencesViewController.xib */,
+			);
+			path = Preferences;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -253,6 +272,9 @@
 			dependencies = (
 			);
 			name = "Plain Pasta";
+			packageProductDependencies = (
+				F208D65C25A9189C00D65C41 /* Preferences */,
+			);
 			productName = PlainPaste;
 			productReference = 4A4E59232176AE7A002CF83D /* Plain Pasta.app */;
 			productType = "com.apple.product-type.application";
@@ -295,6 +317,7 @@
 			);
 			mainGroup = 4A4E591A2176AE7A002CF83D;
 			packageReferences = (
+				F208D65B25A9189C00D65C41 /* XCRemoteSwiftPackageReference "Preferences" */,
 			);
 			productRefGroup = 4A4E59242176AE7A002CF83D /* Products */;
 			projectDirPath = "";
@@ -318,6 +341,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F208D66825A9191B00D65C41 /* GeneralPreferencesViewController.xib in Resources */,
 				4A4E592B2176AE7A002CF83D /* Assets.xcassets in Resources */,
 				4A4E592E2176AE7A002CF83D /* Main.storyboard in Resources */,
 			);
@@ -432,13 +456,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				4A545D8125105C12004EF5BD /* Enablable.swift in Sources */,
+				F208D66225A918F800D65C41 /* PreferencesWindowDelegate.swift in Sources */,
 				4A4E59272176AE7A002CF83D /* AppDelegate.swift in Sources */,
 				4AD9013F250EAF3200BDABE3 /* StatusItemController.swift in Sources */,
 				4ADE040D24ECC23F0045181C /* LocalizedStrings.swift in Sources */,
 				4A39A904254B331200F5D33B /* UserDefaultsBacked.swift in Sources */,
 				4A39A900254B2C8300F5D33B /* Settings.swift in Sources */,
 				4AA984F42178DF6500B64A3F /* PasteboardMonitor.swift in Sources */,
-				4A545D7D25105622004EF5BD /* NSPasteboard+Extensions.swift in Sources */,
+				F208D66725A9191B00D65C41 /* GeneralPreferencesViewController.swift in Sources */,
+				4A545D7D25105622004EF5BD /* NSPasteboard+PlainPasta.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -537,6 +563,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		F208D65B25A9189C00D65C41 /* XCRemoteSwiftPackageReference "Preferences" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/sindresorhus/Preferences";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.2.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		F208D65C25A9189C00D65C41 /* Preferences */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F208D65B25A9189C00D65C41 /* XCRemoteSwiftPackageReference "Preferences" */;
+			productName = Preferences;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 4A4E591B2176AE7A002CF83D /* Project object */;
 }

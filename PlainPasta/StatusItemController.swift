@@ -3,7 +3,9 @@ import os.log
 
 class StatusItemController {
 
-	weak var delegate: Enablable?
+	typealias StatusItemControllerDelegate = Enablable & PreferencesWindowDelegate
+
+	weak var delegate: StatusItemControllerDelegate?
 	private let statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.squareLength)
 	private (set) var isEnabled = false
 	private let logger: OSLog
@@ -19,14 +21,33 @@ class StatusItemController {
 	private func buildMenu() -> NSMenu {
 		let menu = NSMenu()
 		menu.items = [
-			NSMenuItem(title: LocalizedStrings.appVersion, target: self, isEnabled: false),
+			NSMenuItem(
+				title: LocalizedStrings.appVersion,
+				target: self,
+				isEnabled: false
+			),
 			NSMenuItem.separator(),
 			enabledMenuItem,
 			NSMenuItem.separator(),
 			debugMenuItem,
 			NSMenuItem.separator(),
-			NSMenuItem(title: LocalizedStrings.aboutPlainPastaMenuItemTitle, action: #selector(openAboutPage), target: self),
-			NSMenuItem(title: LocalizedStrings.quitMenuItemTitle, action: #selector(NSApp.terminate), keyEquivalent: "q", target: NSApp)
+			NSMenuItem(
+				title: "Preferences…",
+				action: #selector(openPreferencesWindow),
+				keyEquivalent: ",",
+				target: self
+			),
+			NSMenuItem(
+				title: LocalizedStrings.aboutPlainPastaMenuItemTitle,
+				action: #selector(openAboutPage),
+				target: self
+			),
+			NSMenuItem(
+				title: LocalizedStrings.quitMenuItemTitle,
+				action: #selector(NSApp.terminate),
+				keyEquivalent: "q",
+				target: NSApp
+			)
 		]
 		return menu
 	}
@@ -48,6 +69,11 @@ class StatusItemController {
 	}()
 
 	// MARK: - Menu Item Actions
+
+	@objc
+	private func openPreferencesWindow() {
+		delegate?.openPreferencesWindow()
+	}
 
 	/// Opens Plain Pasta's About page, currently the app's website
 	@objc
