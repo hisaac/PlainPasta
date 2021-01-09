@@ -21,13 +21,13 @@ class PasteboardMonitor {
 		.html,
 		.rtf,
 		.rtfd,
+		.pdf, // This is for Microsoft Word compatibility
 		NSPasteboard.PasteboardType("com.apple.webarchive"),
 		NSPasteboard.PasteboardType("CorePasteboardFlavorType 0x75726C6E"),
 		NSPasteboard.PasteboardType("public.url-name"),
 		NSPasteboard.PasteboardType("public.utf16-external-plain-text"),
 		NSPasteboard.PasteboardType("WebURLsWithTitlesPboardType"),
-		NSPasteboard.PasteboardType("com.apple.WebKit.custom-pasteboard-data"),
-		NSPasteboard.PasteboardType("com.adobe.pdf") // This is for Microsoft Word compatibility
+		NSPasteboard.PasteboardType("com.apple.WebKit.custom-pasteboard-data")
 	]
 
 	init(for pasteboard: NSPasteboard, logger: OSLog) {

@@ -4,6 +4,7 @@
 
 @testable import Plain_Pasta
 import XCTest
+import os.log
 
 class PlainPastaTests: XCTestCase {
 
@@ -41,7 +42,7 @@ class PlainPastaTests: XCTestCase {
 
 		// Pasteboard types Plain Pasta will ignore
 		mockPasteboardItem.setString("string", forType: .string)
-		mockPasteboardItem.setData(Data(), forType: .pdf)
+		mockPasteboardItem.setData(Data(), forType: .png)
 
 		mockPasteboardItem.setString("dyn.type", forType: NSPasteboard.PasteboardType("dyn.type"))
 		for type in PasteboardMonitor.pasteboardTypeFilterList {
@@ -55,7 +56,7 @@ class PlainPastaTests: XCTestCase {
 
 		// Check types that should not have been filtered
 		XCTAssertEqual(filteredComplexPasteboardItem.string(forType: .string), "string")
-		XCTAssertNotNil(filteredComplexPasteboardItem.data(forType: .pdf))
+		XCTAssertNotNil(filteredComplexPasteboardItem.data(forType: .png))
 
 		// Check types that should have been filtered
 		XCTAssertNil(filteredComplexPasteboardItem.string(forType: NSPasteboard.PasteboardType("dyn.type")))
@@ -90,7 +91,7 @@ class PlainPastaTests: XCTestCase {
 		mockPasteboardItem.setString("string", forType: .string)
 
 		let mockPasteboard = try XCTUnwrap(self.mockPasteboard)
-		let mockPasteboardMonitor = PasteboardMonitor(for: mockPasteboard)
+		let mockPasteboardMonitor = PasteboardMonitor(for: mockPasteboard, logger: OSLog.default)
 
 		// When
 		mockPasteboard.clearContents()
@@ -111,7 +112,7 @@ class PlainPastaTests: XCTestCase {
 		mockPasteboard.clearContents()
 		mockPasteboard.writeObjects([mockPasteboardItem])
 
-		let mockPasteboardMonitor = PasteboardMonitor(for: mockPasteboard)
+		let mockPasteboardMonitor = PasteboardMonitor(for: mockPasteboard, logger: OSLog.default)
 
 		// When
 		mockPasteboardMonitor.checkPasteboard(mockPasteboard)
