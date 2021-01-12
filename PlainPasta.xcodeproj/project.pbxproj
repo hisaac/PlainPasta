@@ -70,7 +70,7 @@
 		4ADE040C24ECC23F0045181C /* LocalizedStrings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalizedStrings.swift; sourceTree = "<group>"; };
 		F208D66125A918F800D65C41 /* PreferencesWindowDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesWindowDelegate.swift; sourceTree = "<group>"; };
 		F208D66525A9191B00D65C41 /* GeneralPreferencesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralPreferencesViewController.swift; sourceTree = "<group>"; };
-		F2B11C6225AE4CC300DB6C83 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		F281EFA325AE518F00B33DD9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		F2E4F2ED22AED9E0006313B9 /* Plain Pasta.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Plain Pasta.entitlements"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -307,6 +307,7 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				Base,
 			);
 			mainGroup = 4A4E591A2176AE7A002CF83D;
 			packageReferences = (
@@ -473,7 +474,7 @@
 		F2B11C6325AE4CC300DB6C83 /* MainMenu.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
-				F2B11C6225AE4CC300DB6C83 /* en */,
+				F281EFA325AE518F00B33DD9 /* Base */,
 			);
 			name = MainMenu.xib;
 			sourceTree = "<group>";
