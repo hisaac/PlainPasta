@@ -12,16 +12,14 @@
 		4A40250E2509AF5100F893AA /* PlainPastaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A40250D2509AF5100F893AA /* PlainPastaTests.swift */; };
 		4A4E59272176AE7A002CF83D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A4E59262176AE7A002CF83D /* AppDelegate.swift */; };
 		4A4E592B2176AE7A002CF83D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4A4E592A2176AE7A002CF83D /* Assets.xcassets */; };
-		4A4E592E2176AE7A002CF83D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4A4E592C2176AE7A002CF83D /* Main.storyboard */; };
 		4A545D7D25105622004EF5BD /* NSPasteboard+PlainPasta.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A545D7C25105622004EF5BD /* NSPasteboard+PlainPasta.swift */; };
 		4A545D8125105C12004EF5BD /* Enablable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A545D8025105C12004EF5BD /* Enablable.swift */; };
 		4AA984F42178DF6500B64A3F /* PasteboardMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA984F32178DF6500B64A3F /* PasteboardMonitor.swift */; };
 		4AD9013F250EAF3200BDABE3 /* StatusItemController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AD9013E250EAF3200BDABE3 /* StatusItemController.swift */; };
 		4ADE040D24ECC23F0045181C /* LocalizedStrings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ADE040C24ECC23F0045181C /* LocalizedStrings.swift */; };
-		F208D65D25A9189C00D65C41 /* Preferences in Frameworks */ = {isa = PBXBuildFile; productRef = F208D65C25A9189C00D65C41 /* Preferences */; };
 		F208D66225A918F800D65C41 /* PreferencesWindowDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F208D66125A918F800D65C41 /* PreferencesWindowDelegate.swift */; };
 		F208D66725A9191B00D65C41 /* GeneralPreferencesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F208D66525A9191B00D65C41 /* GeneralPreferencesViewController.swift */; };
-		F208D66825A9191B00D65C41 /* GeneralPreferencesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F208D66625A9191B00D65C41 /* GeneralPreferencesViewController.xib */; };
+		F2B11C6125AE4CC300DB6C83 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = F2B11C6325AE4CC300DB6C83 /* MainMenu.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,7 +47,6 @@
 		4A3FFE90254B40A100A47ADA /* VerifyNoBS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifyNoBS.swift; sourceTree = "<group>"; };
 		4A3FFE91254B40A100A47ADA /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		4A3FFE92254B40A100A47ADA /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
-		4A3FFEA3254B411000A47ADA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		4A3FFEA4254B427500A47ADA /* PlainPastaTests.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = PlainPastaTests.xctestplan; sourceTree = "<group>"; };
 		4A40250B2509AF5100F893AA /* PlainPastaTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PlainPastaTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4A40250D2509AF5100F893AA /* PlainPastaTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlainPastaTests.swift; sourceTree = "<group>"; };
@@ -73,7 +70,7 @@
 		4ADE040C24ECC23F0045181C /* LocalizedStrings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalizedStrings.swift; sourceTree = "<group>"; };
 		F208D66125A918F800D65C41 /* PreferencesWindowDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesWindowDelegate.swift; sourceTree = "<group>"; };
 		F208D66525A9191B00D65C41 /* GeneralPreferencesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralPreferencesViewController.swift; sourceTree = "<group>"; };
-		F208D66625A9191B00D65C41 /* GeneralPreferencesViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GeneralPreferencesViewController.xib; sourceTree = "<group>"; };
+		F2B11C6225AE4CC300DB6C83 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		F2E4F2ED22AED9E0006313B9 /* Plain Pasta.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Plain Pasta.entitlements"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -89,7 +86,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F208D65D25A9189C00D65C41 /* Preferences in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -174,7 +170,6 @@
 		4A4E591A2176AE7A002CF83D = {
 			isa = PBXGroup;
 			children = (
-				4ADA4F6C25A219CB00893A0A /* .gitmodules */,
 				4A8A681A2176C5F500A4F1D8 /* README.md */,
 				4A8A68182176C5F500A4F1D8 /* changelog.md */,
 				4A4E59252176AE7A002CF83D /* PlainPasta */,
@@ -182,6 +177,7 @@
 				4A8A68192176C5F500A4F1D8 /* LICENSE */,
 				4A8A68172176C5F500A4F1D8 /* .swiftlint.yml */,
 				4A8A68162176C5F500A4F1D8 /* .gitignore */,
+				4ADA4F6C25A219CB00893A0A /* .gitmodules */,
 				4A3FFE81254B408500A47ADA /* Config */,
 				4A3FFE8E254B40A100A47ADA /* buildscripts */,
 				4AA7338D2507431400C9E7FC /* docs */,
@@ -212,7 +208,7 @@
 				4AD9013E250EAF3200BDABE3 /* StatusItemController.swift */,
 				4ADE040C24ECC23F0045181C /* LocalizedStrings.swift */,
 				4A4E592A2176AE7A002CF83D /* Assets.xcassets */,
-				4A4E592C2176AE7A002CF83D /* Main.storyboard */,
+				F2B11C6325AE4CC300DB6C83 /* MainMenu.xib */,
 				4A4E592F2176AE7A002CF83D /* Info.plist */,
 				F2E4F2ED22AED9E0006313B9 /* Plain Pasta.entitlements */,
 			);
@@ -226,7 +222,6 @@
 				4A39A903254B331200F5D33B /* UserDefaultsBacked.swift */,
 				F208D66125A918F800D65C41 /* PreferencesWindowDelegate.swift */,
 				F208D66525A9191B00D65C41 /* GeneralPreferencesViewController.swift */,
-				F208D66625A9191B00D65C41 /* GeneralPreferencesViewController.xib */,
 			);
 			path = Preferences;
 			sourceTree = "<group>";
@@ -273,7 +268,6 @@
 			);
 			name = "Plain Pasta";
 			packageProductDependencies = (
-				F208D65C25A9189C00D65C41 /* Preferences */,
 			);
 			productName = PlainPaste;
 			productReference = 4A4E59232176AE7A002CF83D /* Plain Pasta.app */;
@@ -313,11 +307,9 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
-				Base,
 			);
 			mainGroup = 4A4E591A2176AE7A002CF83D;
 			packageReferences = (
-				F208D65B25A9189C00D65C41 /* XCRemoteSwiftPackageReference "Preferences" */,
 			);
 			productRefGroup = 4A4E59242176AE7A002CF83D /* Products */;
 			projectDirPath = "";
@@ -341,9 +333,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F208D66825A9191B00D65C41 /* GeneralPreferencesViewController.xib in Resources */,
 				4A4E592B2176AE7A002CF83D /* Assets.xcassets in Resources */,
-				4A4E592E2176AE7A002CF83D /* Main.storyboard in Resources */,
+				F2B11C6125AE4CC300DB6C83 /* MainMenu.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -479,12 +470,12 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		4A4E592C2176AE7A002CF83D /* Main.storyboard */ = {
+		F2B11C6325AE4CC300DB6C83 /* MainMenu.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
-				4A3FFEA3254B411000A47ADA /* Base */,
+				F2B11C6225AE4CC300DB6C83 /* en */,
 			);
-			name = Main.storyboard;
+			name = MainMenu.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -563,25 +554,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		F208D65B25A9189C00D65C41 /* XCRemoteSwiftPackageReference "Preferences" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/sindresorhus/Preferences";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 2.2.0;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		F208D65C25A9189C00D65C41 /* Preferences */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = F208D65B25A9189C00D65C41 /* XCRemoteSwiftPackageReference "Preferences" */;
-			productName = Preferences;
-		};
-/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 4A4E591B2176AE7A002CF83D /* Project object */;
 }

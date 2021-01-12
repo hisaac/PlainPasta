@@ -1,26 +1,34 @@
 import AppKit
-import Preferences
 
-extension Preferences.PaneIdentifier {
-	static let general = Self("general")
-}
-
-class GeneralPreferencesViewController: NSViewController, PreferencePane {
-
-	var preferencePaneIdentifier = Preferences.PaneIdentifier.general
-	var preferencePaneTitle = "General"
-	var toolbarItemIcon: NSImage?
-
-	override var nibName: NSNib.Name? { "GeneralPreferencesViewController" }
+class GeneralPreferencesViewController: NSViewController {
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
+		buildView()
+	}
 
-		preferredContentSize = NSSize(width: 760, height: 320)
+	private func buildView() {
+		guard let contentView = view.window?.contentView else { return }
 
-		if #available(OSX 11.0, *) {
-			toolbarItemIcon = NSImage(systemSymbolName: "gearshape", accessibilityDescription: "General preferences")
-		}
+		let gridView = NSGridView(views: [
+			[
+				NSTextField(labelWithString: "Show scroll bars:"),
+				NSButton(radioButtonWithTitle: "Automatically based on mouse or trackpad", target: nil, action: nil)
+			],
+			[
+				NSTextField(labelWithString: "Click in the scroll bar to:"),
+				NSButton(radioButtonWithTitle: "Jump to the next page", target: nil, action: nil)
+			]
+		])
+
+		gridView.translatesAutoresizingMaskIntoConstraints = false
+
+		contentView.addSubview(gridView)
+
+		NSLayoutConstraint.activate([
+			gridView.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
+			gridView.centerYAnchor.constraint(equalTo: contentView.centerYAnchor)
+		])
 	}
 
 }

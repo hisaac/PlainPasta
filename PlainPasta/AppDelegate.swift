@@ -1,25 +1,20 @@
 import AppKit
 import os.log
-import Preferences
 
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
 
 	// MARK: - Initialization
 
+	var window: NSWindow?
 	var pasteboardMonitor: PasteboardMonitor?
 	var statusItemController: StatusItemController?
-
-	lazy var preferencesWindowController = PreferencesWindowController(
-		preferencePanes: [GeneralPreferencesViewController()],
-		hidesToolbarForSingleItem: true
-	)
 
 	#warning("TODO: Create custom logger class that uses `Logger` or `OSLog` depending on the operating system")
 	// https://developer.apple.com/documentation/os/logging/generating_log_messages_from_your_code
 	// https://nshipster.com/swift-log/
 	let logger: OSLog = {
-		let subsystem = Bundle.main.bundleIdentifier ?? ""
+		let subsystem = Bundle.main.bundleIdentifier!
 		let category = #file
 		return OSLog(subsystem: subsystem, category: category)
 	}()
@@ -75,6 +70,8 @@ extension AppDelegate: Enablable {
 extension AppDelegate: PreferencesWindowDelegate {
 	func openPreferencesWindow() {
 		NSApp.activate(ignoringOtherApps: true)
-		preferencesWindowController.show()
+		let generalPreferencesViewController = GeneralPreferencesViewController()
+		let contentView = window?.contentView
+		contentView?.addSubview(generalPreferencesViewController.view)
 	}
 }
