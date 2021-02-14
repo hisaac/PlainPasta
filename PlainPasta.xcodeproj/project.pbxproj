@@ -261,6 +261,7 @@
 				4A4E59202176AE7A002CF83D /* Frameworks */,
 				4A4E59212176AE7A002CF83D /* Resources */,
 				4ADA4F7225A2283600893A0A /* Kill Other Instances */,
+				4AF3EEC725D987C50065DD09 /* Copy Built Product */,
 			);
 			buildRules = (
 			);
@@ -431,6 +432,24 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "echo $(pkill \"Plain Pasta\") > /dev/null\n";
+		};
+		4AF3EEC725D987C50065DD09 /* Copy Built Product */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Built Product";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "mkdir -p \"${SRCROOT}/build/development\"\ncp -fR \"${BUILT_PRODUCTS_DIR}/${EXECUTABLE_NAME}.app\" \"${SRCROOT}/build/development\"\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
