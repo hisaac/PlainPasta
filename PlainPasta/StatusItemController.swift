@@ -1,4 +1,5 @@
 import AppKit
+import Defaults
 import os.log
 
 class StatusItemController {
@@ -85,8 +86,8 @@ class StatusItemController {
 	/// Toggles debug mode for the app
 	@objc
 	private func toggleDebugMode() {
-		Settings.debugEnabled.toggle()
-		if Settings.debugEnabled {
+		Defaults[.debugEnabled].toggle()
+		if Defaults[.debugEnabled] {
 			debugMenuItem.state = .on
 		} else {
 			debugMenuItem.state = .off

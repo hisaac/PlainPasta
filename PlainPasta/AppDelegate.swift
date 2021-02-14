@@ -1,8 +1,11 @@
 import AppKit
+import Defaults
 import os.log
+import Preferences
+import SwiftUI
 
 @NSApplicationMain
-class AppDelegate: NSObject, NSApplicationDelegate {
+final class AppDelegate: NSObject, NSApplicationDelegate {
 
 	// MARK: - Initialization
 
@@ -19,6 +22,19 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 		return OSLog(subsystem: subsystem, category: category)
 	}()
 
+	lazy var preferencesWindowController = PreferencesWindowController(
+		panes: [
+			Preferences.Pane(
+				identifier: .general,
+				title: "General",
+				toolbarIcon: NSImage(),
+				contentView: {
+					GeneralPreferencesView()
+				}
+			)
+		]
+	)
+
 	// MARK: - AppDelegate Methods
 
 	func applicationDidFinishLaunching(_ notification: Notification) {
@@ -28,14 +44,14 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 		statusItemController?.delegate = self
 		statusItemController?.enable()
 
-		if Settings.firstLaunch {
+		if Defaults[.firstLaunch] {
 			// Open settings window if this is the first launch
 			#warning("TODO: Once settings window is implemented, open settings window if this is the first launch")
 		}
 
 		#if DEBUG
 		openPreferencesWindow()
-		Settings.debugEnabled = true
+		Defaults[.debugEnabled] = true
 		#endif
 	}
 }
@@ -43,9 +59,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 extension AppDelegate: Enablable {
 
 	private(set) var isEnabled: Bool {
-		get { Settings.filteringEnabled }
+		get { Defaults[.filteringEnabled] }
 		set {
-			Settings.filteringEnabled = newValue
+			Defaults[.filteringEnabled] = newValue
 			if newValue {
 				enable()
 			} else {
@@ -69,9 +85,6 @@ extension AppDelegate: Enablable {
 
 extension AppDelegate: PreferencesWindowDelegate {
 	func openPreferencesWindow() {
-		NSApp.activate(ignoringOtherApps: true)
-		let generalPreferencesViewController = GeneralPreferencesViewController()
-		let contentView = window?.contentView
-		contentView?.addSubview(generalPreferencesViewController.view)
+		preferencesWindowController.show()
 	}
 }

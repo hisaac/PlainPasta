@@ -1,0 +1,34 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "Defaults",
+        "repositoryURL": "https://github.com/sindresorhus/Defaults",
+        "state": {
+          "branch": null,
+          "revision": "d98119fee49c893fae553103a8659ffe003b6cfe",
+          "version": "4.1.0"
+        }
+      },
+      {
+        "package": "KeyboardShortcuts",
+        "repositoryURL": "https://github.com/sindresorhus/KeyboardShortcuts",
+        "state": {
+          "branch": null,
+          "revision": "f57a1e998d915d847e55da2c9f143d5adcf46639",
+          "version": "0.7.0"
+        }
+      },
+      {
+        "package": "Preferences",
+        "repositoryURL": "https://github.com/sindresorhus/Preferences",
+        "state": {
+          "branch": null,
+          "revision": "4802a493acef50c814e4eb63e9a44e0941ec8883",
+          "version": "2.2.0"
+        }
+      }
+    ]
+  },
+  "version": 1
+}

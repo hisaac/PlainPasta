@@ -5,6 +5,33 @@
    <BuildAction
       parallelizeBuildables = "YES"
       buildImplicitDependencies = "YES">
+      <PreActions>
+         <ExecutionAction
+            ActionType = "Xcode.IDEStandardExecutionActionsCore.ExecutionActionType.ShellScriptAction">
+            <ActionContent
+               title = "Kill Other Instances"
+               scriptText = "echo $(pkill &quot;Plain Pasta&quot;) &gt; /dev/null&#10;">
+            </ActionContent>
+         </ExecutionAction>
+      </PreActions>
+      <PostActions>
+         <ExecutionAction
+            ActionType = "Xcode.IDEStandardExecutionActionsCore.ExecutionActionType.ShellScriptAction">
+            <ActionContent
+               title = "Copy Built Product"
+               scriptText = "mkdir -p &quot;${SRCROOT}/build/development&quot;&#10;cp -fR &quot;${BUILT_PRODUCTS_DIR}/${EXECUTABLE_NAME}.app&quot; &quot;${SRCROOT}/build/development&quot;&#10;">
+               <EnvironmentBuildable>
+                  <BuildableReference
+                     BuildableIdentifier = "primary"
+                     BlueprintIdentifier = "4A4E59222176AE7A002CF83D"
+                     BuildableName = "Plain Pasta.app"
+                     BlueprintName = "Plain Pasta"
+                     ReferencedContainer = "container:PlainPasta.xcodeproj">
+                  </BuildableReference>
+               </EnvironmentBuildable>
+            </ActionContent>
+         </ExecutionAction>
+      </PostActions>
       <BuildActionEntries>
          <BuildActionEntry
             buildForTesting = "YES"
@@ -68,6 +95,7 @@
       ignoresPersistentStateOnLaunch = "NO"
       debugDocumentVersioning = "YES"
       debugServiceExtension = "internal"
+      enableGPUValidationMode = "1"
       allowLocationSimulation = "YES">
       <BuildableProductRunnable
          runnableDebuggingMode = "0">

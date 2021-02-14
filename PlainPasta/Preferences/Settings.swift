@@ -1,17 +1,15 @@
-// Created by Isaac Halvorson on 10/29/20
+// Created by Isaac Halvorson on 2020-10-29
 
+import Defaults
 import Foundation
 
-struct Settings {
-	/// Sets whether debug mode is enabled
-	@UserDefaultsBacked(key: "debugEnabled", defaultValue: false)
-	static var debugEnabled: Bool
+extension Defaults.Keys {
+	/// Whether debug mode is enabled
+	static let debugEnabled = Key<Bool>("debugEnabled", default: false)
 
-	/// Sets whether pasteboard filtering is enabled
-	@UserDefaultsBacked(key: "filteringEnabled", defaultValue: false)
-	static var filteringEnabled: Bool
+	/// Whether pasteboard filtering is enabled
+	static let filteringEnabled = Key<Bool>("filteringEnabled", default: false)
 
 	/// Tracks if this is the first time the app has been launched
-	@UserDefaultsBacked(key: "firstLaunch", defaultValue: true)
-	static var firstLaunch: Bool
+	static let firstLaunch = Key<Bool>("firstLaunch", default: true)
 }

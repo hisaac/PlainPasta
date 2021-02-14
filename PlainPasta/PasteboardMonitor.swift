@@ -1,4 +1,5 @@
 import AppKit
+import Defaults
 import os.log
 
 class PasteboardMonitor {
@@ -62,7 +63,7 @@ class PasteboardMonitor {
 
 			let filteredPasteboardItem = pasteboardItem.plaintextifiedCopy()
 
-			if Settings.debugEnabled {
+			if Defaults[.debugEnabled] {
 				// Print out pasteboard types for help in debugging
 				let debugString: StaticString =
 					"""
@@ -77,7 +78,7 @@ class PasteboardMonitor {
 
 			pasteboard.clearContents()
 			let wroteToPasteboard = pasteboard.writeObjects([filteredPasteboardItem])
-			if wroteToPasteboard && Settings.debugEnabled {
+			if wroteToPasteboard && Defaults[.debugEnabled] {
 				os_log(.info, log: logger, "%{public}@", plaintextString)
 			} else {
 				os_log(.info, log: logger, "Unable to write new pasteboard item to pasteboard")

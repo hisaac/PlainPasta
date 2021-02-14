@@ -1,3 +1,3 @@
-protocol PreferencesWindowDelegate: class {
+protocol PreferencesWindowDelegate: AnyObject {
 	func openPreferencesWindow()
 }
