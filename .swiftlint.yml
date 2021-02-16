@@ -28,6 +28,7 @@ excluded:
 - Carthage
 - Pods
 - buildscripts/VerifyNoBS
+- DerivedData
 
 file_length:
   ignore_comment_only_lines: true
