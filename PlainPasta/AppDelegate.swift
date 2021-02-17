@@ -55,6 +55,10 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
 	}
 }
 
+protocol PreferencesWindowDelegate: AnyObject {
+	func openPreferencesWindow()
+}
+
 extension AppDelegate: PreferencesWindowDelegate {
 	func openPreferencesWindow() {
 		preferencesWindowController.show()

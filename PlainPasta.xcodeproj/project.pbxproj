@@ -19,7 +19,6 @@
 		4ABAB98825D9A05A00D50FC4 /* KeyboardShortcuts in Frameworks */ = {isa = PBXBuildFile; productRef = 4ABAB98725D9A05A00D50FC4 /* KeyboardShortcuts */; };
 		4AD9013F250EAF3200BDABE3 /* StatusItemController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AD9013E250EAF3200BDABE3 /* StatusItemController.swift */; };
 		4ADE040D24ECC23F0045181C /* LocalizedStrings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ADE040C24ECC23F0045181C /* LocalizedStrings.swift */; };
-		F208D66225A918F800D65C41 /* PreferencesWindowDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F208D66125A918F800D65C41 /* PreferencesWindowDelegate.swift */; };
 		F2B11C6125AE4CC300DB6C83 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = F2B11C6325AE4CC300DB6C83 /* MainMenu.xib */; };
 /* End PBXBuildFile section */
 
@@ -68,7 +67,6 @@
 		4AD9013E250EAF3200BDABE3 /* StatusItemController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusItemController.swift; sourceTree = "<group>"; };
 		4ADA4F6C25A219CB00893A0A /* .gitmodules */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitmodules; sourceTree = "<group>"; };
 		4ADE040C24ECC23F0045181C /* LocalizedStrings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalizedStrings.swift; sourceTree = "<group>"; };
-		F208D66125A918F800D65C41 /* PreferencesWindowDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesWindowDelegate.swift; sourceTree = "<group>"; };
 		F281EFA325AE518F00B33DD9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		F2E4F2ED22AED9E0006313B9 /* Plain Pasta.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Plain Pasta.entitlements"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -220,7 +218,6 @@
 			isa = PBXGroup;
 			children = (
 				4A39A8FF254B2C8300F5D33B /* Settings.swift */,
-				F208D66125A918F800D65C41 /* PreferencesWindowDelegate.swift */,
 				4ABAB98425D9923A00D50FC4 /* GeneralPreferencesView.swift */,
 			);
 			path = Preferences;
@@ -433,7 +430,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F208D66225A918F800D65C41 /* PreferencesWindowDelegate.swift in Sources */,
 				4A4E59272176AE7A002CF83D /* AppDelegate.swift in Sources */,
 				4AD9013F250EAF3200BDABE3 /* StatusItemController.swift in Sources */,
 				4ADE040D24ECC23F0045181C /* LocalizedStrings.swift in Sources */,
