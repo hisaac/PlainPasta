@@ -1,4 +1,5 @@
 import AppKit
+import Combine
 import Defaults
 import os.log
 
@@ -11,9 +12,7 @@ class PasteboardMonitor {
 	/// Initially set to the given pasteboard's change count
 	private var internalChangeCount: Int
 
-	private var timer = DispatchSource.makeTimerSource()
-
-	private (set) var isEnabled = false
+	private var timer: AnyCancellable?
 
 	let logger: OSLog
 
@@ -37,20 +36,30 @@ class PasteboardMonitor {
 
 		internalChangeCount = pasteboard.changeCount
 
-		timer.schedule(deadline: .now(), repeating: .milliseconds(100))
-		timer.setEventHandler { [weak self] in
-			guard let strongSelf = self else { return }
-			strongSelf.checkPasteboard(strongSelf.pasteboard)
-		}
+		setupDefaultsObservers()
 	}
 
-	deinit {
-		timer.setEventHandler {}
-		timer.cancel()
+	func setupDefaultsObservers() {
+		Defaults.observe(.filteringEnabled) { [weak self] change in
+			if change.newValue {
+				self?.startTimer()
+			} else {
+				self?.stopTimer()
+			}
+		}.tieToLifetime(of: self)
+	}
 
-		// Weirdly, due to a known bug in `DispatchSourceTimer`,
-		// you have to resume the timer after cancelling it in order to avoid a crash. 🤦‍♂️
-		timer.resume()
+	func startTimer() {
+		timer = Timer.publish(every: 0.01, tolerance: 0.05, on: .main, in: .default)
+			.autoconnect()
+			.sink { [weak self] _ in
+				guard let strongSelf = self else { return }
+				strongSelf.checkPasteboard(strongSelf.pasteboard)
+			}
+	}
+
+	func stopTimer() {
+		timer?.cancel()
 	}
 
 	/// Checks the pasteboard for styled text contents, and strips the formatting if possible
@@ -88,18 +97,4 @@ class PasteboardMonitor {
 		internalChangeCount = pasteboard.changeCount
 	}
 
-}
-
-extension PasteboardMonitor: Enablable {
-	func enable() {
-		guard isEnabled == false else { return }
-		isEnabled = true
-		timer.resume()
-	}
-
-	func disable() {
-		guard isEnabled == true else { return }
-		isEnabled = false
-		timer.suspend()
-	}
 }

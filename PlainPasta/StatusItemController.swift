@@ -1,20 +1,37 @@
 import AppKit
+import Combine
 import Defaults
 import os.log
 
 class StatusItemController {
 
-	typealias StatusItemControllerDelegate = Enablable & PreferencesWindowDelegate
-
-	weak var delegate: StatusItemControllerDelegate?
+	weak var delegate: PreferencesWindowDelegate?
 	private let statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.squareLength)
-	private (set) var isEnabled = false
 	private let logger: OSLog
 
 	init(logger: OSLog) {
 		self.logger = logger
 		statusItem.button?.image = NSImage(named: "StatusBarButtonImage")
 		statusItem.menu = buildMenu()
+		setupDefaultsObservers()
+	}
+
+	func setupDefaultsObservers() {
+		Defaults.observe(.debugEnabled) { [weak self] change in
+			if change.newValue {
+				self?.debugMenuItem.state = .on
+			} else {
+				self?.debugMenuItem.state = .off
+			}
+		}.tieToLifetime(of: self)
+
+		Defaults.observe(.filteringEnabled) { [weak self] change in
+			if change.newValue {
+				self?.enabledMenuItem.state = .on
+			} else {
+				self?.enabledMenuItem.state = .off
+			}
+		}.tieToLifetime(of: self)
 	}
 
 	/// Builds and returns a correctly ordered menu
@@ -87,33 +104,12 @@ class StatusItemController {
 	@objc
 	private func toggleDebugMode() {
 		Defaults[.debugEnabled].toggle()
-		if Defaults[.debugEnabled] {
-			debugMenuItem.state = .on
-		} else {
-			debugMenuItem.state = .off
-		}
 	}
 
 	/// Toggles the enabled state of the menu
 	@objc
 	private func toggleIsEnabled() {
-		isEnabled ? disable() : enable()
-	}
-}
-
-extension StatusItemController: Enablable {
-	func enable() {
-		guard isEnabled == false else { return }
-		isEnabled = true
-		enabledMenuItem.state = .on
-		delegate?.enable()
-	}
-
-	func disable() {
-		guard isEnabled == true else { return }
-		isEnabled = false
-		enabledMenuItem.state = .off
-		delegate?.disable()
+		Defaults[.filteringEnabled].toggle()
 	}
 }
 

@@ -42,44 +42,16 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
 
 		statusItemController = StatusItemController(logger: logger)
 		statusItemController?.delegate = self
-		statusItemController?.enable()
 
 		if Defaults[.firstLaunch] {
 			// Open settings window if this is the first launch
-			#warning("TODO: Once settings window is implemented, open settings window if this is the first launch")
+			openPreferencesWindow()
 		}
+		Defaults[.firstLaunch] = false
 
 		#if DEBUG
-		openPreferencesWindow()
 		Defaults[.debugEnabled] = true
 		#endif
-	}
-}
-
-extension AppDelegate: Enablable {
-
-	private(set) var isEnabled: Bool {
-		get { Defaults[.filteringEnabled] }
-		set {
-			Defaults[.filteringEnabled] = newValue
-			if newValue {
-				enable()
-			} else {
-				disable()
-			}
-		}
-	}
-
-	func enable() {
-		pasteboardMonitor?.enable()
-		statusItemController?.enable()
-		os_log(.info, log: logger, "Plain Pasta has been enabled")
-	}
-
-	func disable() {
-		pasteboardMonitor?.disable()
-		statusItemController?.disable()
-		os_log(.info, log: logger, "Plain Pasta has been disabled")
 	}
 }
 
