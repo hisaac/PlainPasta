@@ -27,12 +27,23 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
 			Preferences.Pane(
 				identifier: .general,
 				title: "General",
-				toolbarIcon: NSImage(),
-				contentView: {
-					GeneralPreferencesView()
-				}
+				toolbarIcon: NSImage(systemSymbolName: "gearshape", accessibilityDescription: "")!,
+				contentView: { GeneralPreferencesView() }
+			),
+			Preferences.Pane(
+				identifier: .keyboardShortcuts,
+				title: "Keyboard Shortcuts",
+				toolbarIcon: NSImage(systemSymbolName: "keyboard", accessibilityDescription: "")!,
+				contentView: { KeyboardShortcutsPreferencesView() }
+			),
+			Preferences.Pane(
+				identifier: .debugging,
+				title: "Debugging",
+				toolbarIcon: NSImage(systemSymbolName: "ladybug", accessibilityDescription: "")!,
+				contentView: { DebuggingPreferencesView() }
 			)
-		]
+		],
+		animated: false
 	)
 
 	// MARK: - AppDelegate Methods
@@ -51,6 +62,9 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
 
 		#if DEBUG
 		Defaults[.debugEnabled] = true
+		if ProcessInfo.processInfo.environment["XCODE_RUNNING_FOR_PREVIEWS"] != "1" {
+			openPreferencesWindow()
+		}
 		#endif
 	}
 }

@@ -19,6 +19,8 @@
 		4ABAB98825D9A05A00D50FC4 /* KeyboardShortcuts in Frameworks */ = {isa = PBXBuildFile; productRef = 4ABAB98725D9A05A00D50FC4 /* KeyboardShortcuts */; };
 		4AD9013F250EAF3200BDABE3 /* StatusItemController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AD9013E250EAF3200BDABE3 /* StatusItemController.swift */; };
 		4ADE040D24ECC23F0045181C /* LocalizedStrings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ADE040C24ECC23F0045181C /* LocalizedStrings.swift */; };
+		F218F38625DDA87B002146F9 /* DebuggingPreferencesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F218F38525DDA87B002146F9 /* DebuggingPreferencesView.swift */; };
+		F218F38825DDA888002146F9 /* KeyboardShortcutsPreferencesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F218F38725DDA888002146F9 /* KeyboardShortcutsPreferencesView.swift */; };
 		F2B11C6125AE4CC300DB6C83 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = F2B11C6325AE4CC300DB6C83 /* MainMenu.xib */; };
 /* End PBXBuildFile section */
 
@@ -67,6 +69,8 @@
 		4AD9013E250EAF3200BDABE3 /* StatusItemController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusItemController.swift; sourceTree = "<group>"; };
 		4ADA4F6C25A219CB00893A0A /* .gitmodules */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitmodules; sourceTree = "<group>"; };
 		4ADE040C24ECC23F0045181C /* LocalizedStrings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalizedStrings.swift; sourceTree = "<group>"; };
+		F218F38525DDA87B002146F9 /* DebuggingPreferencesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebuggingPreferencesView.swift; sourceTree = "<group>"; };
+		F218F38725DDA888002146F9 /* KeyboardShortcutsPreferencesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardShortcutsPreferencesView.swift; sourceTree = "<group>"; };
 		F281EFA325AE518F00B33DD9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		F2E4F2ED22AED9E0006313B9 /* Plain Pasta.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Plain Pasta.entitlements"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -219,6 +223,8 @@
 			children = (
 				4A39A8FF254B2C8300F5D33B /* Settings.swift */,
 				4ABAB98425D9923A00D50FC4 /* GeneralPreferencesView.swift */,
+				F218F38525DDA87B002146F9 /* DebuggingPreferencesView.swift */,
+				F218F38725DDA888002146F9 /* KeyboardShortcutsPreferencesView.swift */,
 			);
 			path = Preferences;
 			sourceTree = "<group>";
@@ -431,12 +437,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				4A4E59272176AE7A002CF83D /* AppDelegate.swift in Sources */,
+				F218F38625DDA87B002146F9 /* DebuggingPreferencesView.swift in Sources */,
 				4AD9013F250EAF3200BDABE3 /* StatusItemController.swift in Sources */,
 				4ADE040D24ECC23F0045181C /* LocalizedStrings.swift in Sources */,
 				4A39A900254B2C8300F5D33B /* Settings.swift in Sources */,
 				4AA984F42178DF6500B64A3F /* PasteboardMonitor.swift in Sources */,
 				4A545D7D25105622004EF5BD /* NSPasteboard+PlainPasta.swift in Sources */,
 				4ABAB98525D9923A00D50FC4 /* GeneralPreferencesView.swift in Sources */,
+				F218F38825DDA888002146F9 /* KeyboardShortcutsPreferencesView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

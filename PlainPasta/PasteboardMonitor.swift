@@ -1,6 +1,7 @@
 import AppKit
 import Combine
 import Defaults
+import KeyboardShortcuts
 import os.log
 
 class PasteboardMonitor {
@@ -47,6 +48,20 @@ class PasteboardMonitor {
 				self?.stopTimer()
 			}
 		}.tieToLifetime(of: self)
+
+		KeyboardShortcuts.onKeyUp(for: .toggleClipboardFiltering) {
+			Defaults[.filteringEnabled].toggle()
+		}
+
+		#warning("TODO: Implement plaintextify shortcut")
+		KeyboardShortcuts.onKeyDown(for: .plaintextifyClipboard) {
+			print("plaintextify pressed")
+		}
+
+		#warning("TODO: Implement undo plaintextification shortcut")
+		KeyboardShortcuts.onKeyDown(for: .undoPlaintextification) {
+			print("undo plaintextification pressed")
+		}
 	}
 
 	func startTimer() {

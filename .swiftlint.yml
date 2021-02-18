@@ -32,3 +32,6 @@ excluded:
 
 file_length:
   ignore_comment_only_lines: true
+
+switch_case_alignment:
+  indented_cases: true

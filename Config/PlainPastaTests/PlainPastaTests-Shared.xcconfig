@@ -70,16 +70,6 @@ LD_RUNPATH_SEARCH_PATHS = $(inherited) @executable_path/../Frameworks @loader_pa
 
 
 
-// macOS Deployment Target
-// 
-// Code will load on this and later versions of macOS. Framework APIs that are
-// unavailable in earlier versions will be weak-linked; your code should check for `null`
-// function pointers or specific system versions before calling newer APIs.
-
-MACOSX_DEPLOYMENT_TARGET = 10.15
-
-
-
 // Product Bundle Identifier
 // 
 // A string that uniquely identifies the bundle. The string should be in reverse DNS
