@@ -27,19 +27,19 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
 			Preferences.Pane(
 				identifier: .general,
 				title: "General",
-				toolbarIcon: NSImage(systemSymbolName: "gearshape", accessibilityDescription: "")!,
+				toolbarIcon: NSImage(systemSymbolName: "gearshape", accessibilityDescription: "General Preferences")!,
 				contentView: { GeneralPreferencesView() }
 			),
 			Preferences.Pane(
 				identifier: .keyboardShortcuts,
 				title: "Keyboard Shortcuts",
-				toolbarIcon: NSImage(systemSymbolName: "keyboard", accessibilityDescription: "")!,
+				toolbarIcon: NSImage(systemSymbolName: "keyboard", accessibilityDescription: "Keyboard Shortcuts Preferences")!,
 				contentView: { KeyboardShortcutsPreferencesView() }
 			),
 			Preferences.Pane(
 				identifier: .debugging,
 				title: "Debugging",
-				toolbarIcon: NSImage(systemSymbolName: "ladybug", accessibilityDescription: "")!,
+				toolbarIcon: NSImage(systemSymbolName: "ladybug", accessibilityDescription: "Debugging Preferences")!,
 				contentView: { DebuggingPreferencesView() }
 			)
 		],
