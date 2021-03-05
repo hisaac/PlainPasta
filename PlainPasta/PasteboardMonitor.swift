@@ -94,7 +94,7 @@ class PasteboardMonitor {
 		}
 
 		guard filteredPasteboardItems.isEmpty == false else { return }
-		pasteboard.clearContents()
+		pasteboard.prepareForNewContents()
 		let successfullyWroteToPasteboard = pasteboard.writeObjects(filteredPasteboardItems)
 
 		if successfullyWroteToPasteboard && Defaults[.debugEnabled] {
