@@ -17,7 +17,7 @@ extension NSPasteboardItem {
 			// Filter out any dynamic pasteboard types, and any types in our "avoid" list
 			guard type.rawValue.hasPrefix("dyn.") == false,
 				  filteredTypes.contains(type) == false,
-				let data = data(forType: type) else {
+				  let data = data(forType: type) else {
 					continue
 			}
 

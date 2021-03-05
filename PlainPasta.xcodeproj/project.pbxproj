@@ -21,6 +21,8 @@
 		4ADE040D24ECC23F0045181C /* LocalizedStrings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4ADE040C24ECC23F0045181C /* LocalizedStrings.swift */; };
 		F218F38625DDA87B002146F9 /* DebuggingPreferencesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F218F38525DDA87B002146F9 /* DebuggingPreferencesView.swift */; };
 		F218F38825DDA888002146F9 /* KeyboardShortcutsPreferencesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F218F38725DDA888002146F9 /* KeyboardShortcutsPreferencesView.swift */; };
+		F283E1EA25E9844F00876241 /* PasteboardPublisher in Resources */ = {isa = PBXBuildFile; fileRef = F283E1E925E9844F00876241 /* PasteboardPublisher */; };
+		F283E1EC25E9850900876241 /* PasteboardPublisher in Frameworks */ = {isa = PBXBuildFile; productRef = F283E1EB25E9850900876241 /* PasteboardPublisher */; };
 		F2B11C6125AE4CC300DB6C83 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = F2B11C6325AE4CC300DB6C83 /* MainMenu.xib */; };
 /* End PBXBuildFile section */
 
@@ -72,6 +74,7 @@
 		F218F38525DDA87B002146F9 /* DebuggingPreferencesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebuggingPreferencesView.swift; sourceTree = "<group>"; };
 		F218F38725DDA888002146F9 /* KeyboardShortcutsPreferencesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardShortcutsPreferencesView.swift; sourceTree = "<group>"; };
 		F281EFA325AE518F00B33DD9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		F283E1E925E9844F00876241 /* PasteboardPublisher */ = {isa = PBXFileReference; lastKnownFileType = folder; name = PasteboardPublisher; path = ../PasteboardPublisher; sourceTree = "<group>"; };
 		F2E4F2ED22AED9E0006313B9 /* Plain Pasta.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Plain Pasta.entitlements"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -89,6 +92,7 @@
 			files = (
 				4ABAB98325D9918A00D50FC4 /* Defaults in Frameworks */,
 				4ABAB98025D9916E00D50FC4 /* Preferences in Frameworks */,
+				F283E1EC25E9850900876241 /* PasteboardPublisher in Frameworks */,
 				4ABAB98825D9A05A00D50FC4 /* KeyboardShortcuts in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -178,6 +182,7 @@
 				4A8A68182176C5F500A4F1D8 /* changelog.md */,
 				4A4E59252176AE7A002CF83D /* PlainPasta */,
 				4A40250C2509AF5100F893AA /* PlainPastaTests */,
+				F283E1E925E9844F00876241 /* PasteboardPublisher */,
 				4A8A68192176C5F500A4F1D8 /* LICENSE */,
 				4A8A68172176C5F500A4F1D8 /* .swiftlint.yml */,
 				4A8A68162176C5F500A4F1D8 /* .gitignore */,
@@ -273,6 +278,7 @@
 				4ABAB97F25D9916E00D50FC4 /* Preferences */,
 				4ABAB98225D9918A00D50FC4 /* Defaults */,
 				4ABAB98725D9A05A00D50FC4 /* KeyboardShortcuts */,
+				F283E1EB25E9850900876241 /* PasteboardPublisher */,
 			);
 			productName = PlainPaste;
 			productReference = 4A4E59232176AE7A002CF83D /* Plain Pasta.app */;
@@ -342,6 +348,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4A4E592B2176AE7A002CF83D /* Assets.xcassets in Resources */,
+				F283E1EA25E9844F00876241 /* PasteboardPublisher in Resources */,
 				F2B11C6125AE4CC300DB6C83 /* MainMenu.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -588,6 +595,10 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 4ABAB98625D9A05A00D50FC4 /* XCRemoteSwiftPackageReference "KeyboardShortcuts" */;
 			productName = KeyboardShortcuts;
+		};
+		F283E1EB25E9850900876241 /* PasteboardPublisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = PasteboardPublisher;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
