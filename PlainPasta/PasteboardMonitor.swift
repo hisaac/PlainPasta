@@ -3,17 +3,14 @@ import Combine
 import Defaults
 import KeyboardShortcuts
 import os.log
+import PasteboardPublisher
 
 class PasteboardMonitor {
 
 	/// The pasteboard to monitor
 	let pasteboard: NSPasteboard
 
-	/// The change count used to compare to the given pasteboard's change count
-	/// Initially set to the given pasteboard's change count
-	private var internalChangeCount: Int
-
-	private var timer: AnyCancellable?
+	var pasteboardPublisher: AnyCancellable?
 
 	let logger: OSLog
 
@@ -35,17 +32,15 @@ class PasteboardMonitor {
 		self.pasteboard = pasteboard
 		self.logger = logger
 
-		internalChangeCount = pasteboard.changeCount
-
 		setupDefaultsObservers()
 	}
 
 	func setupDefaultsObservers() {
 		Defaults.observe(.filteringEnabled) { [weak self] change in
 			if change.newValue {
-				self?.startTimer()
+				self?.startMonitoring()
 			} else {
-				self?.stopTimer()
+				self?.stopMonitoring()
 			}
 		}.tieToLifetime(of: self)
 
@@ -64,52 +59,52 @@ class PasteboardMonitor {
 		}
 	}
 
-	func startTimer() {
-		timer = Timer.publish(every: 0.01, tolerance: 0.05, on: .main, in: .default)
-			.autoconnect()
-			.sink { [weak self] _ in
-				guard let strongSelf = self else { return }
-				strongSelf.checkPasteboard(strongSelf.pasteboard)
+	func startMonitoring() {
+		pasteboardPublisher = pasteboard.publisher()
+			.sink { [weak self] pasteboardItems in
+				self?.filter(pasteboardItems: pasteboardItems)
 			}
 	}
 
-	func stopTimer() {
-		timer?.cancel()
+	func stopMonitoring() {
+		pasteboardPublisher?.cancel()
 	}
 
-	/// Checks the pasteboard for styled text contents, and strips the formatting if possible
-	/// - Parameter pasteboard: The pasteboard to check and write to if necessary
-	func checkPasteboard(_ pasteboard: NSPasteboard) {
-		guard internalChangeCount != pasteboard.changeCount else { return }
+	/// Filters styling from the contents of the pasteboard, and places the filtered contents back onto the pasteboard
+	/// - Parameter pasteboardItems: The items to filter
+	private func filter(pasteboardItems: [NSPasteboardItem]) {
+		var filteredPasteboardItems: [NSPasteboardItem] = []
 
-		if let pasteboardItem = pasteboard.pasteboardItems?.first,
-		   let plaintextString = pasteboardItem.string(forType: .string) {
+		for item in pasteboardItems {
+			// If it's impossible to convert this pasteboard item to a string we'll ignore it
+			guard item.string(forType: .string) != nil else { continue }
 
-			let filteredPasteboardItem = pasteboardItem.plaintextifiedCopy()
+			let filteredItem = item.plaintextifiedCopy()
 
 			if Defaults[.debugEnabled] {
 				// Print out pasteboard types for help in debugging
-				let debugString: StaticString =
+				let debugString: StaticString = """
+					Pasteboard types before filtering: %{public}@
+					Pasteboard types after filtering: %{public}@
 					"""
-					Pasteboard types before filtering:\n
-					%{public}@\n
-					\n
-					Pasteboard types after filtering:\n
-					%{public}@\n
-					"""
-				os_log(.info, log: logger, debugString, pasteboardItem.types, filteredPasteboardItem.types)
+				os_log(.info, log: logger, debugString, item.types, filteredItem.types)
 			}
 
-			pasteboard.clearContents()
-			let wroteToPasteboard = pasteboard.writeObjects([filteredPasteboardItem])
-			if wroteToPasteboard && Defaults[.debugEnabled] {
-				os_log(.info, log: logger, "%{public}@", plaintextString)
-			} else {
-				os_log(.info, log: logger, "Unable to write new pasteboard item to pasteboard")
-			}
+			filteredPasteboardItems.append(filteredItem)
 		}
 
-		internalChangeCount = pasteboard.changeCount
+		guard filteredPasteboardItems.isEmpty == false else { return }
+		pasteboard.clearContents()
+		let successfullyWroteToPasteboard = pasteboard.writeObjects(filteredPasteboardItems)
+
+		if successfullyWroteToPasteboard && Defaults[.debugEnabled] {
+			for item in filteredPasteboardItems {
+				guard let plaintextString = item.string(forType: .string) else { continue }
+				os_log(.debug, log: logger, "%{public}@", plaintextString)
+			}
+		} else {
+			os_log(.info, log: logger, "Unable to write new pasteboard item to pasteboard")
+		}
 	}
 
 }
