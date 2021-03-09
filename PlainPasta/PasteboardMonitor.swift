@@ -10,6 +10,7 @@ class PasteboardMonitor {
 	/// The pasteboard to monitor
 	let pasteboard: NSPasteboard
 
+	var internalChangeCount: Int
 	var pasteboardPublisher: AnyCancellable?
 
 	let logger: OSLog
@@ -30,6 +31,8 @@ class PasteboardMonitor {
 
 	init(for pasteboard: NSPasteboard, logger: OSLog) {
 		self.pasteboard = pasteboard
+		internalChangeCount = self.pasteboard.changeCount
+
 		self.logger = logger
 
 		setupDefaultsObservers()
@@ -61,6 +64,9 @@ class PasteboardMonitor {
 
 	func startMonitoring() {
 		pasteboardPublisher = pasteboard.publisher()
+			.removeDuplicates { [weak self] _, _ in
+				self?.pasteboard.changeCount == self?.internalChangeCount
+			}
 			.sink { [weak self] pasteboardItems in
 				self?.filter(pasteboardItems: pasteboardItems)
 			}
@@ -96,6 +102,7 @@ class PasteboardMonitor {
 		guard filteredPasteboardItems.isEmpty == false else { return }
 		pasteboard.prepareForNewContents()
 		let successfullyWroteToPasteboard = pasteboard.writeObjects(filteredPasteboardItems)
+		internalChangeCount = pasteboard.changeCount
 
 		if successfullyWroteToPasteboard && Defaults[.debugEnabled] {
 			for item in filteredPasteboardItems {
