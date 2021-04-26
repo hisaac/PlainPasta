@@ -3,16 +3,20 @@ import Combine
 import Defaults
 import os.log
 
-class StatusItemController {
+class StatusItemController: NSObject, NSMenuDelegate {
 
 	weak var delegate: PreferencesWindowDelegate?
 	private let statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.squareLength)
+	private lazy var menu = buildMenu()
 	private let logger: OSLog
 
 	init(logger: OSLog) {
 		self.logger = logger
+		super.init()
 		statusItem.button?.image = NSImage(named: "StatusBarButtonImage")
-		statusItem.menu = buildMenu()
+		statusItem.button?.target = self
+		statusItem.button?.action = #selector(_didClickStatusItem(_:))
+		statusItem.button?.sendAction(on: [.leftMouseDown, .rightMouseUp])
 		setupDefaultsObservers()
 	}
 
@@ -38,6 +42,7 @@ class StatusItemController {
 	/// - Returns: A correctly ordered menu
 	private func buildMenu() -> NSMenu {
 		let menu = NSMenu()
+		menu.delegate = self
 		menu.items = [
 			NSMenuItem(
 				title: LocalizedStrings.appVersion,
@@ -111,6 +116,30 @@ class StatusItemController {
 	private func toggleIsEnabled() {
 		Defaults[.filteringEnabled].toggle()
 	}
+
+	/// Pulled from <https://github.com/hexedbits/StatusItemController/blob/main/Sources/StatusItemController.swift#L99-L106>
+	@objc
+	private func _didClickStatusItem(_ sender: NSStatusItem) {
+		if NSApp.isCurrentEventRightClickUp {
+			self.rightClickAction()
+		} else {
+			self.leftClickAction()
+		}
+	}
+
+	private func rightClickAction() {
+		toggleIsEnabled()
+	}
+
+	private func leftClickAction() {
+		statusItem.menu = menu
+		statusItem.button?.performClick(nil)
+	}
+
+	internal func menuDidClose(_ menu: NSMenu) {
+		statusItem.menu = nil
+	}
+
 }
 
 extension NSMenuItem {
@@ -122,5 +151,28 @@ extension NSMenuItem {
 		self.init(title: title, action: action, keyEquivalent: keyEquivalent)
 		self.target = target
 		self.isEnabled = isEnabled
+	}
+}
+
+extension NSApplication {
+
+	/// Returns `true` if the application's current event is `.rightMouseUp` or equivalent.
+	/// Returns `false` otherwise.
+	public var isCurrentEventRightClickUp: Bool {
+		if let current = self.currentEvent {
+			return current.isRightClickUp
+		}
+		return false
+	}
+}
+
+extension NSEvent {
+
+	/// Returns `true` if the event is `.rightMouseUp` or equivalent.
+	/// Returns `false` otherwise.
+	public var isRightClickUp: Bool {
+		let rightClick = (self.type == .rightMouseUp)
+		let controlClick = self.modifierFlags.contains(.control)
+		return rightClick || controlClick
 	}
 }
