@@ -3,7 +3,7 @@ import Combine
 import Defaults
 import os.log
 
-class StatusItemController: NSObject, NSMenuDelegate {
+final class StatusItemController: NSObject {
 
 	weak var delegate: PreferencesWindowDelegate?
 	private let statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.squareLength)
@@ -13,14 +13,18 @@ class StatusItemController: NSObject, NSMenuDelegate {
 	init(logger: OSLog) {
 		self.logger = logger
 		super.init()
-		statusItem.button?.image = NSImage(named: "StatusBarButtonImage")
-		statusItem.button?.target = self
-		statusItem.button?.action = #selector(_didClickStatusItem(_:))
-		statusItem.button?.sendAction(on: [.leftMouseDown, .rightMouseUp])
-		setupDefaultsObservers()
+		setupStatusItem()
+		setupUserDefaultsObservers()
 	}
 
-	func setupDefaultsObservers() {
+	private func setupStatusItem() {
+		statusItem.button?.image = NSImage(named: "StatusBarButtonImage")
+		statusItem.button?.target = self
+		statusItem.button?.action = #selector(didClickStatusItem(_:))
+		statusItem.button?.sendAction(on: [.leftMouseDown, .rightMouseUp])
+	}
+
+	private func setupUserDefaultsObservers() {
 		Defaults.observe(.debugEnabled) { [weak self] change in
 			if change.newValue {
 				self?.debugMenuItem.state = .on
@@ -117,14 +121,20 @@ class StatusItemController: NSObject, NSMenuDelegate {
 		Defaults[.filteringEnabled].toggle()
 	}
 
-	/// Pulled from <https://github.com/hexedbits/StatusItemController/blob/main/Sources/StatusItemController.swift#L99-L106>
 	@objc
-	private func _didClickStatusItem(_ sender: NSStatusItem) {
-		if NSApp.isCurrentEventRightClickUp {
-			self.rightClickAction()
+	private func didClickStatusItem(_ sender: NSStatusItem) {
+		if isCurrentEventRightClickUp() {
+			rightClickAction()
 		} else {
-			self.leftClickAction()
+			leftClickAction()
 		}
+	}
+
+	private func isCurrentEventRightClickUp() -> Bool {
+		guard let currentEvent = NSApp.currentEvent else { return false }
+		let isRightClick = currentEvent.type == .rightMouseUp
+		let isControlClick = currentEvent.modifierFlags.contains(.control)
+		return isRightClick || isControlClick
 	}
 
 	private func rightClickAction() {
@@ -135,11 +145,15 @@ class StatusItemController: NSObject, NSMenuDelegate {
 		statusItem.menu = menu
 		statusItem.button?.performClick(nil)
 	}
+}
 
+extension StatusItemController: NSMenuDelegate {
 	internal func menuDidClose(_ menu: NSMenu) {
+		// In order to handle a right-click event on the status item,
+		// we need to set the status item's menu to `nil`. Otherwise
+		// a right-click will perform the same action as a left-click.
 		statusItem.menu = nil
 	}
-
 }
 
 extension NSMenuItem {
@@ -151,28 +165,5 @@ extension NSMenuItem {
 		self.init(title: title, action: action, keyEquivalent: keyEquivalent)
 		self.target = target
 		self.isEnabled = isEnabled
-	}
-}
-
-extension NSApplication {
-
-	/// Returns `true` if the application's current event is `.rightMouseUp` or equivalent.
-	/// Returns `false` otherwise.
-	public var isCurrentEventRightClickUp: Bool {
-		if let current = self.currentEvent {
-			return current.isRightClickUp
-		}
-		return false
-	}
-}
-
-extension NSEvent {
-
-	/// Returns `true` if the event is `.rightMouseUp` or equivalent.
-	/// Returns `false` otherwise.
-	public var isRightClickUp: Bool {
-		let rightClick = (self.type == .rightMouseUp)
-		let controlClick = self.modifierFlags.contains(.control)
-		return rightClick || controlClick
 	}
 }
