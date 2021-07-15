@@ -26,18 +26,24 @@ final class StatusItemController: NSObject {
 
 	private func setupUserDefaultsObservers() {
 		Defaults.observe(.debugEnabled) { [weak self] change in
-			if change.newValue {
-				self?.debugMenuItem.state = .on
+			guard let self = self else { return }
+
+			if change.newValue == true {
+				self.debugMenuItem.state = .on
 			} else {
-				self?.debugMenuItem.state = .off
+				self.debugMenuItem.state = .off
 			}
 		}.tieToLifetime(of: self)
 
 		Defaults.observe(.filteringEnabled) { [weak self] change in
-			if change.newValue {
-				self?.enabledMenuItem.state = .on
+			guard let self = self else { return }
+
+			if change.newValue == true {
+				self.enabledMenuItem.state = .on
+				self.statusItem.button?.appearsDisabled = false
 			} else {
-				self?.enabledMenuItem.state = .off
+				self.enabledMenuItem.state = .off
+				self.statusItem.button?.appearsDisabled = true
 			}
 		}.tieToLifetime(of: self)
 	}
