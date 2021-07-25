@@ -42,8 +42,7 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
 				toolbarIcon: NSImage(systemSymbolName: "ladybug", accessibilityDescription: "Debugging Preferences")!,
 				contentView: { DebuggingPreferencesView() }
 			)
-		],
-		animated: false
+		]
 	)
 
 	// MARK: - AppDelegate Methods
@@ -54,18 +53,29 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
 		statusItemController = StatusItemController(logger: logger)
 		statusItemController?.delegate = self
 
+		fixPreferencesWindowOddAnimation()
+
 		if Defaults[.firstLaunch] {
 			// Open settings window if this is the first launch
 			openPreferencesWindow()
 		}
 		Defaults[.firstLaunch] = false
 
-		#if DEBUG
-		Defaults[.debugEnabled] = true
-		if ProcessInfo.processInfo.environment["XCODE_RUNNING_FOR_PREVIEWS"] != "1" {
-			openPreferencesWindow()
-		}
-		#endif
+//		#if DEBUG
+//		Defaults[.debugEnabled] = true
+//		if ProcessInfo.processInfo.environment["XCODE_RUNNING_FOR_PREVIEWS"] != "1" {
+//			openPreferencesWindow()
+//		}
+//		#endif
+	}
+
+	/// Workaround for a strange issue where the animation for the preferences window does not work correctly
+	/// source: https://github.com/sindresorhus/Preferences/issues/60#issuecomment-886146196
+	func fixPreferencesWindowOddAnimation() {
+		preferencesWindowController.show(preferencePane: .debugging)
+		preferencesWindowController.show(preferencePane: .keyboardShortcuts)
+		preferencesWindowController.show(preferencePane: .general)
+		preferencesWindowController.close()
 	}
 }
 
