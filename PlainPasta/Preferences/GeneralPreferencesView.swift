@@ -2,8 +2,8 @@
 
 import Combine
 import Defaults
-import SwiftUI
 import Preferences
+import SwiftUI
 
 extension Preferences.PaneIdentifier {
 	static let general = Self("general")
@@ -13,8 +13,8 @@ extension Preferences.PaneIdentifier {
 struct GeneralPreferencesView: View {
 
 	@Default(.filteringEnabled) var filteringEnabled
-	@Default(.hideMenuItem) var hideMenuItem
-	@Default(.leftClickBehavior) var leftClickBehavior
+	@Default(.showMenuItem) var showMenuItem
+	@Default(.statusItemLeftClickBehavior) var statusItemLeftClickBehavior
 
 	var body: some View {
 		Preferences.Container(contentWidth: 480) {
@@ -22,18 +22,19 @@ struct GeneralPreferencesView: View {
 				Toggle("Enable clipboard filtering", isOn: $filteringEnabled)
 			}
 			Preferences.Section(title: "Menu item:") {
-				Toggle("Hide menu item", isOn: $hideMenuItem)
-				Text("When the menu item is hidden, opening the app brings up this preferences window")
+				Toggle("Show menu item", isOn: $showMenuItem)
+				Text("When the menu item is hidden, launching the app will bring up this preferences window")
 					.preferenceDescription()
 					.padding(.trailing, 10)
-				Picker(selection: $leftClickBehavior, label: EmptyView()) {
-					Text("Clicking opens menu").tag(LeftClickBehavior.openMenu)
-					Text("Clicking toggles clipboard filtering").tag(LeftClickBehavior.toggleFiltering)
+				Picker(selection: $statusItemLeftClickBehavior, label: EmptyView()) {
+					Text("Clicking opens menu").tag(StatusItemLeftClickBehavior.openMenu)
+					Text("Clicking toggles clipboard filtering").tag(StatusItemLeftClickBehavior.toggleFiltering)
 				}
 				.pickerStyle(RadioGroupPickerStyle())
-				.disabled(hideMenuItem)
+				.disabled(showMenuItem)
 
-				Text("Right-clicking will do the opposite of what's selected").preferenceDescription()
+				Text("Right-clicking will do the opposite of what's selected")
+					.preferenceDescription()
 			}
 		}
 	}

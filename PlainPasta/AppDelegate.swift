@@ -69,6 +69,10 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
 //		#endif
 	}
 
+	func applicationShouldTerminateAfterLastWindowClosed(_ sender: NSApplication) -> Bool {
+		return false
+	}
+
 	/// Workaround for a strange issue where the animation for the preferences window does not work correctly
 	/// source: https://github.com/sindresorhus/Preferences/issues/60#issuecomment-886146196
 	func fixPreferencesWindowOddAnimation() {
