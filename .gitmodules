@@ -1,3 +1,0 @@
-[submodule "buildscripts/VerifyNoBS"]
-	path = buildscripts/VerifyNoBS
-	url = git@github.com:olofhellman/VerifyNoBS.git

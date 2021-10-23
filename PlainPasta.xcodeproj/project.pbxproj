@@ -261,7 +261,6 @@
 			buildConfigurationList = 4A4E59332176AE7A002CF83D /* Build configuration list for PBXNativeTarget "Plain Pasta" */;
 			buildPhases = (
 				4A5E917721791748001C378F /* Run SwiftLint */,
-				4A1DCE3E254B3EFD005B1EBC /* Run VerifyNoBS */,
 				4A4E591F2176AE7A002CF83D /* Sources */,
 				4A4E59202176AE7A002CF83D /* Frameworks */,
 				4A4E59212176AE7A002CF83D /* Resources */,
@@ -370,24 +369,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "if which swiftlint >/dev/null; then\n    swiftlint\nelse\n    echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
-		};
-		4A1DCE3E254B3EFD005B1EBC /* Run VerifyNoBS */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-			);
-			name = "Run VerifyNoBS";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "xcrun -sdk macosx swift buildscripts/VerifyNoBS/VerifyNoBS.swift  --xcode  ${PROJECT_DIR}/${PROJECT_NAME}.xcodeproj/project.pbxproj\n";
 		};
 		4A1DCE3F254B3F0C005B1EBC /* Run VerifyNoBS */ = {
 			isa = PBXShellScriptBuildPhase;
