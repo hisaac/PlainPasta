@@ -1,34 +1,32 @@
-opt_in_rules:
-- closure_end_indentation
-- closure_spacing
-- empty_count
-- explicit_init
-- fatal_error_message
-- file_header
-- first_where
-- implicitly_unwrapped_optional
-- no_extension_access_modifier
-- number_separator
-- operator_usage_whitespace
-- redundant_nil_coalescing
-- trailing_whitespace
-- unneeded_parentheses_in_closure_argument
+# opt_in_rules:
+# - closure_end_indentation
+# - closure_spacing
+# - empty_count
+# - explicit_init
+# - fatal_error_message
+# - file_header
+# - first_where
+# - implicitly_unwrapped_optional
+# - no_extension_access_modifier
+# - number_separator
+# - operator_usage_whitespace
+# - redundant_nil_coalescing
+# - trailing_whitespace
+# - unneeded_parentheses_in_closure_argument
 
-disabled_rules:
-- closure_end_indentation
-- function_parameter_count
-- identifier_name
-- line_length
-- redundant_string_enum_value
-- superfluous_disable_command
-- unused_closure_parameter
-- vertical_parameter_alignment
+# disabled_rules:
+# - closure_end_indentation
+# - function_parameter_count
+# - identifier_name
+# - line_length
+# - redundant_string_enum_value
+# - superfluous_disable_command
+# - unused_closure_parameter
+# - vertical_parameter_alignment
 
 excluded:
-- Carthage
-- Pods
-- buildscripts/VerifyNoBS
 - DerivedData
+- Tuist/Dependencies
 
 file_length:
   ignore_comment_only_lines: true
