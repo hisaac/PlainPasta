@@ -38,8 +38,8 @@
     },
     "targetForVariableExpansion" : {
       "containerPath" : "container:PlainPasta.xcodeproj",
-      "identifier" : "4A4E59222176AE7A002CF83D",
-      "name" : "Plain Pasta"
+      "identifier" : "CA659A2B29FDFAF83BA35EF7",
+      "name" : "PlainPasta"
     }
   },
   "testTargets" : [
@@ -47,7 +47,7 @@
       "parallelizable" : true,
       "target" : {
         "containerPath" : "container:PlainPasta.xcodeproj",
-        "identifier" : "4A40250A2509AF5100F893AA",
+        "identifier" : "5518ADD630F5ED78C8666E62",
         "name" : "PlainPastaTests"
       }
     }

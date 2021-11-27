@@ -26,13 +26,10 @@ let appTarget = Target(
         .package(product: "KeyboardShortcuts")
     ],
     settings: .settings(
-        base: SettingsDictionary()
-            .appIconName("AppIcon")
+        base: SettingsDictionary().appTargetSettings()
             .automaticCodeSigning(devTeam: "F2J52QJQ9Y")
             .codeSignIdentityAppleDevelopment()
             .currentProjectVersion("2.0.0")
-            .productName("Plain Pasta")
-            .productModuleName("PlainPasta")
     )
 )
 
@@ -44,7 +41,10 @@ let testTarget = Target(
     infoPlist: "PlainPasta/Tests/Info.plist",
     sources: "PlainPasta/Tests/**/*.swift",
     dependencies: [.target(name: "PlainPasta")],
-    settings: .settings(base: SettingsDictionary().automaticCodeSigning(devTeam: "F2J52QJQ9Y"))
+    settings: .settings(
+        base: SettingsDictionary().testTargetSettings()
+            .automaticCodeSigning(devTeam: "F2J52QJQ9Y")
+    )
 )
 
 let plainPastaScheme = Scheme(

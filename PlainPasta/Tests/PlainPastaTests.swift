@@ -2,7 +2,7 @@
 
 // swiftlint:disable implicitly_unwrapped_optional
 
-@testable import Plain_Pasta
+@testable import PlainPasta
 import XCTest
 import os.log
 
@@ -91,12 +91,11 @@ class PlainPastaTests: XCTestCase {
 		mockPasteboardItem.setString("string", forType: .string)
 
 		let mockPasteboard = try XCTUnwrap(self.mockPasteboard)
-		let mockPasteboardMonitor = PasteboardMonitor(for: mockPasteboard, logger: OSLog.default)
+		_ = PasteboardMonitor(for: mockPasteboard, logger: OSLog.default)
 
 		// When
 		mockPasteboard.clearContents()
 		mockPasteboard.writeObjects([mockPasteboardItem])
-		mockPasteboardMonitor.checkPasteboard(mockPasteboard)
 
 		// Then
 		let firstPasteboardItem = try XCTUnwrap(mockPasteboard.pasteboardItems?.first)
@@ -112,10 +111,7 @@ class PlainPastaTests: XCTestCase {
 		mockPasteboard.clearContents()
 		mockPasteboard.writeObjects([mockPasteboardItem])
 
-		let mockPasteboardMonitor = PasteboardMonitor(for: mockPasteboard, logger: OSLog.default)
-
-		// When
-		mockPasteboardMonitor.checkPasteboard(mockPasteboard)
+		_ = PasteboardMonitor(for: mockPasteboard, logger: OSLog.default)
 
 		// Then
 		let firstPasteboardItem = try XCTUnwrap(mockPasteboard.pasteboardItems?.first)

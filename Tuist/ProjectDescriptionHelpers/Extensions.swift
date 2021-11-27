@@ -2,15 +2,18 @@ import Foundation
 import ProjectDescription
 
 public extension SettingsDictionary {
-    func appIconName(_ name: String) -> SettingsDictionary {
-        merging(["ASSETCATALOG_COMPILER_APPICON_NAME": SettingValue(stringLiteral: name)])
+    func appTargetSettings() -> SettingsDictionary {
+        merging([
+            "ASSETCATALOG_COMPILER_APPICON_NAME": "AppIcon",
+            "PRODUCT_NAME": "Plain Pasta",
+            "PRODUCT_MODULE_NAME": "PlainPasta"
+        ])
     }
 
-    func productName(_ name: String) -> SettingsDictionary {
-        merging(["PRODUCT_NAME": SettingValue(stringLiteral: name)])
-    }
-
-    func productModuleName(_ name: String) -> SettingsDictionary {
-        merging(["PRODUCT_MODULE_NAME": SettingValue(stringLiteral: name)])
+    func testTargetSettings() -> SettingsDictionary {
+        merging([
+            "TEST_TARGET_NAME": "Plain Pasta",
+            "TEST_HOST": "$(BUILT_PRODUCTS_DIR)/Plain Pasta.app/Contents/MacOS/Plain Pasta"
+        ])
     }
 }
