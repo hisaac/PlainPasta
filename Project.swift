@@ -83,6 +83,7 @@ let project = Project(
     fileHeaderTemplate: "",
     additionalFiles: [
         "Assets/**/*",
+        "ci_scripts/**/*",
         "docs/**/*",
         ".gitignore",
         ".swiftlint.yml",

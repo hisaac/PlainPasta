@@ -15,7 +15,23 @@ edit:
 	xed "Manifests.xcworkspace"
 
 open:
+	#!/usr/bin/env zsh
+	if [ ! -d "PlainPasta.xcworkspace" ]; then
+		just bootstrap
+	fi
 	xed PlainPasta.xcworkspace
+
+tuist:
+	#!/usr/bin/env zsh
+	if ! command -v tuist &> /dev/null; then
+		curl -Ls https://install.tuist.io | bash
+	fi
+
+carthage:
+	#!/usr/bin/env zsh
+	if ! command -v carthage &> /dev/null; then
+		brew install carthage
+	fi
 
 dependencies:
 	tuist dependencies fetch
@@ -23,7 +39,7 @@ dependencies:
 generate:
 	tuist generate
 
-bootstrap: dependencies generate
+bootstrap: carthage tuist dependencies generate
 
 clean:
 	rm -rf Derived
