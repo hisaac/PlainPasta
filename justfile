@@ -27,19 +27,13 @@ tuist:
 		curl -Ls https://install.tuist.io | bash
 	fi
 
-carthage:
-	#!/usr/bin/env zsh
-	if ! command -v carthage &> /dev/null; then
-		brew install carthage
-	fi
-
 dependencies:
 	tuist dependencies fetch
 
 generate:
 	tuist generate
 
-bootstrap: carthage tuist dependencies generate
+bootstrap: tuist dependencies generate
 
 clean:
 	rm -rf Derived

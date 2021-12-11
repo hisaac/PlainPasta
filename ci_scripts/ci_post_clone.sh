@@ -2,7 +2,5 @@
 
 set -e
 
-brew upgrade
-brew install just
-
-just bootstrap
+$CI_PROJECT_FILE_PATH/.tuist-bin/tuist dependencies fetch
+$CI_PROJECT_FILE_PATH/.tuist-bin/tuist generate
