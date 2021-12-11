@@ -2,12 +2,11 @@ import Foundation
 import ProjectDescription
 import ProjectDescriptionHelpers
 
-//let thing = Target(
-
 let appTarget = Target(
-    name: "PlainPasta",
+    name: "Plain Pasta",
     platform: .macOS,
     product: .app,
+    productName: "Plain_Pasta",
     bundleId: "software.level.PlainPasta",
     deploymentTarget: .macOS(targetVersion: "11.0"),
     infoPlist: "PlainPasta/Sources/Info.plist",
@@ -26,10 +25,11 @@ let appTarget = Target(
         .package(product: "KeyboardShortcuts")
     ],
     settings: .settings(
-        base: SettingsDictionary().appTargetSettings()
+        base: SettingsDictionary()
             .automaticCodeSigning(devTeam: "F2J52QJQ9Y")
             .codeSignIdentityAppleDevelopment()
             .currentProjectVersion("2.0.0")
+            .appIconName("AppIcon")
     )
 )
 
@@ -40,33 +40,23 @@ let testTarget = Target(
     bundleId: "software.level.PlainPasta.Tests",
     infoPlist: "PlainPasta/Tests/Info.plist",
     sources: "PlainPasta/Tests/**/*.swift",
-    dependencies: [.target(name: "PlainPasta")],
-    settings: .settings(
-        base: SettingsDictionary().testTargetSettings()
-            .automaticCodeSigning(devTeam: "F2J52QJQ9Y")
-    )
+    dependencies: [.target(name: "Plain Pasta")]
 )
 
 let plainPastaScheme = Scheme(
-    name: "PlainPasta",
-    buildAction: .buildAction(
-        targets: ["PlainPasta"],
+    name: "Plain Pasta",
+    buildAction: .buildAction(targets: ["Plain Pasta"]),
+    testAction: TestAction.targets(["PlainPastaTests"]),
+    runAction: .runAction(
         preActions: [ExecutionAction(
             title: "Kill other open app instances",
-            scriptText: "echo $(pkill ${EXECUTABLE_NAME}) > /dev/null"
+            scriptText: #"echo $(pkill "Plain Pasta") > /dev/null"#
         )]
-    ),
-    testAction: .testPlans(["PlainPasta/Tests/PlainPastaTests.xctestplan"]),
-    runAction: .runAction(configuration: "Debug", executable: "PlainPasta", diagnosticsOptions: [.mainThreadChecker]),
-    archiveAction: .archiveAction(configuration: "Release", customArchiveName: "Plain Pasta"),
-    profileAction: .profileAction(configuration: "Release", executable: "Plain Pasta"),
-    analyzeAction: .analyzeAction(configuration: "Debug")
+    )
 )
 
-// TODO: Add pre-action for killing app
-
 let project = Project(
-    name: "PlainPasta",
+    name: "Plain Pasta",
     organizationName: "Isaac Halvorson",
     options: [.textSettings(usesTabs: true)],
     packages: [
@@ -82,14 +72,13 @@ let project = Project(
     schemes: [plainPastaScheme],
     fileHeaderTemplate: "",
     additionalFiles: [
+        "README.md",
+        "CHANGELOG.md",
+        "LICENSE",
         "Assets/**/*",
         "ci_scripts/**/*",
         "docs/**/*",
         ".gitignore",
-        ".swiftlint.yml",
-        ".tuist-version",
-        "changelog.md",
-        "LICENSE",
-        "README.md"
+        ".swiftlint.yml"
     ]
 )

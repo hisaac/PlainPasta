@@ -16,10 +16,10 @@ edit:
 
 open:
 	#!/usr/bin/env zsh
-	if [ ! -d "PlainPasta.xcworkspace" ]; then
+	if [ ! -d "Plain Pasta.xcworkspace" ]; then
 		just bootstrap
 	fi
-	xed PlainPasta.xcworkspace
+	xed "Plain Pasta.xcworkspace"
 
 tuist:
 	#!/usr/bin/env zsh
@@ -45,8 +45,8 @@ clean:
 	rm -rf Derived
 	rm -rf "Manifests.xcodeproj"
 	rm -rf "Manifests.xcworkspace"
-	rm -rf "PlainPasta.xcodeproj"
-	rm -rf "PlainPasta.xcworkspace"
+	rm -rf "Plain Pasta.xcodeproj"
+	rm -rf "Plain Pasta.xcworkspace"
 	tuist dependencies clean
 	tuist clean
 

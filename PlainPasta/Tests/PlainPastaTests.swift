@@ -2,7 +2,7 @@
 
 // swiftlint:disable implicitly_unwrapped_optional
 
-@testable import PlainPasta
+@testable import Plain_Pasta
 import XCTest
 import os.log
 
