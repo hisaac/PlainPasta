@@ -37,7 +37,6 @@ generate:
 	fi
 
 bootstrap: tuist dependencies generate
-ci-bootstrap: dependencies generate
 
 clean:
 	rm -rf Derived

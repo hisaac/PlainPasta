@@ -34,6 +34,7 @@ unzip "${tuist_bin_dir}/tuist.zip" -d "${tuist_bin_dir}"
 rm "${tuist_bin_dir}/tuist.zip"
 
 cd "${project_root}"
-just ci-bootstrap
+"${tuist_bin_dir}/tuist" dependencies fetch
+"${tuist_bin_dir}/tuist" generate
 
 exit 0
