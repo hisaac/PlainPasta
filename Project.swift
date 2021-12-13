@@ -48,10 +48,10 @@ let plainPastaScheme = Scheme(
     buildAction: .buildAction(targets: ["Plain Pasta"]),
     testAction: TestAction.targets(["PlainPastaTests"]),
     runAction: .runAction(
-        // preActions: [ExecutionAction(
-        //     title: "Kill other open app instances",
-        //     scriptText: #"echo $(pkill "Plain Pasta") > /dev/null"#
-        // )]
+        preActions: [ExecutionAction(
+            title: "Kill other open app instances",
+            scriptText: #"echo $(pkill "Plain Pasta") > /dev/null"#
+        )]
     )
 )
 
