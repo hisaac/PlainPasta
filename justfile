@@ -4,25 +4,22 @@
 default:
 	@just --list
 
-# Use ZSH to run commands
-set shell := ["zsh", "-cu"]
-
 edit:
-	#!/usr/bin/env zsh
+	#!/bin/bash
 	if [ ! -d "Manifests.xcworkspace" ]; then
 		tuist edit --permanent
 	fi
 	xed "Manifests.xcworkspace"
 
 open:
-	#!/usr/bin/env zsh
+	#!/bin/bash
 	if [ ! -d "Plain Pasta.xcworkspace" ]; then
 		just bootstrap
 	fi
 	xed "Plain Pasta.xcworkspace"
 
 tuist:
-	#!/usr/bin/env zsh
+	#!/bin/bash
 	if ! command -v tuist &> /dev/null; then
 		curl -Ls https://install.tuist.io | bash
 	fi
@@ -31,7 +28,13 @@ dependencies:
 	tuist dependencies fetch
 
 generate:
+	#!/bin/bash
 	tuist generate
+
+	# Setup local environment if defined
+	if [ -d ".env" ]; then
+		.env/setup.sh
+	fi
 
 bootstrap: tuist dependencies generate
 ci-bootstrap: dependencies generate

@@ -6,7 +6,6 @@ let appTarget = Target(
     name: "Plain Pasta",
     platform: .macOS,
     product: .app,
-    productName: "Plain_Pasta",
     bundleId: "software.level.PlainPasta",
     deploymentTarget: .macOS(targetVersion: "11.0"),
     infoPlist: "PlainPasta/Sources/Info.plist",

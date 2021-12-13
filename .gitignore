@@ -4,6 +4,9 @@
 .AppleDouble
 .LSOverride
 
+# Local environment
+.env/
+
 # Icon must end with two
 Icon
 
