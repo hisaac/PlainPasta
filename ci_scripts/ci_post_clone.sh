@@ -2,6 +2,8 @@
 
 set -e
 
+brew install just
+
 # Get the full path of the folder containing this script so that we can construct relative paths
 scripts_dir=$(cd -- "$(dirname "${0}")" >/dev/null 2>&1 ; pwd -P)
 
@@ -32,7 +34,6 @@ unzip "${tuist_bin_dir}/tuist.zip" -d "${tuist_bin_dir}"
 rm "${tuist_bin_dir}/tuist.zip"
 
 cd "${project_root}"
-"${tuist_bin_dir}/tuist" dependencies fetch
-"${tuist_bin_dir}/tuist" generate
+just ci-bootstrap
 
 exit 0
