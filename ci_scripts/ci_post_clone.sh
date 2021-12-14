@@ -2,8 +2,6 @@
 
 set -e
 
-brew install just
-
 # Get the full path of the folder containing this script so that we can construct relative paths
 scripts_dir=$(cd -- "$(dirname "${0}")" >/dev/null 2>&1 ; pwd -P)
 
