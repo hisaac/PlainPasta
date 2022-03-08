@@ -4,15 +4,23 @@
 
 # Plain Pasta
 
-Plain Pasta is a tiny Mac app that makes "Paste and Match Style" the default copy/paste behavior.
+Plain Pasta was a tiny Mac app that makes "Paste and Match Style" the default copy/paste behavior.
 
-It sits in your menu bar, and watches your clipboard for text, removes any styling from the text, and puts plaintext back on your clipboard.
+## ⚠️ Plain Pasta is no longer under active development ⚠️
+
+This was a really fun project to work on, but I will no longer be actively developing on the project. I'm leaving it here in case there is any code that could still be useful to others.
+
+If you're looking for something like Plain Pasta that _is_ still being developed, I'll direct you to the excellent [Pure Paste](https://sindresorhus.com/pure-paste) by [@sindresorhus](https://github.com/sindresorhus). It does everything I had hoped for Plain Pasta to do someday, and then some.
+
+👋
+
+## Demonstration
+
+Plain Pasta sits in your menu bar, and watches your clipboard for text, removes any styling from the text, and puts plaintext back on your clipboard.
 
 I made this app because I rarely want styling to be copied to my clipboard. When I copy text, all I want is the text.
 
 Download the most recent version of Plain Pasta from the [Mac App Store](https://apps.apple.com/us/app/plain-pasta/id1467796430).
-
-## Demonstration
 
 ### Without Plain Pasta
 
