@@ -12,6 +12,8 @@ This was a really fun project to work on, but I will no longer be actively devel
 
 If you're looking for something like Plain Pasta that _is_ still being developed, I'll direct you to the excellent [Pure Paste](https://sindresorhus.com/pure-paste) by [@sindresorhus](https://github.com/sindresorhus). It does everything I had hoped for Plain Pasta to do someday, and then some.
 
+I was in the process of working on a major update to the app. I've kept that work in a separate branch here for reference purposes: [2.0.0-beta](https://github.com/hisaac/PlainPasta/tree/2.0.0-beta)
+
 👋
 
 ## Demonstration
