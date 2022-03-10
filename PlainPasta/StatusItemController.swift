@@ -30,11 +30,32 @@ class StatusItemController {
 		)
 	}()
 
+	private lazy var archiveInfoMenuItem: NSMenuItem = {
+		let menuItem = NSMenuItem(
+			title: "",
+			action: #selector(openAboutPage),
+			target: self
+		)
+
+		let paragraphStyle = NSMutableParagraphStyle()
+		paragraphStyle.alignment = .center
+		let archiveWarningMessage = NSAttributedString(
+			string: "⚠️ Plain Pasta is no longer being developed ⚠️\nClick here for more information",
+			attributes: [
+				.font: NSFont.boldSystemFont(ofSize: NSFont.systemFontSize),
+				.paragraphStyle: paragraphStyle
+			]
+		)
+		menuItem.attributedTitle = archiveWarningMessage
+		return menuItem
+	}()
+
 	/// Builds and returns a correctly ordered menu
 	/// - Returns: A correctly ordered menu
 	private func buildMenu() -> NSMenu {
 		let menu = NSMenu()
 		menu.items = [
+			archiveInfoMenuItem,
 			NSMenuItem(title: LocalizedStrings.appVersion, target: self, isEnabled: false),
 			NSMenuItem.separator(),
 			enabledMenuItem,
@@ -52,7 +73,11 @@ class StatusItemController {
 	/// Opens Plain Pasta's About page, currently the app's website
 	@objc
 	private func openAboutPage() {
-		guard let url = URL(string: "https://hisaac.github.io/PlainPasta/") else { return }
+		guard let url = URL(
+			string: "https://github.com/hisaac/PlainPasta/blob/main/README.md#%EF%B8%8F-plain-pasta-is-no-longer-under-active-development-%EF%B8%8F"
+		) else {
+			return
+		}
 		NSWorkspace.shared.open(url)
 	}
 

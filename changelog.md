@@ -6,6 +6,18 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 <!-- ## [Unreleased] -->
 
+## [1.3.0] - 2022-03-10
+
+Retiring the app. More information [here](https://github.com/hisaac/PlainPasta/blob/main/README.md#%EF%B8%8F-plain-pasta-is-no-longer-under-active-development-%EF%B8%8F).
+
+### Added
+
+- Adds a new menu item, informing about the app being retired. Clicking the item opens the README section about the app retiring.
+
+### Changed
+
+- The "About" menu item now opens the README section about the app retiring.
+
 ## [1.2.1] - 2020-12-23
 
 ### Fixed
