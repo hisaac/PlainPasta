@@ -8,7 +8,7 @@ Plain Pasta was a tiny Mac app that makes "Paste and Match Style" the default co
 
 ## ⚠️ Plain Pasta is no longer under active development ⚠️
 
-This was a really fun project to work on, but I will no longer be actively developing on the project. I'm leaving it here in case there is any code that could still be useful to others.
+This was a really fun project to work on, but I will no longer be actively developing on the project. I'm leaving it here in case there is any code that could still be useful to others. Check out the release notes for a little more information if you'd like: https://github.com/hisaac/PlainPasta/releases/tag/1.3.0
 
 If you're looking for something like Plain Pasta that _is_ still being developed, I'll direct you to the excellent [Pure Paste](https://sindresorhus.com/pure-paste) by [@sindresorhus](https://github.com/sindresorhus). It does everything I had hoped for Plain Pasta to do someday, and then some.
 
